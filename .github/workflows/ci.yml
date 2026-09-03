@@ -33,18 +33,7 @@ jobs:
         cd Task1_1
         ./gradlew test jacocoTestReport
 
-    - name: Generate Javadoc
-      run: |
-        cd Task1_1
-        ./gradlew javadoc
 
-    - name: Deploy Javadoc to gh-pages
-      uses: peaceiris/actions-gh-pages@v4
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./Task1_1/build/docs/javadoc
-        destination_dir: ./Task1_1
-        keep_files: true
 
     - name: Upload coverage report
       uses: actions/upload-artifact@v4
