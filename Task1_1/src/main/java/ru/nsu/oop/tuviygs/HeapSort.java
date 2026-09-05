@@ -78,4 +78,16 @@ public class HeapSort {
 
         return narr;
     }
+
+
+
+    public static void main(String[] args) {
+        int[] test = {5, 4, 3, 2, 1};
+        System.out.println("Исходный массив: " + java.util.Arrays.toString(test));
+
+        int[] result = heapsort(test);
+        System.out.println("Отсортированный: " + java.util.Arrays.toString(result));
+    }
+
+
 }

@@ -33,7 +33,7 @@ tasks.test {
 jar {
     manifest {
         attributes(
-                'Main-Class': 'ru.nsu.oop.tuviygs.Main'
+                'Main-Class': 'ru.nsu.oop.tuviygs.HeapSort'
         )
     }
 }
@@ -44,4 +44,20 @@ jacocoTestReport {
         xml.required = true
         html.required = true
     }
+}
+
+
+jacocoTestCoverageVerification {
+    violationRules {
+        rule {
+            limit {
+                minimum = 0.80
+            }
+        }
+    }
+}
+
+
+tasks.check {
+    dependsOn jacocoTestCoverageVerification
 }
