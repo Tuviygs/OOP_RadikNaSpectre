@@ -11,6 +11,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    if: github.event_name != 'workflow_dispatch'
     defaults:
       run:
         working-directory: ./Task1_1
