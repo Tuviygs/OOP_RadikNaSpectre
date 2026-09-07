@@ -41,30 +41,30 @@ public class HeapSort {
      */
 
     public static void fall(int[] arr, int c, int p) {
-        if (p*2 < c) {
-            if (p*2+1 < c) {
-                if (arr[p*2] < arr[p*2+1]) {
-                    if (arr[p] > arr[p*2]) {
+        if (p * 2 < c) {
+            if (p * 2 + 1 < c) {
+                if (arr[p * 2] < arr[p * 2 + 1]) {
+                    if (arr[p] > arr[p * 2]) {
                         int t = arr[p];
-                        arr[p] = arr[p*2];
-                        arr[p*2] = t;
-                        fall(arr, c, p*2);
+                        arr[p] = arr[p * 2];
+                        arr[p * 2] = t;
+                        fall(arr, c, p * 2);
                     }
 
                 } else {
-                    if (arr[p] > arr[p*2+1]) {
+                    if (arr[p] > arr[p * 2 + 1]) {
                         int t = arr[p];
-                        arr[p] = arr[p*2+1];
-                        arr[p*2+1] = t;
-                        fall(arr, c, p*2+1);
+                        arr[p] = arr[p * 2 + 1];
+                        arr[p * 2 + 1] = t;
+                        fall(arr, c, p * 2 + 1);
                     }
                 }
             } else {
-                if (arr[p] > arr[p*2]) {
+                if (arr[p] > arr[p * 2]) {
                     int t = arr[p];
-                    arr[p] = arr[p*2];
-                    arr[p*2] = t;
-                    fall(arr, c, p*2);
+                    arr[p] = arr[p * 2];
+                    arr[p * 2] = t;
+                    fall(arr, c, p * 2);
                 }
             }
         } else {
@@ -86,8 +86,8 @@ public class HeapSort {
         int c = 0;
 
         while (c != l) {
-            arr2[c+1] = arr[c];
-            lift(arr2, c+1);
+            arr2[c + 1] = arr[c];
+            lift(arr2, c + 1);
             c++;
         }
 
