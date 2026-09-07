@@ -2,9 +2,20 @@ package ru.nsu.oop.tuviygs;
 
 import java.lang.reflect.Array;
 
+/**
+        * Класс реализует пирамидальную сортировку (HeapSort).
+        * Использует MIN-кучу для сортировки массива по возрастанию.
+        */
 
 
 public class HeapSort {
+
+    /**
+     * Поднимает элемент в куче вверх (sift up).
+     *
+     * @param arr массив, представляющий кучу (индексация с 1)
+     * @param c   индекс текущего элемента
+     */
 
     public static void lift(int[] arr, int c) {
         if (c != 1) {
@@ -20,6 +31,14 @@ public class HeapSort {
             return;
         }
     }
+
+    /**
+     * Опускает элемент в куче вниз (sift down).
+     *
+     * @param arr массив, представляющий кучу (индексация с 1)
+     * @param c   текущий размер кучи
+     * @param p   индекс родительского элемента
+     */
 
     public static void fall(int[] arr, int c, int p) {
         if (p*2 < c) {
@@ -53,6 +72,14 @@ public class HeapSort {
         }
     }
 
+    /**
+     * Сортирует массив по возрастанию пирамидальной сортировкой.
+     * Время работы: O(n log n).
+     *
+     * @param arr исходный массив
+     * @return отсортированный массив (копия)
+     */
+
     public static int[] heapsort(int[] arr) {
         int l = Array.getLength(arr);
         int[] arr2 = new int[l+1];
@@ -80,6 +107,11 @@ public class HeapSort {
     }
 
 
+    /**
+     * Точка входа для демонстрации работы алгоритма.
+     *
+     * @param args аргументы командной строки (не используются)
+     */
 
     public static void main(String[] args) {
         int[] test = {5, 4, 3, 2, 1};
