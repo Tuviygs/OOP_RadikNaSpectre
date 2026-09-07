@@ -5,13 +5,12 @@ name: CI
 # Controls when the workflow will run
 on:
   pull_request:
-    branches: [ "master" ]
+    branches: [ "master", "main" ]
   workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    if: github.event_name != 'workflow_dispatch'
     defaults:
       run:
         working-directory: ./Task1_1
