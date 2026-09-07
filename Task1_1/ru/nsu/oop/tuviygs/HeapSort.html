@@ -76,6 +76,8 @@ loadScripts(document, 'script');</script>
 <hr>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">HeapSort</span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
+<div class="block">Класс реализует пирамидальную сортировку (HeapSort).
+ Использует MIN-кучу для сортировки массива по возрастанию.</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -107,17 +109,25 @@ loadScripts(document, 'script');</script>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#fall(int%5B%5D,int,int)" class="member-name-link">fall</a><wbr>(int[]&nbsp;arr,
  int&nbsp;c,
  int&nbsp;p)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Опускает элемент в куче вниз (sift down).</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static int[]</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#heapsort(int%5B%5D)" class="member-name-link">heapsort</a><wbr>(int[]&nbsp;arr)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Сортирует массив по возрастанию пирамидальной сортировкой.</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#lift(int%5B%5D,int)" class="member-name-link">lift</a><wbr>(int[]&nbsp;arr,
  int&nbsp;c)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Поднимает элемент в куче вверх (sift up).</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#main(java.lang.String%5B%5D)" class="member-name-link">main</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>[]&nbsp;args)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Точка входа для демонстрации работы алгоритма.</div>
+</div>
 </div>
 </div>
 </div>
@@ -154,6 +164,12 @@ loadScripts(document, 'script');</script>
 <h3>lift</h3>
 <div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">lift</span><wbr><span class="parameters">(int[]&nbsp;arr,
  int&nbsp;c)</span></div>
+<div class="block">Поднимает элемент в куче вверх (sift up).</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>arr</code> - массив, представляющий кучу (индексация с 1)</dd>
+<dd><code>c</code> - индекс текущего элемента</dd>
+</dl>
 </section>
 </li>
 <li>
@@ -162,18 +178,38 @@ loadScripts(document, 'script');</script>
 <div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">fall</span><wbr><span class="parameters">(int[]&nbsp;arr,
  int&nbsp;c,
  int&nbsp;p)</span></div>
+<div class="block">Опускает элемент в куче вниз (sift down).</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>arr</code> - массив, представляющий кучу (индексация с 1)</dd>
+<dd><code>c</code> - текущий размер кучи</dd>
+<dd><code>p</code> - индекс родительского элемента</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="heapsort(int[])">
 <h3>heapsort</h3>
 <div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">int[]</span>&nbsp;<span class="element-name">heapsort</span><wbr><span class="parameters">(int[]&nbsp;arr)</span></div>
+<div class="block">Сортирует массив по возрастанию пирамидальной сортировкой.
+ Время работы: O(n log n).</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>arr</code> - исходный массив</dd>
+<dt>Returns:</dt>
+<dd>отсортированный массив (копия)</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="main(java.lang.String[])">
 <h3>main</h3>
 <div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">main</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>[]&nbsp;args)</span></div>
+<div class="block">Точка входа для демонстрации работы алгоритма.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>args</code> - аргументы командной строки (не используются)</dd>
+</dl>
 </section>
 </li>
 </ul>
