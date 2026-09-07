@@ -19,11 +19,11 @@ public class HeapSort {
 
     public static void lift(int[] arr, int c) {
         if (c != 1) {
-            if (arr[c/2] > arr[c]) {
+            if (arr[c / 2] > arr[c]) {
                 int t = arr[c];
-                arr[c] = arr[c/2];
-                arr[c/2] = t;
-                lift(arr, c/2);
+                arr[c] = arr[c / 2];
+                arr[c / 2] = t;
+                lift(arr, c / 2);
             } else {
                 return;
             }
