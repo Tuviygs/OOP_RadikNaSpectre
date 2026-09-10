@@ -18,10 +18,16 @@ public class Main {
         System.out.println("Добро пожаловать в Блэкджек!");
 
 
+        /**
+         * бесконечный цикл по раундам
+         * заканчивается, когда игрок захочет выйти из игры
+         */
         while(true) {
             System.out.println("Раунд " + Integer.toString(game.getRound()));
 
-
+            /**
+             * выдача начальных карт
+             */
             game.player_take_new_cards(2);
             game.bot_take_new_cards(2);
 
@@ -31,9 +37,18 @@ public class Main {
 
             int state = game.state_check(false);
 
+
+            /**
+             * проверка на то, что игроку сразу выпал блэкджек
+             */
             if (state != 2) {
                 System.out.println("Ваш ход\n-------\n");
 
+
+                /**
+                 * цикл набора карт игроком
+                 * прекращается либо по воле игрока, либо при сумме >21, либо при блэкджеке
+                 */
                 while (true) {
                     System.out.println("Введите \"1\", чтобы взять карту, и \"0\", чтобы остановиться...");
 
@@ -54,24 +69,40 @@ public class Main {
                     }
                 }
 
-                System.out.println("\nХод дилера\n-------");
-
-                game.getBot().get_last_card().open();
-
-                System.out.println("Дилер открывает закрытую карту " + game.getBot().get_last_card().get_title());
-
-                game.print_players_info(true);
-                state = game.state_check(true);
+                /**
+                 * если игрок ещё не выиграл и не проиграл - ход бота
+                 */
                 if (state == 1) {
-                    while (game.getBot().getSumm() <= 17) {
-                        game.bot_take_new_cards(1);
-                        Card card = game.getPlayer().get_last_card();
-                        System.out.println("Дилер открыли карту " + card.get_title());
-                        game.print_players_info(true);
+                    System.out.println("\nХод дилера\n-------");
+
+                    game.getBot().get_last_card().open();
+
+                    System.out.println("Дилер открывает закрытую карту " + game.getBot().get_last_card().get_title());
+
+                    game.print_players_info(true);
+                    state = game.state_check(true);
+
+                    /**
+                     * если не сразу блэкджек - бот набирает карты
+                     */
+                    if (state == 1) {
+                        while (game.getBot().getSumm() <= 17) {
+                            game.bot_take_new_cards(1);
+                            Card card = game.getBot().get_last_card();
+                            System.out.println("Дилер открыли карту " + card.get_title());
+                            game.print_players_info(true);
+                        }
                     }
                 }
+
+
             }
 
+
+            /**
+             * проверка состояний
+             * вывод победителя и счёта
+             */
             if (state == 0) {
                 System.out.println("К сожалению, вы проиграли... " + game.get_score_text());
             } else if (state == 2) {
@@ -84,7 +115,7 @@ public class Main {
                     game.getPlayer().increase_player_wins();
                     System.out.println("Поздравляем, вы выиграли! " + game.get_score_text());
                 } else {
-                    System.out.println("В этом раунде ничья " + game.get_score_text());
+                    System.out.println("В этом раунде ничья) " + game.get_score_text());
                 }
             }
 
@@ -92,6 +123,7 @@ public class Main {
             System.out.println("Введите \"1\", чтобы продолжить игру, и \"0\", чтобы остановиться...");
             answer = scanner.nextInt();
             if (answer == 1) {
+                game.cleaning();
                 game.next_round();
             } else {
                 break;

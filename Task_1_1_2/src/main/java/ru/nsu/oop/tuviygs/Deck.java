@@ -36,7 +36,6 @@ public class Deck {
         List<String> suits = List.of("Пики", "Трефы", "Червы", "Бубны");
         List<String> names =List.of("Двойка", "Тройка", "Четвёрка", "Пятёрка", "Шестёрка", "Семёрка", "Восьмёрка", "Девятка", "Десятка", "Туз", "Валет", "Дама", "Король");
 
-
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 13; j++) {
                 this.cards.add(new Card(j + 2, names.get(j), suits.get(i)));
@@ -78,6 +77,10 @@ public class Deck {
         return;
     }
 
+
+    /**
+     * вытягивание одной карты из колоды (общей)
+     */
     public Card pull_card() {
         if (this.cards.size() == 0) {
             System.out.println("Колода закончилась - тасуем новую)");
@@ -89,6 +92,9 @@ public class Deck {
         return card;
     }
 
+    /**
+     * добавление карты в колоду (в руку игроку) из подаваемой колоды (общей)
+     */
     public void set_new_card(Deck deck) {
         this.cards.add(deck.pull_card());
     }

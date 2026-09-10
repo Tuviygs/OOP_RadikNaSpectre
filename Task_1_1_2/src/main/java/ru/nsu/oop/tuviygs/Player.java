@@ -39,6 +39,9 @@ public class Player {
         return summ;
     }
 
+    /**
+     * ведение счёта
+     */
     public int getWins_count() {
         return this.wins_count;
     }
@@ -83,13 +86,21 @@ public class Player {
     }
 
 
+    /**
+     * достать последнюю карту из руки игрока
+     */
     public Card get_last_card() {
         int last_index = this.player_deck.get_cards().size() - 1;
         return this.player_deck.get_cards().get(last_index);
     }
 
 
-
+    /**
+     * взять карты из колоды
+     * @param deck - колода (общая)
+     * @param count - сколько карт
+     * если бот тянет больше одной - последняя закрывается (используется в начале раунда)
+     */
 
     public void take_new_cards(Deck deck, int count) {
         for (int i = 0; i < count; i++) {
@@ -101,8 +112,17 @@ public class Player {
         }
     }
 
+    /**
+     * вывод карт игрока строкой
+     */
     public String get_cards_text() {
         return this.player_deck.get_cards_text();
+    }
+
+
+    public void cleaning() {
+        this.player_deck.get_cards().clear();
+        this.summ = 0;
     }
 
 }

@@ -16,7 +16,9 @@ public class Game {
         this.bot = new Player(true);
     }
 
-
+    /**
+     * получение данных об игре
+     */
     public Deck getGame_deck() {
         return this.game_deck;
     }
@@ -41,7 +43,9 @@ public class Game {
     }
 
 
-
+    /**
+     * буквально вывод карт на руках у игроков (и сумма очков)
+     */
     public void print_players_info() {
         System.out.println("\tВаши карты: " + player.get_cards_text() + " => " + Integer.toString(player.getSumm()));
         System.out.println("\tКарты дилера: " + bot.get_cards_text());
@@ -57,7 +61,14 @@ public class Game {
 
     }
 
-
+    /**
+     * прове
+     * @param forBot - если true, то проверяем ход бота
+     * @return:
+     * 0, если игрок (польователь) проиграл
+     * 2 - выиграл
+     * 1 - нет ничего конкретного (ни блекджека, ни суммы >21
+     */
     public int state_check(boolean forBot) {
         int summ;
         if (forBot) {
@@ -83,7 +94,9 @@ public class Game {
         return 1;
     }
 
-
+    /**
+     * взятие карт из колоды
+     */
     public void player_take_new_cards(int count) {
         this.player.take_new_cards(this.game_deck, count);
     }
@@ -91,6 +104,10 @@ public class Game {
         this.bot.take_new_cards(this.game_deck, count);
     }
 
+
+    /**
+     * буквальный вывод счёта
+     */
 
     public String get_score_text() {
         String str = "Счёт " + Integer.toString(getBot_wins()) + ":" + Integer.toString(getPlayer_wins());
@@ -100,6 +117,12 @@ public class Game {
             str = str + " в вашу пользу";
         }
         return str;
+    }
+
+
+    public void cleaning() {
+        this.bot.cleaning();
+        this.player.cleaning();
     }
 
 
