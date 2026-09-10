@@ -1,14 +1,36 @@
 package ru.nsu.oop.tuviygs;
 
+/**
+ * класс хранит игровую колоду, раунд.
+ * включает двух игроков
+ * имеет вспомогательые методы для игры
+ */
 public class Game {
 
+    /**
+     * игровая колода.
+     */
     private Deck gameDeck;
+
+    /**
+     * номер раунда.
+     */
     private int round;
+
+    /**
+     * игрок (пользователь).
+     */
     private Player player;
+
+    /**
+     * дилер (бот).
+     */
     private  Player bot;
 
 
-
+    /**
+     * создание новой игры.
+     */
     public Game() {
         this.gameDeck = new Deck(true);
         this.round = 1;
@@ -17,49 +39,76 @@ public class Game {
     }
 
     /**
-     * получение данных об игре
+     * получение текущей колоды.
      */
     public Deck getGame_deck() {
         return this.gameDeck;
     }
 
+    /**
+     * получение количества побед игрока.
+     */
     public int getPlayer_wins() {
         return this.player.getWins_count();
     }
 
+    /**
+     * получение количества побед бота.
+     */
     public int getBot_wins() {
         return this.bot.getWins_count();
     }
 
+    /**
+     * получение номера раунда
+     */
     public int getRound() {
         return this.round;
     }
 
+    /**
+     * получение игрока.
+     */
     public Player getPlayer() {
         return this.player;
     }
 
+    /**
+     * получение бота.
+     */
     public Player getBot() {
         return this.bot;
     }
 
+
+    /**
+     * переключение счётчика раундов.
+     */
     public void next_round() {
         this.round++;
     }
 
 
     /**
-     * буквально вывод карт на руках у игроков (и сумма очков)
+     * буквально вывод карт на руках у игроков (и сумма очков).
      */
     public void print_players_info() {
-        System.out.println("\tВаши карты: " + player.get_cards_text() + " => " + Integer.toString(player.getSumm()));
+        System.out.println("\tВаши карты: " + player.get_cards_text()
+                + " => " + Integer.toString(player.getSumm()));
         System.out.println("\tКарты дилера: " + bot.get_cards_text());
     }
 
+    /**
+     * вывод карт игроков и их очков.
+     *
+     * @param bot_turn - показывает, что для бота тоже нужно вывести сумму
+     */
     public void print_players_info(boolean bot_turn) {
         if (bot_turn) {
-            System.out.println("\tВаши карты: " + player.get_cards_text() + " => " + Integer.toString(player.getSumm()));
-            System.out.println("\tКарты дилера: " + bot.get_cards_text() + " => " + Integer.toString(bot.getSumm()));
+            System.out.println("\tВаши карты: " + player.get_cards_text()
+                    + " => " + Integer.toString(player.getSumm()));
+            System.out.println("\tКарты дилера: " + bot.get_cards_text()
+                    + " => " + Integer.toString(bot.getSumm()));
         } else {
             print_players_info();
         }
@@ -67,9 +116,9 @@ public class Game {
     }
 
     /**
-     * прове
+     * проверка состояний.
+     *
      * @param forBot - если true, то проверяем ход бота
-     * @return:
      * 0, если игрок (польователь) проиграл
      * 2 - выиграл
      * 1 - нет ничего конкретного (ни блекджека, ни суммы >21
@@ -100,23 +149,26 @@ public class Game {
     }
 
     /**
-     * взятие карт из колоды
+     * взятие карт из колоды игроком.
      */
     public void player_take_new_cards(int count) {
         this.player.take_new_cards(this.gameDeck, count);
     }
 
+    /**
+     * взятие карт из колоды ботом.
+     */
     public void bot_take_new_cards(int count) {
         this.bot.take_new_cards(this.gameDeck, count);
     }
 
 
     /**
-     * буквальный вывод счёта
+     * буквальный вывод счёта.
      */
-
     public String get_score_text() {
-        String str = "Счёт " + Integer.toString(getBot_wins()) + ":" + Integer.toString(getPlayer_wins());
+        String str = "Счёт " + Integer.toString(getBot_wins()) + ":"
+                + Integer.toString(getPlayer_wins());
         if (getBot_wins() > getPlayer_wins()) {
             str = str + " в пользу дилера";
         } else if (getBot_wins() < getPlayer_wins()) {
@@ -125,7 +177,9 @@ public class Game {
         return str;
     }
 
-
+    /**
+     * сброс карт игроков.
+     */
     public void cleaning() {
         this.bot.cleaning();
         this.player.cleaning();

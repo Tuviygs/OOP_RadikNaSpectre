@@ -2,16 +2,34 @@ package ru.nsu.oop.tuviygs;
 
 import java.util.ArrayList;
 
+/**
+ * класс хранит информацию об игроках.
+ */
 public class Player {
 
+    /**
+     * карты у игрока на руках.
+     */
     private Deck playerDeck;
+
+    /**
+     * сумма карт на руках.
+     */
     private int summ;
+
+    /**
+     * является ли игрок ботом.
+     */
     private final boolean isBot;
+
+    /**
+     * количество побед игрока в раундах.
+     */
     private int wins_count;
 
 
     /**
-     * создание нового игррока
+     * создание нового игррока.
      */
     public Player() {
         this.summ = 0;
@@ -19,6 +37,12 @@ public class Player {
         this.isBot = false;
         this.wins_count = 0;
     }
+
+    /**
+     * создание игрока.
+     *
+     * @param bot - показатель того, что создаётся бот.
+     */
 
     public Player(boolean bot) {
         this.summ = 0;
@@ -29,30 +53,37 @@ public class Player {
 
 
     /**
-     * получение данных об игроке
+     * получение карт игрока..
      */
     public ArrayList<Card> getPlayer_deck() {
         return this.playerDeck.get_cards();
     }
 
+    /**
+     * получение суммы карт на руках игрока.
+     * с предварительным подсчётом
+     */
     public int getSumm() {
         this.count_summ();
         return summ;
     }
 
     /**
-     * ведение счёта
+     * получение количества побед.
      */
     public int getWins_count() {
         return this.wins_count;
     }
 
+    /**
+     * увеличение счётчика побед.
+     */
     public void increase_player_wins(){
         this.wins_count++;
     }
 
     /**
-     * подсчёт суммы значений карт
+     * подсчёт суммы значений карт.
      */
     public void count_summ() {
         ArrayList<Card> deck = getPlayer_deck();
@@ -88,7 +119,7 @@ public class Player {
 
 
     /**
-     * достать последнюю карту из руки игрока
+     * достать последнюю карту из руки игрока.
      */
     public Card get_last_card() {
         int last_index = this.playerDeck.get_cards().size() - 1;
@@ -97,10 +128,12 @@ public class Player {
 
 
     /**
-     * взять карты из колоды
+     * взять карты из колоды.
+     *
      * @param deck - колода (общая)
      * @param count - сколько карт
-     * если бот тянет больше одной - последняя закрывается (используется в начале раунда)
+     * если бот тянет больше одной,
+     * то последняя закрывается (используется в начале раунда)
      */
 
     public void take_new_cards(Deck deck, int count) {
@@ -114,13 +147,15 @@ public class Player {
     }
 
     /**
-     * вывод карт игрока строкой
+     * вывод карт игрока строкой.
      */
     public String get_cards_text() {
         return this.playerDeck.get_cards_text();
     }
 
-
+    /**
+     * сброс раунда.
+     */
     public void cleaning() {
         this.playerDeck.get_cards().clear();
         this.summ = 0;

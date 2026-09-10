@@ -2,6 +2,9 @@ package ru.nsu.oop.tuviygs;
 
 import java.util.List;
 
+/**
+ * класс, реализующий карты.
+ */
 public class Card {
 
     /**
@@ -59,7 +62,7 @@ public class Card {
     }
 
     /**
-     * закрытие/открытие карты
+     * закрытие/открытие карты.
      */
     public void close() {
         this.opened = false;
@@ -95,7 +98,8 @@ public class Card {
     public String get_title() {
         String title;
         if (this.get_opened()) {
-            title = name + " " + suit + " (" + Integer.toString(value) + ')';
+            title = name + " " + suit + " ("
+                    + Integer.toString(value) + ')';
         } else {
             title = "<закрытая карта>";
         }

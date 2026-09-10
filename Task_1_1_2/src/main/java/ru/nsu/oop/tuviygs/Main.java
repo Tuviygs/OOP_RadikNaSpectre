@@ -5,11 +5,17 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
-
+/**
+ * класс реализует сам ход игры.
+ */
 public class Main {
 
 
-
+    /**
+     * точка входа
+     *
+     * @param args - пусть будет)
+     */
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int answer;
@@ -23,7 +29,8 @@ public class Main {
          * заканчивается, когда игрок захочет выйти из игры
          */
         while(true) {
-            System.out.println("Раунд " + Integer.toString(game.getRound()));
+            System.out.println("Раунд "
+                    + Integer.toString(game.getRound()));
 
             /**
              * выдача начальных карт.
@@ -47,10 +54,12 @@ public class Main {
 
                 /**
                  * цикл набора карт игроком.
-                 * прекращается либо по воле игрока, либо при сумме >21, либо при блэкджеке
+                 * прекращается либо по воле игрока,
+                 * либо при сумме >21, либо при блэкджеке
                  */
                 while (true) {
-                    System.out.println("Введите \"1\", чтобы взять карту, и \"0\", чтобы остановиться...");
+                    System.out.println("Введите \"1\","
+                            + " чтобы взять карту, и \"0\", чтобы остановиться...");
 
                     answer = scanner.nextInt();
 
@@ -77,7 +86,8 @@ public class Main {
 
                     game.getBot().get_last_card().open();
 
-                    System.out.println("Дилер открывает закрытую карту " + game.getBot().get_last_card().get_title());
+                    System.out.println("Дилер открывает закрытую карту "
+                            + game.getBot().get_last_card().get_title());
 
                     game.print_players_info(true);
                     state = game.state_check(true);
@@ -89,7 +99,8 @@ public class Main {
                         while (game.getBot().getSumm() <= 17) {
                             game.bot_take_new_cards(1);
                             Card card = game.getBot().get_last_card();
-                            System.out.println("Дилер открыли карту " + card.get_title());
+                            System.out.println("Дилер открыли карту "
+                                    + card.get_title());
                             game.print_players_info(true);
                         }
                     }
@@ -104,23 +115,29 @@ public class Main {
              * вывод победителя и счёта
              */
             if (state == 0) {
-                System.out.println("К сожалению, вы проиграли... " + game.get_score_text());
+                System.out.println("К сожалению, вы проиграли... "
+                        + game.get_score_text());
             } else if (state == 2) {
-                System.out.println("Поздравляем, вы выиграли! " + game.get_score_text());
+                System.out.println("Поздравляем, вы выиграли! "
+                        + game.get_score_text());
             } else {
                 if (game.getBot().getSumm() > game.getPlayer().getSumm()) {
                     game.getBot().increase_player_wins();
-                    System.out.println("К сожалению, вы проиграли... " + game.get_score_text());
+                    System.out.println("К сожалению, вы проиграли... "
+                            + game.get_score_text());
                 } else if (game.getBot().getSumm() < game.getPlayer().getSumm()) {
                     game.getPlayer().increase_player_wins();
-                    System.out.println("Поздравляем, вы выиграли! " + game.get_score_text());
+                    System.out.println("Поздравляем, вы выиграли! "
+                            + game.get_score_text());
                 } else {
-                    System.out.println("В этом раунде ничья) " + game.get_score_text());
+                    System.out.println("В этом раунде ничья) "
+                            + game.get_score_text());
                 }
             }
 
 
-            System.out.println("Введите \"1\", чтобы продолжить игру, и \"0\", чтобы остановиться...");
+            System.out.println("Введите \"1\","
+                    + " чтобы продолжить игру, и \"0\", чтобы остановиться...");
             answer = scanner.nextInt();
             if (answer == 1) {
                 game.cleaning();

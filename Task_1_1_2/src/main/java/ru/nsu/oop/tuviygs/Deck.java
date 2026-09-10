@@ -5,7 +5,10 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
-
+/**
+ * класс, реализующий колоду.
+ * или карты на руках
+ */
 public class Deck {
 
     /**
@@ -23,7 +26,9 @@ public class Deck {
 
     /**
      * создание всей колоды карт.
-     * @param fill - параметр даёт понять, что мы создаём целую перемешанную колоду со всеми картами)
+     *
+     * @param fill - параметр даёт понять,
+     *            что мы создаём целую перемешанную колоду со всеми картами)
      */
     public Deck(boolean fill) {
         this();
@@ -32,13 +37,20 @@ public class Deck {
         }
     }
 
+    /**
+     * заполнение колоды (общей) картами.
+     */
     public void fill_deck() {
         List<String> suits = List.of("Пики", "Трефы", "Червы", "Бубны");
-        List<String> names =List.of("Двойка", "Тройка", "Четвёрка", "Пятёрка", "Шестёрка", "Семёрка", "Восьмёрка", "Девятка", "Десятка", "Туз", "Валет", "Дама", "Король");
+        List<String> names =List.of("Двойка", "Тройка",
+                "Четвёрка", "Пятёрка", "Шестёрка",
+                "Семёрка", "Восьмёрка", "Девятка",
+                "Десятка", "Туз", "Валет", "Дама", "Король");
 
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 13; j++) {
-                this.cards.add(new Card(j + 2, names.get(j), suits.get(i)));
+                this.cards.add(new Card(j + 2,
+                        names.get(j), suits.get(i)));
             }
         }
         this.shuffle_deck();
@@ -65,7 +77,6 @@ public class Deck {
                 text = text + "]";
             }
         }
-
         return text;
     }
 
@@ -83,7 +94,8 @@ public class Deck {
      */
     public Card pull_card() {
         if (this.cards.size() == 0) {
-            System.out.println("Колода закончилась - тасуем новую)");
+            System.out.println("Колода закончилась"
+                    + " тасуем новую)");
             this.fill_deck();
         }
         Card card = this.cards.get(0);
