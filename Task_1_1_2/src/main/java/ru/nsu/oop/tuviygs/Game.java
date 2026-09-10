@@ -2,7 +2,7 @@ package ru.nsu.oop.tuviygs;
 
 public class Game {
 
-    private Deck game_deck;
+    private Deck gameDeck;
     private int round;
     private Player player;
     private  Player bot;
@@ -10,7 +10,7 @@ public class Game {
 
 
     public Game() {
-        this.game_deck = new Deck(true);
+        this.gameDeck = new Deck(true);
         this.round = 1;
         this.player = new Player();
         this.bot = new Player(true);
@@ -20,20 +20,25 @@ public class Game {
      * получение данных об игре
      */
     public Deck getGame_deck() {
-        return this.game_deck;
+        return this.gameDeck;
     }
+
     public int getPlayer_wins() {
         return this.player.getWins_count();
     }
+
     public int getBot_wins() {
         return this.bot.getWins_count();
     }
+
     public int getRound() {
         return this.round;
     }
+
     public Player getPlayer() {
         return this.player;
     }
+
     public Player getBot() {
         return this.bot;
     }
@@ -98,10 +103,11 @@ public class Game {
      * взятие карт из колоды
      */
     public void player_take_new_cards(int count) {
-        this.player.take_new_cards(this.game_deck, count);
+        this.player.take_new_cards(this.gameDeck, count);
     }
+
     public void bot_take_new_cards(int count) {
-        this.bot.take_new_cards(this.game_deck, count);
+        this.bot.take_new_cards(this.gameDeck, count);
     }
 
 

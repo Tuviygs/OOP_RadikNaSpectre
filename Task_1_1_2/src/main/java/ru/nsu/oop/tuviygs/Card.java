@@ -5,7 +5,7 @@ import java.util.List;
 public class Card {
 
     /**
-     * Информация о карте
+     * Информация о карте.
      */
 
     private int value;
@@ -16,7 +16,8 @@ public class Card {
 
 
     /**
-     * создание новой карты с заранее заданными параметрами
+     * создание новой карты с заранее заданными параметрами.
+     *
      * @param value - её вес
      * @param name - наименование
      * @param suit - масть
@@ -27,8 +28,8 @@ public class Card {
         set_value(value);
         this.opened = true;
 
-        List<String> names_with_picture = List.of("Валет", "Дама", "Король") ;
-        if (names_with_picture.contains(name)) {
+        List<String> nameWithPicture = List.of("Валет", "Дама", "Король");
+        if (nameWithPicture.contains(name)) {
             picture = true;
             this.value = 10;
         } else {
@@ -41,15 +42,18 @@ public class Card {
     }
 
     /**
-     * отдельная задача параметров для карты
+     * отдельная задача параметров для карты.
      * (нужно было на начальных этапах, в дальнейшем, скорее всего, не пригодится)
      */
+
     public void set_name(String name) {
         this.name = name;
     }
+
     public void set_suit(String suit) {
         this.suit = suit;
     }
+
     public void set_value(int value) {
         this.value = value;
     }
@@ -60,6 +64,7 @@ public class Card {
     public void close() {
         this.opened = false;
     }
+
     public void open() {
         this.opened = true;
     }
@@ -70,19 +75,22 @@ public class Card {
     public String get_name() {
         return name;
     }
+
     public int get_value() {
         return value;
     }
+
     public boolean get_picture() {
         return picture;
     }
+
     public boolean get_opened() {
         return opened;
     }
 
 
     /**
-     * получение полного названия карты (если открыта)
+     * получение полного названия карты (если открыта).
      */
     public String get_title() {
         String title;
@@ -95,7 +103,7 @@ public class Card {
     }
 
     /**
-     * смена веса (используется только для тузов)
+     * смена веса (используется только для тузов).
      */
     public void switch_value() {
         if (this.name.equals("Туз")) {

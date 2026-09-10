@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Player {
 
-    private Deck player_deck;
+    private Deck playerDeck;
     private int summ;
     private final boolean isBot;
     private int wins_count;
@@ -15,14 +15,14 @@ public class Player {
      */
     public Player() {
         this.summ = 0;
-        this.player_deck = new Deck();
+        this.playerDeck = new Deck();
         this.isBot = false;
         this.wins_count = 0;
     }
 
     public Player(boolean bot) {
         this.summ = 0;
-        this.player_deck = new Deck();
+        this.playerDeck = new Deck();
         this.isBot = true;
         this.wins_count = 0;
     }
@@ -32,8 +32,9 @@ public class Player {
      * получение данных об игроке
      */
     public ArrayList<Card> getPlayer_deck() {
-        return this.player_deck.get_cards();
+        return this.playerDeck.get_cards();
     }
+
     public int getSumm() {
         this.count_summ();
         return summ;
@@ -90,8 +91,8 @@ public class Player {
      * достать последнюю карту из руки игрока
      */
     public Card get_last_card() {
-        int last_index = this.player_deck.get_cards().size() - 1;
-        return this.player_deck.get_cards().get(last_index);
+        int last_index = this.playerDeck.get_cards().size() - 1;
+        return this.playerDeck.get_cards().get(last_index);
     }
 
 
@@ -104,7 +105,7 @@ public class Player {
 
     public void take_new_cards(Deck deck, int count) {
         for (int i = 0; i < count; i++) {
-            this.player_deck.set_new_card(deck);
+            this.playerDeck.set_new_card(deck);
         }
 
         if (this.isBot && count > 1) {
@@ -116,12 +117,12 @@ public class Player {
      * вывод карт игрока строкой
      */
     public String get_cards_text() {
-        return this.player_deck.get_cards_text();
+        return this.playerDeck.get_cards_text();
     }
 
 
     public void cleaning() {
-        this.player_deck.get_cards().clear();
+        this.playerDeck.get_cards().clear();
         this.summ = 0;
     }
 

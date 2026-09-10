@@ -9,20 +9,20 @@ import java.util.List;
 public class Deck {
 
     /**
-     * Динамический массив карт
+     * Динамический массив карт.
      * Используется для простого удаления/добавления карт
      */
     private ArrayList<Card> cards;
 
     /**
-     * создание пустой колоды (применяется к игрокам)
+     * создание пустой колоды (применяется к игрокам).
      */
     public Deck() {
         this.cards = new ArrayList<Card>();
     }
 
     /**
-     * создание всей колоды карт
+     * создание всей колоды карт.
      * @param fill - параметр даёт понять, что мы создаём целую перемешанную колоду со всеми картами)
      */
     public Deck(boolean fill) {
@@ -45,14 +45,14 @@ public class Deck {
     }
 
     /**
-     * получение списка карт
+     * получение списка карт.
      */
     public ArrayList<Card> get_cards() {
         return this.cards;
     }
 
     /**
-     * Получение списка карт текстом
+     * Получение списка карт текстом.
      * Используется для вывода информации об игроках
      */
     public String get_cards_text() {
@@ -70,7 +70,7 @@ public class Deck {
     }
 
     /**
-     * перемешивание колоды
+     * перемешивание колоды.
      */
     public void shuffle_deck () {
         Collections.shuffle(this.cards);
@@ -79,7 +79,7 @@ public class Deck {
 
 
     /**
-     * вытягивание одной карты из колоды (общей)
+     * вытягивание одной карты из колоды (общей).
      */
     public Card pull_card() {
         if (this.cards.size() == 0) {
@@ -93,7 +93,7 @@ public class Deck {
     }
 
     /**
-     * добавление карты в колоду (в руку игроку) из подаваемой колоды (общей)
+     * добавление карты в колоду (в руку игроку) из подаваемой колоды (общей).
      */
     public void set_new_card(Deck deck) {
         this.cards.add(deck.pull_card());
