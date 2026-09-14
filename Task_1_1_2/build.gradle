@@ -1,7 +1,7 @@
 plugins {
     id 'java'
-    id "jacoco"
-    id "checkstyle"
+    id 'application'
+    id 'jacoco'
 }
 
 group = 'ru.nsu.oop.tuviygs'
@@ -17,6 +17,18 @@ dependencies {
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
-test {
+application {
+    mainClass = 'ru.nsu.oop.tuviygs.Main'
+}
+
+tasks.test {
     useJUnitPlatform()
+}
+
+jacocoTestReport {
+    dependsOn test
+    reports {
+        xml.required = true
+        html.required = true
+    }
 }
