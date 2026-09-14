@@ -1,5 +1,7 @@
 package ru.nsu.oop.tuviygs;
 
+import java.util.Scanner;
+
 /**
  * класс хранит игровую колоду, раунд.
  * включает двух игроков
@@ -8,182 +10,121 @@ package ru.nsu.oop.tuviygs;
 public class Game {
 
     /**
-     * игровая колода.
+     * количество очков, до которого дилер набирает карты.
      */
-    private Deck gameDeck;
+    private static final Integer MIN_BOT_POINTS = 17;
 
     /**
-     * номер раунда.
+     * количество очков для блэкджека.
      */
-    private int round;
-
-    /**
-     * игрок (пользователь).
-     */
-    private Player player;
-
-    /**
-     * дилер (бот).
-     */
-    private  Player bot;
+    private static final Integer BLACKJACK_POINTS = 21;
 
 
     /**
-     * создание новой игры.
+     * ход игры.
      */
-    public Game() {
-        this.gameDeck = new Deck(true);
-        this.round = 1;
-        this.player = new Player();
-        this.bot = new Player(true);
-    }
+    public static void startGame() {
+        Scanner scanner = new Scanner(System.in);
+        int answer;
+        GameInfo gameInfo = new GameInfo();
 
-    /**
-     * получение текущей колоды.
-     */
-    public Deck getGame_deck() {
-        return this.gameDeck;
-    }
+        GamePrints.printHello();
 
-    /**
-     * получение количества побед игрока.
-     */
-    public int getPlayer_wins() {
-        return this.player.getWins_count();
-    }
+        while (true) {
+            GamePrints.printRound(gameInfo);
 
-    /**
-     * получение количества побед бота.
-     */
-    public int getBot_wins() {
-        return this.bot.getWins_count();
-    }
+            GameUtils.playerTakeCards(gameInfo.getBot(), 2, gameInfo.getDeck());
+            GameUtils.playerTakeCards(gameInfo.getPlayer(), 2, gameInfo.getDeck());
 
-    /**
-     * получение номера раунда
-     */
-    public int getRound() {
-        return this.round;
-    }
-
-    /**
-     * получение игрока.
-     */
-    public Player getPlayer() {
-        return this.player;
-    }
-
-    /**
-     * получение бота.
-     */
-    public Player getBot() {
-        return this.bot;
-    }
+            GamePrints.printPlayersHands(gameInfo.getPlayer(), gameInfo.getBot(), gameInfo.getBotsTurn());
 
 
-    /**
-     * переключение счётчика раундов.
-     */
-    public void next_round() {
-        this.round++;
-    }
+            gameInfo.changeState(GameUtils.stateCheck(gameInfo.getPlayer()));
+
+            if (gameInfo.getState() == Result.DRAW) {
+                GamePrints.printPlayerTurn();
 
 
-    /**
-     * буквально вывод карт на руках у игроков (и сумма очков).
-     */
-    public void print_players_info() {
-        System.out.println("\tВаши карты: " + player.get_cards_text()
-                + " => " + Integer.toString(player.getSumm()));
-        System.out.println("\tКарты дилера: " + bot.get_cards_text());
-    }
+                while (true) {
 
-    /**
-     * вывод карт игроков и их очков.
-     *
-     * @param bot_turn - показывает, что для бота тоже нужно вывести сумму
-     */
-    public void print_players_info(boolean bot_turn) {
-        if (bot_turn) {
-            System.out.println("\tВаши карты: " + player.get_cards_text()
-                    + " => " + Integer.toString(player.getSumm()));
-            System.out.println("\tКарты дилера: " + bot.get_cards_text()
-                    + " => " + Integer.toString(bot.getSumm()));
-        } else {
-            print_players_info();
-        }
+                    GamePrints.printLetPlayerChooseCard();
+                    answer = scanner.nextInt();
+                    if (answer == 0) {
+                        break;
+                    }
+                    GameUtils.playerTakeCards(gameInfo.getPlayer(), 1, gameInfo.getDeck());
 
-    }
+                    BlackJackCard card = GameUtils.playerLastCard(gameInfo.getPlayer());
+                    GamePrints.printTakenCard(card);
 
-    /**
-     * проверка состояний.
-     *
-     * @param forBot - если true, то проверяем ход бота
-     * 0, если игрок (польователь) проиграл
-     * 2 - выиграл
-     * 1 - нет ничего конкретного (ни блекджека, ни суммы >21
-     */
-    public int state_check(boolean forBot) {
-        int summ;
-        if (forBot) {
-            summ = this.bot.getSumm();
-            if (summ == 21) {
-                System.out.println("У дилера Блэкджек!!!");
-                bot.increase_player_wins();
-                return 0;
+                    GamePrints.printPlayersHands(gameInfo.getPlayer(), gameInfo.getBot(), gameInfo.getBotsTurn());
+
+                    gameInfo.changeState(GameUtils.stateCheck(gameInfo.getPlayer()));
+
+                    if (gameInfo.getState() != Result.DRAW ) {
+                        break;
+                    }
+
+                }
             }
-        } else {
-            summ = this.player.getSumm();
-            if (summ == 21) {
-                System.out.println("У вас Блэкджек!!!");
-                player.increase_player_wins();
-                return 2;
-            } else if (summ > 21) {
-                System.out.println("К сожалению, ваша сумма больше 21...");
-                bot.increase_player_wins();
-                return 0;
+
+            if (gameInfo.getState() == Result.DRAW) {
+                gameInfo.letBotsTurn();
+
+                GamePrints.printBotTurn();
+
+                BlackJackCard card = GameUtils.playerLastCard(gameInfo.getBot());
+                GamePrints.printOpenCardBot(card);
+                GamePrints.printPlayersHands(gameInfo.getPlayer(), gameInfo.getBot(), gameInfo.getBotsTurn());
+
+                while (gameInfo.getBot().getSumm() < MIN_BOT_POINTS) {
+                    GameUtils.playerTakeCards(gameInfo.getBot(), 1, gameInfo.getDeck());
+
+                    card = GameUtils.playerLastCard(gameInfo.getBot());
+                    GamePrints.printTakenCard(card);
+
+                    GamePrints.printPlayersHands(gameInfo.getPlayer(), gameInfo.getBot(), gameInfo.getBotsTurn());
+                }
             }
+
+            if (gameInfo.getState() == Result.DRAW) {
+                if (gameInfo.getBot().getSumm() == BLACKJACK_POINTS) {
+                    gameInfo.changeState(Result.BOTWIN);
+                } else if (gameInfo.getBot().getSumm() > BLACKJACK_POINTS) {
+                    gameInfo.changeState(Result.PLAYERWIN);
+                } else {
+                    gameInfo.changeState(GameUtils.checkWin(gameInfo.getBot().getSumm(), gameInfo.getPlayer().getSumm()));
+                }
+            }
+
+
+            if (gameInfo.getState() == Result.BOTWIN) {
+                gameInfo.increaseBotWins();
+            } else if (gameInfo.getState() == Result.PLAYERWIN) {
+                gameInfo.increasePlayerWins();
+            }
+
+            GamePrints.printWin(gameInfo.getState(), gameInfo.getPlayerWins(), gameInfo.getBotWins());
+
+            GamePrints.printLetPlayerChooseContinue();
+
+            answer = scanner.nextInt();
+            if (answer == 0) {
+                break;
+            } else {
+                gameInfo.newRound();
+            }
+
         }
 
-        return 1;
-    }
 
-    /**
-     * взятие карт из колоды игроком.
-     */
-    public void player_take_new_cards(int count) {
-        this.player.take_new_cards(this.gameDeck, count);
-    }
 
-    /**
-     * взятие карт из колоды ботом.
-     */
-    public void bot_take_new_cards(int count) {
-        this.bot.take_new_cards(this.gameDeck, count);
+
+
+
     }
 
 
-    /**
-     * буквальный вывод счёта.
-     */
-    public String get_score_text() {
-        String str = "Счёт " + Integer.toString(getBot_wins()) + ":"
-                + Integer.toString(getPlayer_wins());
-        if (getBot_wins() > getPlayer_wins()) {
-            str = str + " в пользу дилера";
-        } else if (getBot_wins() < getPlayer_wins()) {
-            str = str + " в вашу пользу";
-        }
-        return str;
-    }
-
-    /**
-     * сброс карт игроков.
-     */
-    public void cleaning() {
-        this.bot.cleaning();
-        this.player.cleaning();
-    }
 
 
 }

@@ -8,110 +8,47 @@ import java.util.List;
 public class Card {
 
     /**
-     * Информация о карте.
+     * ранг карты..
      */
+    private final Rank name;
 
-    private int value;
-    private String name;
-    private String suit;
-    private final boolean picture;
-    private boolean opened;
+    /**
+     * масть карты.
+     */
+    private final Suit suit;
+
 
 
     /**
      * создание новой карты с заранее заданными параметрами.
      *
-     * @param value - её вес
-     * @param name - наименование
+     * @param name - ранг
      * @param suit - масть
      */
-    public Card(int value, String name, String suit) {
-        set_name(name);
-        set_suit(suit);
-        set_value(value);
-        this.opened = true;
-
-        List<String> nameWithPicture = List.of("Валет", "Дама", "Король");
-        if (nameWithPicture.contains(name)) {
-            picture = true;
-            this.value = 10;
-        } else {
-            picture = false;
-        }
-
-        if (name.equals("Туз")) {
-            set_value(11);
-        }
-    }
-
-    /**
-     * отдельная задача параметров для карты.
-     * (нужно было на начальных этапах, в дальнейшем, скорее всего, не пригодится)
-     */
-
-    public void set_name(String name) {
+    public Card(Rank name, Suit suit) {
         this.name = name;
-    }
-
-    public void set_suit(String suit) {
         this.suit = suit;
     }
 
-    public void set_value(int value) {
-        this.value = value;
+    /**
+     * получение ранга карты.
+     */
+    public Rank getName() {
+        return this.name;
     }
 
     /**
-     * закрытие/открытие карты.
+     * получение масти карты.
      */
-    public void close() {
-        this.opened = false;
-    }
-
-    public void open() {
-        this.opened = true;
-    }
-
-    /**
-     * методы для получения параметров карты извне
-     */
-    public String get_name() {
-        return name;
-    }
-
-    public int get_value() {
-        return value;
-    }
-
-    public boolean get_picture() {
-        return picture;
-    }
-
-    public boolean get_opened() {
-        return opened;
-    }
+    public Suit getSuit() { return this.suit; }
 
 
     /**
-     * получение полного названия карты (если открыта).
+     * получение полного названия карты текстом.
      */
-    public String get_title() {
-        String title;
-        if (this.get_opened()) {
-            title = name + " " + suit + " ("
-                    + Integer.toString(value) + ')';
-        } else {
-            title = "<закрытая карта>";
-        }
+    public String getTitle() {
+        String title = name.getRussianRank() + " " + suit.getRussianSuit();
         return title;
     }
 
-    /**
-     * смена веса (используется только для тузов).
-     */
-    public void switch_value() {
-        if (this.name.equals("Туз")) {
-            this.set_value(1);
-        }
-    }
 }
