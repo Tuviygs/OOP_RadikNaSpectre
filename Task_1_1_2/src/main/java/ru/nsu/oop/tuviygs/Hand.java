@@ -3,6 +3,9 @@ package ru.nsu.oop.tuviygs;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * рука игрока.
+ */
 public class Hand {
     /**
      * динамичный массив карт у игрока.

@@ -1,5 +1,9 @@
 package ru.nsu.oop.tuviygs;
 
+
+/**
+ * информация об объектах игры.
+ */
 public class GameInfo {
     /**
      * игрок.

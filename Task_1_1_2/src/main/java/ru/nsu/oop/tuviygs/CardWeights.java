@@ -1,5 +1,8 @@
 package ru.nsu.oop.tuviygs;
 
+/**
+ * придача картам веся по рангу.
+ */
 public class CardWeights {
 
     /**

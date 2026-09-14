@@ -1,7 +1,6 @@
 package ru.nsu.oop.tuviygs;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
@@ -14,7 +13,7 @@ public class Deck {
     /**
      * ниндекс первой карты в колоде.
      */
-    private final Integer FIRST_CARD_IN_DECK = 0;
+    private final Integer firstCardInDeck = 0;
 
 
     /**
@@ -47,7 +46,7 @@ public class Deck {
     /**
      * перемешивание колоды.
      */
-    public void shuffleDeck () {
+    public void shuffleDeck() {
         Collections.shuffle(this.cards);
     }
 
@@ -58,7 +57,7 @@ public class Deck {
         if (this.cards.isEmpty()) {
             this.fillDeck();
         }
-        BlackJackCard card = this.cards.get(FIRST_CARD_IN_DECK);
+        BlackJackCard card = this.cards.get(firstCardInDeck);
         this.cards.remove(card);
         return card;
     }

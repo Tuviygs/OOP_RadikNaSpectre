@@ -12,12 +12,12 @@ public class Game {
     /**
      * количество очков, до которого дилер набирает карты.
      */
-    private static final Integer MIN_BOT_POINTS = 17;
+    private static final Integer minBotPoints = 17;
 
     /**
      * количество очков для блэкджека.
      */
-    private static final Integer BLACKJACK_POINTS = 21;
+    private static final Integer blackJackPoints = 21;
 
 
     /**
@@ -36,7 +36,8 @@ public class Game {
             GameUtils.playerTakeCards(gameInfo.getBot(), 2, gameInfo.getDeck());
             GameUtils.playerTakeCards(gameInfo.getPlayer(), 2, gameInfo.getDeck());
 
-            GamePrints.printPlayersHands(gameInfo.getPlayer(), gameInfo.getBot(), gameInfo.getBotsTurn());
+            GamePrints.printPlayersHands(gameInfo.getPlayer(),
+                    gameInfo.getBot(), gameInfo.getBotsTurn());
 
 
             gameInfo.changeState(GameUtils.stateCheck(gameInfo.getPlayer()));
@@ -57,11 +58,12 @@ public class Game {
                     BlackJackCard card = GameUtils.playerLastCard(gameInfo.getPlayer());
                     GamePrints.printTakenCard(card);
 
-                    GamePrints.printPlayersHands(gameInfo.getPlayer(), gameInfo.getBot(), gameInfo.getBotsTurn());
+                    GamePrints.printPlayersHands(gameInfo.getPlayer(),
+                            gameInfo.getBot(), gameInfo.getBotsTurn());
 
                     gameInfo.changeState(GameUtils.stateCheck(gameInfo.getPlayer()));
 
-                    if (gameInfo.getState() != Result.DRAW ) {
+                    if (gameInfo.getState() != Result.DRAW) {
                         break;
                     }
 
@@ -75,25 +77,28 @@ public class Game {
 
                 BlackJackCard card = GameUtils.playerLastCard(gameInfo.getBot());
                 GamePrints.printOpenCardBot(card);
-                GamePrints.printPlayersHands(gameInfo.getPlayer(), gameInfo.getBot(), gameInfo.getBotsTurn());
+                GamePrints.printPlayersHands(gameInfo.getPlayer(),
+                        gameInfo.getBot(), gameInfo.getBotsTurn());
 
-                while (gameInfo.getBot().getSumm() < MIN_BOT_POINTS) {
+                while (gameInfo.getBot().getSumm() < minBotPoints) {
                     GameUtils.playerTakeCards(gameInfo.getBot(), 1, gameInfo.getDeck());
 
                     card = GameUtils.playerLastCard(gameInfo.getBot());
                     GamePrints.printTakenCard(card);
 
-                    GamePrints.printPlayersHands(gameInfo.getPlayer(), gameInfo.getBot(), gameInfo.getBotsTurn());
+                    GamePrints.printPlayersHands(gameInfo.getPlayer(),
+                            gameInfo.getBot(), gameInfo.getBotsTurn());
                 }
             }
 
             if (gameInfo.getState() == Result.DRAW) {
-                if (gameInfo.getBot().getSumm() == BLACKJACK_POINTS) {
+                if (gameInfo.getBot().getSumm() == blackJackPoints) {
                     gameInfo.changeState(Result.BOTWIN);
-                } else if (gameInfo.getBot().getSumm() > BLACKJACK_POINTS) {
+                } else if (gameInfo.getBot().getSumm() > blackJackPoints) {
                     gameInfo.changeState(Result.PLAYERWIN);
                 } else {
-                    gameInfo.changeState(GameUtils.checkWin(gameInfo.getBot().getSumm(), gameInfo.getPlayer().getSumm()));
+                    gameInfo.changeState(GameUtils.checkWin(gameInfo.getBot().getSumm(),
+                            gameInfo.getPlayer().getSumm()));
                 }
             }
 
@@ -104,7 +109,8 @@ public class Game {
                 gameInfo.increasePlayerWins();
             }
 
-            GamePrints.printWin(gameInfo.getState(), gameInfo.getPlayerWins(), gameInfo.getBotWins());
+            GamePrints.printWin(gameInfo.getState(),
+                    gameInfo.getPlayerWins(), gameInfo.getBotWins());
 
             GamePrints.printLetPlayerChooseContinue();
 
@@ -116,15 +122,5 @@ public class Game {
             }
 
         }
-
-
-
-
-
-
     }
-
-
-
-
 }

@@ -40,7 +40,9 @@ public class Card {
     /**
      * получение масти карты.
      */
-    public Suit getSuit() { return this.suit; }
+    public Suit getSuit() {
+        return this.suit;
+    }
 
 
     /**

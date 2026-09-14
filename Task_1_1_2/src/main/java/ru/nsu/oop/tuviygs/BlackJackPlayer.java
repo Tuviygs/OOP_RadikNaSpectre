@@ -2,24 +2,27 @@ package ru.nsu.oop.tuviygs;
 
 import javax.smartcardio.Card;
 
+/**
+ * игрок в блэкджек.
+ */
 public class BlackJackPlayer extends Player {
 
     /**
      * сумма очков для блэкджека.
      */
-    private static final Integer BLACK_JACK_SUMM = 21;
+    private static final Integer blackJackSumm = 21;
 
     /**
      * вес туза в ситуации,
      * когда сумма очков в руке больше 21.
      */
-    private static final Integer ACE_EXTRA_VALUE = 1;
+    private static final Integer aceExtraValue = 1;
 
     /**
      * количесство тузов с полным весом
      * для отмены пересчёта суммы значений.
      */
-    private static final Integer BIG_ACE_COUNT_CHECK = 0;
+    private static final Integer bigAceCountCheck = 0;
 
 
     /**
@@ -65,8 +68,8 @@ public class BlackJackPlayer extends Player {
 
         for (BlackJackCard card : this.getHand().getCards()) {
             if (card.getName() == Rank.ACE) {
-                if (summ + card.getValue() > BLACK_JACK_SUMM) {
-                    summ += ACE_EXTRA_VALUE;
+                if (summ + card.getValue() > blackJackSumm) {
+                    summ += aceExtraValue;
                 } else {
                     summ += card.getValue();
                     bigAceCount++;
@@ -79,7 +82,7 @@ public class BlackJackPlayer extends Player {
         }
 
 
-        if (summ > BLACK_JACK_SUMM && bigAceCount > BIG_ACE_COUNT_CHECK) {
+        if (summ > blackJackSumm && bigAceCount > bigAceCountCheck) {
             summ -= CardWeights.getWeight(Rank.ACE);
         }
 

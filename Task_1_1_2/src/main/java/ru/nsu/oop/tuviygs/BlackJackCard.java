@@ -1,5 +1,8 @@
 package ru.nsu.oop.tuviygs;
 
+/**
+ * карты блэкдлжека.
+ */
 public class BlackJackCard extends Card {
 
     /**
@@ -18,6 +21,9 @@ public class BlackJackCard extends Card {
         this.value = CardWeights.getWeight(name);
     }
 
+    /**
+     * получение веса карты.
+     */
     public int getValue() {
         return value;
     }

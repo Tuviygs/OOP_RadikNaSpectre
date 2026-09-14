@@ -27,11 +27,12 @@ public class GamePrints {
      * @param bot - дилер
      * @param botsTurn - ход дилера (или нет)
      */
-    public static void printPlayersHands(BlackJackPlayer player, BlackJackPlayer bot, boolean botsTurn) {
+    public static void printPlayersHands(BlackJackPlayer player,
+                                         BlackJackPlayer bot, boolean botsTurn) {
         String playerCards = "\tВаши карты: [";
         boolean isFirstCard = true;
         for (BlackJackCard card : player.getHand().getCards()) {
-            if (!isFirstCard){
+            if (!isFirstCard) {
                 playerCards = playerCards + ", ";
             } else {
                 isFirstCard = false;
@@ -46,7 +47,7 @@ public class GamePrints {
         int cardsCount = 0;
         for (BlackJackCard card : bot.getHand().getCards()) {
             cardsCount++;
-            if (!isFirstCard){
+            if (!isFirstCard) {
                 botCards = botCards + ", ";
             } else {
                 isFirstCard = false;

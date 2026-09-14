@@ -29,7 +29,7 @@ public class GameUtils {
      * @param player - игрок.
      */
     public static BlackJackCard playerLastCard(BlackJackPlayer player) {
-        return player.getHand().getCards().get(player.getHand().getCards().size()-1);
+        return player.getHand().getCards().get(player.getHand().getCards().size() - 1);
     }
 
 
@@ -39,9 +39,9 @@ public class GameUtils {
      * проверка состояний.
      *
      * @param player - игрок.
-     * 0, если игрок (польователь) проиграл
-     * 2 - выиграл
-     * 1 - нет ничего конкретного (ни блекджека, ни суммы >21
+     *     0, если игрок (польователь) проиграл
+     *     2 - выиграл
+     *     1 - нет ничего конкретного (ни блекджека, ни суммы >21
      */
     public static Result stateCheck(BlackJackPlayer player) {
         int summ = player.getSumm();
