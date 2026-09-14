@@ -2,11 +2,11 @@ package ru.nsu.oop.tuviygs;
 
 
 /**
- * информация об объектах игры.
+ * Информация об объектах игры.
  */
 public class GameInfo {
     /**
-     * игрок.
+     * Игрок.
      */
     private BlackJackPlayer player;
 
@@ -16,38 +16,38 @@ public class GameInfo {
     private BlackJackPlayer bot;
 
     /**
-     * количество побед игрока.
+     * Количество побед игрока.
      */
     private int playerWins;
 
     /**
-     * количество побед дилера.
+     * Количество побед дилера.
      */
     private int botWins;
 
     /**
-     * колода.
+     * Колода.
      */
     private Deck deck;
 
     /**
-     * номер раунда.
+     * Номер раунда.
      */
     private int roundNumber;
 
     /**
-     * ход дилера.
+     * Ход дилера.
      */
     private boolean botsTurn;
 
     /**
-     * состояние игры.
+     * Состояние игры.
      */
     private Result state;
 
 
     /**
-     * создание новой игры.
+     * Создание новой игры.
      */
     public GameInfo() {
         this.roundNumber = 0;
@@ -58,7 +58,7 @@ public class GameInfo {
     }
 
     /**
-     * начало нового раунда.
+     * Начало нового раунда.
      */
     public void newRound() {
         this.bot = new BlackJackPlayer(true);
@@ -70,21 +70,21 @@ public class GameInfo {
 
 
     /**
-     * получение состояния игры.
+     * Получение состояния игры.
      */
     public Result getState() {
         return this.state;
     }
 
     /**
-     * получение номера текущего раунда.
+     * Получение номера текущего раунда.
      */
     public int getRoundNumber() {
         return this.roundNumber;
     }
 
     /**
-     * получение текущей колоды.
+     * Получение текущей колоды.
      */
     public Deck getDeck() {
         return this.deck;
@@ -95,7 +95,7 @@ public class GameInfo {
     }
 
     /**
-     * получение данных об игроке.
+     * Получение данных об игроке.
      */
     public BlackJackPlayer getPlayer() {
         return this.player;
@@ -109,35 +109,35 @@ public class GameInfo {
     }
 
     /**
-     * получение количества побед бота.
+     * Получение количества побед бота.
      */
     public int getBotWins() {
         return this.botWins;
     }
 
     /**
-     * получение количества побед игрока.
+     * Получение количества побед игрока.
      */
     public int getPlayerWins() {
         return this.playerWins;
     }
 
     /**
-     * увеличение счётчик побед бота.
+     * Увеличение счётчик побед бота.
      */
     public void increaseBotWins() {
         this.botWins++;
     }
 
     /**
-     * увеличение счётчик побед игрока.
+     * Увеличение счётчик побед игрока.
      */
     public void increasePlayerWins() {
         this.playerWins++;
     }
 
     /**
-     * увеличение счётчика раундов.
+     * Увеличение счётчика раундов.
      */
     public void increaseRoundNumber() {
         this.roundNumber++;
@@ -148,7 +148,7 @@ public class GameInfo {
     }
 
     /**
-     * переключение хода на бота.
+     * Переключение хода на бота.
      */
     public void letBotsTurn() {
         this.botsTurn = true;

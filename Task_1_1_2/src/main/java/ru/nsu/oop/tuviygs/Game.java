@@ -3,25 +3,25 @@ package ru.nsu.oop.tuviygs;
 import java.util.Scanner;
 
 /**
- * класс хранит игровую колоду, раунд.
+ * Класс хранит игровую колоду, раунд.
  * включает двух игроков
  * имеет вспомогательые методы для игры
  */
 public class Game {
 
     /**
-     * количество очков, до которого дилер набирает карты.
+     * Количество очков, до которого дилер набирает карты.
      */
     private static final Integer minBotPoints = 17;
 
     /**
-     * количество очков для блэкджека.
+     * Количество очков для блэкджека.
      */
     private static final Integer blackJackPoints = 21;
 
 
     /**
-     * ход игры.
+     * Ход игры.
      */
     public static void startGame() {
         Scanner scanner = new Scanner(System.in);

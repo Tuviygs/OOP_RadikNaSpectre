@@ -1,19 +1,19 @@
 package ru.nsu.oop.tuviygs;
 
 /**
- * все принты, которые нужны в игре.
+ * Все принты, которые нужны в игре.
  */
 public class GamePrints {
 
     /**
-     * вывод приветственного слова при старте игры.
+     * Вывод приветственного слова при старте игры.
      */
     public static void printHello() {
         System.out.println("Добро пожаловать в Блэкджек!");
     }
 
     /**
-     * вывод начала новго раунда.
+     * Вывод начала новго раунда.
      */
     public static void printRound(GameInfo gameInfo) {
         System.out.println("Раунд " + Integer.toString(gameInfo.getRoundNumber()));
@@ -21,7 +21,7 @@ public class GamePrints {
     }
 
     /**
-     * вывод карт участников игры.
+     * Вывод карт участников игры.
      *
      * @param player - игрок
      * @param bot - дилер
@@ -80,14 +80,14 @@ public class GamePrints {
 
 
     /**
-     * ход дилера.
+     * Ход дилера.
      */
     public static void printBotTurn() {
         System.out.println("Ход дилера\n-------");
     }
 
     /**
-     * предложение игроку продолжить набирать карты.
+     * Предложение игроку продолжить набирать карты.
      */
     public static void printLetPlayerChooseCard() {
         String string = "Введите \"1\", чтобы взять карту, "
@@ -96,7 +96,7 @@ public class GamePrints {
     }
 
     /**
-     * вывод последней взятой карты.
+     * Вывод последней взятой карты.
      *
      * @param card - сама карта.
      */
@@ -107,7 +107,7 @@ public class GamePrints {
     }
 
     /**
-     * вывод закрытой карты бота.
+     * Вывод закрытой карты бота.
      *
      * @param card - сама карта.
      */
@@ -118,7 +118,7 @@ public class GamePrints {
     }
 
     /**
-     * вывод исхода раунда и текущего счёта.
+     * Вывод исхода раунда и текущего счёта.
      *
      * @param result - исход раунда
      * @param botWins - количество побед бота
@@ -149,7 +149,7 @@ public class GamePrints {
     }
 
     /**
-     * предложение игроку продолжить играть.
+     * Предложение игроку продолжить играть.
      */
     public static void printLetPlayerChooseContinue() {
         String string = "Введите \"1\", чтобы продолжить игру, "

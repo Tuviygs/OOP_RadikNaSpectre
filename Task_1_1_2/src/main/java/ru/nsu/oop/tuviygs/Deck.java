@@ -32,7 +32,7 @@ public class Deck {
     }
 
     /**
-     * заполнение колоды картами.
+     * Заполнение колоды картами.
      */
     public void fillDeck() {
         for (Suit suit : Suit.values()) {
@@ -44,14 +44,14 @@ public class Deck {
     }
 
     /**
-     * перемешивание колоды.
+     * Перемешивание колоды.
      */
     public void shuffleDeck() {
         Collections.shuffle(this.cards);
     }
 
     /**
-     * вытягивание одной карты из колоды.
+     * Вытягивание одной карты из колоды.
      */
     public BlackJackCard pullCard() {
         if (this.cards.isEmpty()) {
