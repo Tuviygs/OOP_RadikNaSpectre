@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"ru.nsu.oop.tuviygs"},{"l":"ru.nsu.oop.tuviygs.cards"},{"l":"ru.nsu.oop.tuviygs.player"},{"l":"ru.nsu.oop.tuviygs.utils"}];updateSearchResults();
