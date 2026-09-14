@@ -1,11 +1,6 @@
 package ru.nsu.oop.tuviygs;
 
-import ru.nsu.oop.tuviygs.Utils.Game;
-
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
-import java.util.Scanner;
+import ru.nsu.oop.tuviygs.utils.Game;
 
 /**
  * класс реализует сам ход игры.

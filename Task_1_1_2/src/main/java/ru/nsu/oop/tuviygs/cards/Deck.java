@@ -1,4 +1,4 @@
-package ru.nsu.oop.tuviygs.Cards;
+package ru.nsu.oop.tuviygs.cards;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -13,7 +13,7 @@ public class Deck {
     /**
      * ниндекс первой карты в колоде.
      */
-    protected final Integer FIRST_CARD_IN_DECK = 0;
+    protected static final Integer FIRST_CARD_IN_DECK = 0;
 
 
     /**

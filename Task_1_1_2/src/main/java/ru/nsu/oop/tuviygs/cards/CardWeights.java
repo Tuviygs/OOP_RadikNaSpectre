@@ -1,4 +1,4 @@
-package ru.nsu.oop.tuviygs.Cards;
+package ru.nsu.oop.tuviygs.cards;
 
 /**
  * Придача картам веса по рангу.

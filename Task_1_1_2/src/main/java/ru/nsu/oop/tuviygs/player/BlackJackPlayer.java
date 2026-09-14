@@ -1,11 +1,11 @@
-package ru.nsu.oop.tuviygs.Player;
+package ru.nsu.oop.tuviygs.player;
 
 
-import ru.nsu.oop.tuviygs.Cards.BlackJackCard;
-import ru.nsu.oop.tuviygs.Cards.Card;
-import ru.nsu.oop.tuviygs.Cards.CardWeights;
-import ru.nsu.oop.tuviygs.Cards.Rank;
-import ru.nsu.oop.tuviygs.Utils.Constants;
+import ru.nsu.oop.tuviygs.cards.BlackJackCard;
+import ru.nsu.oop.tuviygs.cards.Card;
+import ru.nsu.oop.tuviygs.cards.CardWeights;
+import ru.nsu.oop.tuviygs.cards.Rank;
+import ru.nsu.oop.tuviygs.utils.Constants;
 
 /**
  * игрок в блэкджек.

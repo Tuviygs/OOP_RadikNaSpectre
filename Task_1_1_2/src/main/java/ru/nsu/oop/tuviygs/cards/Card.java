@@ -1,6 +1,4 @@
-package ru.nsu.oop.tuviygs.Cards;
-
-import java.util.List;
+package ru.nsu.oop.tuviygs.cards;
 
 /**
  * класс, реализующий карты.

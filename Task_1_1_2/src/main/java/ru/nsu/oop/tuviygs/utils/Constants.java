@@ -1,5 +1,8 @@
-package ru.nsu.oop.tuviygs.Utils;
+package ru.nsu.oop.tuviygs.utils;
 
+/**
+ * константы, используемые в нескольких местах.
+ */
 public class Constants {
 
     /**

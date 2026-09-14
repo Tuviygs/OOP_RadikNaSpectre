@@ -1,4 +1,4 @@
-package ru.nsu.oop.tuviygs.Utils;
+package ru.nsu.oop.tuviygs.utils;
 
 /**
  * Enum, показывающий исход раунда.

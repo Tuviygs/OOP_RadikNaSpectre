@@ -1,8 +1,8 @@
-package ru.nsu.oop.tuviygs.Utils;
+package ru.nsu.oop.tuviygs.utils;
 
-import ru.nsu.oop.tuviygs.Cards.BlackJackCard;
-import ru.nsu.oop.tuviygs.Cards.Card;
-import ru.nsu.oop.tuviygs.Player.BlackJackPlayer;
+import ru.nsu.oop.tuviygs.cards.BlackJackCard;
+import ru.nsu.oop.tuviygs.cards.Card;
+import ru.nsu.oop.tuviygs.player.BlackJackPlayer;
 
 /**
  * Все принты, которые нужны в игре.

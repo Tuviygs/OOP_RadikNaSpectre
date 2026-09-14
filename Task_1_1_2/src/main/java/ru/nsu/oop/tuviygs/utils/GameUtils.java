@@ -1,9 +1,9 @@
-package ru.nsu.oop.tuviygs.Utils;
+package ru.nsu.oop.tuviygs.utils;
 
 
-import ru.nsu.oop.tuviygs.Cards.BlackJackCard;
-import ru.nsu.oop.tuviygs.Cards.Deck;
-import ru.nsu.oop.tuviygs.Player.BlackJackPlayer;
+import ru.nsu.oop.tuviygs.cards.BlackJackCard;
+import ru.nsu.oop.tuviygs.cards.Deck;
+import ru.nsu.oop.tuviygs.player.BlackJackPlayer;
 
 /**
  * класс, реалищующий различные функции игры.
@@ -28,7 +28,8 @@ public class GameUtils {
      */
     public static BlackJackCard playerLastCard(BlackJackPlayer player) {
         BlackJackCard card =
-                (BlackJackCard) player.getHand().getCards().get(player.getHand().getCards().size() - 1);
+                (BlackJackCard) player.getHand()
+                        .getCards().get(player.getHand().getCards().size() - 1);
         return card;
     }
 

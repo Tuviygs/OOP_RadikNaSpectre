@@ -1,6 +1,4 @@
-package ru.nsu.oop.tuviygs.Player;
-
-import java.util.ArrayList;
+package ru.nsu.oop.tuviygs.player;
 
 /**
  * класс хранит информацию об игроках.

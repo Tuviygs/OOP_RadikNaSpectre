@@ -1,8 +1,9 @@
-package ru.nsu.oop.tuviygs.Utils;
-
-import ru.nsu.oop.tuviygs.Cards.BlackJackCard;
+package ru.nsu.oop.tuviygs.utils;
 
 import java.util.Scanner;
+
+import ru.nsu.oop.tuviygs.cards.BlackJackCard;
+
 
 
 

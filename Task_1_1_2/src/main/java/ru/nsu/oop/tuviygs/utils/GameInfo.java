@@ -1,8 +1,8 @@
-package ru.nsu.oop.tuviygs.Utils;
+package ru.nsu.oop.tuviygs.utils;
 
 
-import ru.nsu.oop.tuviygs.Cards.Deck;
-import ru.nsu.oop.tuviygs.Player.BlackJackPlayer;
+import ru.nsu.oop.tuviygs.cards.Deck;
+import ru.nsu.oop.tuviygs.player.BlackJackPlayer;
 
 /**
  * Информация об объектах игры.

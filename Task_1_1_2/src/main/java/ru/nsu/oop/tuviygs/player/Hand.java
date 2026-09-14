@@ -1,6 +1,6 @@
-package ru.nsu.oop.tuviygs.Player;
+package ru.nsu.oop.tuviygs.player;
 
-import ru.nsu.oop.tuviygs.Cards.Card;
+import ru.nsu.oop.tuviygs.cards.Card;
 
 import java.util.ArrayList;
 import java.util.List;
