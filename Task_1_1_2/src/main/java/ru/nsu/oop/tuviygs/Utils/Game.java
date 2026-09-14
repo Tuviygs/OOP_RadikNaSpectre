@@ -1,6 +1,10 @@
-package ru.nsu.oop.tuviygs;
+package ru.nsu.oop.tuviygs.Utils;
+
+import ru.nsu.oop.tuviygs.Cards.BlackJackCard;
 
 import java.util.Scanner;
+
+
 
 /**
  * Класс хранит игровую колоду, раунд.
@@ -12,12 +16,7 @@ public class Game {
     /**
      * Количество очков, до которого дилер набирает карты.
      */
-    private static final Integer minBotPoints = 17;
-
-    /**
-     * Количество очков для блэкджека.
-     */
-    private static final Integer blackJackPoints = 21;
+    private static final Integer MIN_BOT_POINTS = 17;
 
 
     /**
@@ -42,7 +41,7 @@ public class Game {
 
             gameInfo.changeState(GameUtils.stateCheck(gameInfo.getPlayer()));
 
-            if (gameInfo.getState() == Result.DRAW) {
+            if (gameInfo.getState() == GameResult.DRAW) {
                 GamePrints.printPlayerTurn();
 
 
@@ -63,14 +62,14 @@ public class Game {
 
                     gameInfo.changeState(GameUtils.stateCheck(gameInfo.getPlayer()));
 
-                    if (gameInfo.getState() != Result.DRAW) {
+                    if (gameInfo.getState() != GameResult.DRAW) {
                         break;
                     }
 
                 }
             }
 
-            if (gameInfo.getState() == Result.DRAW) {
+            if (gameInfo.getState() == GameResult.DRAW) {
                 gameInfo.letBotsTurn();
 
                 GamePrints.printBotTurn();
@@ -80,7 +79,7 @@ public class Game {
                 GamePrints.printPlayersHands(gameInfo.getPlayer(),
                         gameInfo.getBot(), gameInfo.getBotsTurn());
 
-                while (gameInfo.getBot().getSumm() < minBotPoints) {
+                while (gameInfo.getBot().getSumm() < MIN_BOT_POINTS) {
                     GameUtils.playerTakeCards(gameInfo.getBot(), 1, gameInfo.getDeck());
 
                     card = GameUtils.playerLastCard(gameInfo.getBot());
@@ -91,11 +90,11 @@ public class Game {
                 }
             }
 
-            if (gameInfo.getState() == Result.DRAW) {
-                if (gameInfo.getBot().getSumm() == blackJackPoints) {
-                    gameInfo.changeState(Result.BOTWIN);
-                } else if (gameInfo.getBot().getSumm() > blackJackPoints) {
-                    gameInfo.changeState(Result.PLAYERWIN);
+            if (gameInfo.getState() == GameResult.DRAW) {
+                if (gameInfo.getBot().getSumm() == Constants.BLACKJACK_SUMM) {
+                    gameInfo.changeState(GameResult.BOT_WIN);
+                } else if (gameInfo.getBot().getSumm() > Constants.BLACKJACK_SUMM) {
+                    gameInfo.changeState(GameResult.PLAYER_WIN);
                 } else {
                     gameInfo.changeState(GameUtils.checkWin(gameInfo.getBot().getSumm(),
                             gameInfo.getPlayer().getSumm()));
@@ -103,9 +102,9 @@ public class Game {
             }
 
 
-            if (gameInfo.getState() == Result.BOTWIN) {
+            if (gameInfo.getState() == GameResult.BOT_WIN) {
                 gameInfo.increaseBotWins();
-            } else if (gameInfo.getState() == Result.PLAYERWIN) {
+            } else if (gameInfo.getState() == GameResult.PLAYER_WIN) {
                 gameInfo.increasePlayerWins();
             }
 

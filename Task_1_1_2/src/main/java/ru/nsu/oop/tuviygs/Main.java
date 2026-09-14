@@ -1,5 +1,7 @@
 package ru.nsu.oop.tuviygs;
 
+import ru.nsu.oop.tuviygs.Utils.Game;
+
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;

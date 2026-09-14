@@ -1,4 +1,8 @@
-package ru.nsu.oop.tuviygs;
+package ru.nsu.oop.tuviygs.Utils;
+
+import ru.nsu.oop.tuviygs.Cards.BlackJackCard;
+import ru.nsu.oop.tuviygs.Cards.Card;
+import ru.nsu.oop.tuviygs.Player.BlackJackPlayer;
 
 /**
  * Все принты, которые нужны в игре.
@@ -31,7 +35,8 @@ public class GamePrints {
                                          BlackJackPlayer bot, boolean botsTurn) {
         String playerCards = "\tВаши карты: [";
         boolean isFirstCard = true;
-        for (BlackJackCard card : player.getHand().getCards()) {
+        for (Card baseCard : player.getHand().getCards()) {
+            BlackJackCard card = (BlackJackCard) baseCard;
             if (!isFirstCard) {
                 playerCards = playerCards + ", ";
             } else {
@@ -45,7 +50,8 @@ public class GamePrints {
         String botCards = "\tКарты дилера: [";
         isFirstCard = true;
         int cardsCount = 0;
-        for (BlackJackCard card : bot.getHand().getCards()) {
+        for (Card baseCard : bot.getHand().getCards()) {
+            BlackJackCard card = (BlackJackCard) baseCard;
             cardsCount++;
             if (!isFirstCard) {
                 botCards = botCards + ", ";
@@ -120,15 +126,15 @@ public class GamePrints {
     /**
      * Вывод исхода раунда и текущего счёта.
      *
-     * @param result - исход раунда
+     * @param gameResult - исход раунда
      * @param botWins - количество побед бота
      * @param playerWins - количество побед игрока.
      */
-    public static void printWin(Result result, int playerWins, int botWins) {
+    public static void printWin(GameResult gameResult, int playerWins, int botWins) {
         String string;
-        if (result == Result.BOTWIN) {
+        if (gameResult == GameResult.BOT_WIN) {
             string = "Вы проиграли раунд... ";
-        } else if (result == Result.PLAYERWIN) {
+        } else if (gameResult == GameResult.PLAYER_WIN) {
             string = "Вы выиграли раунд! ";
         } else {
             string = "В этом раунде ничья. ";

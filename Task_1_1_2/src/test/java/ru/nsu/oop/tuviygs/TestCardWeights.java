@@ -5,8 +5,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-
-
+import ru.nsu.oop.tuviygs.Cards.CardWeights;
+import ru.nsu.oop.tuviygs.Cards.Rank;
 
 
 public class TestCardWeights {

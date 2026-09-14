@@ -1,5 +1,8 @@
-package ru.nsu.oop.tuviygs;
+package ru.nsu.oop.tuviygs.Utils;
 
+
+import ru.nsu.oop.tuviygs.Cards.Deck;
+import ru.nsu.oop.tuviygs.Player.BlackJackPlayer;
 
 /**
  * Информация об объектах игры.
@@ -43,7 +46,7 @@ public class GameInfo {
     /**
      * Состояние игры.
      */
-    private Result state;
+    private GameResult state;
 
 
     /**
@@ -65,14 +68,14 @@ public class GameInfo {
         this.player = new BlackJackPlayer();
         this.roundNumber++;
         this.botsTurn = false;
-        this.state = Result.DRAW;
+        this.state = GameResult.DRAW;
     }
 
 
     /**
      * Получение состояния игры.
      */
-    public Result getState() {
+    public GameResult getState() {
         return this.state;
     }
 
@@ -143,8 +146,8 @@ public class GameInfo {
         this.roundNumber++;
     }
 
-    public void changeState(Result result) {
-        this.state = result;
+    public void changeState(GameResult gameResult) {
+        this.state = gameResult;
     }
 
     /**

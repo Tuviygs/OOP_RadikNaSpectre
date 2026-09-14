@@ -1,28 +1,29 @@
-package ru.nsu.oop.tuviygs;
+package ru.nsu.oop.tuviygs.Player;
 
-import javax.smartcardio.Card;
+
+import ru.nsu.oop.tuviygs.Cards.BlackJackCard;
+import ru.nsu.oop.tuviygs.Cards.Card;
+import ru.nsu.oop.tuviygs.Cards.CardWeights;
+import ru.nsu.oop.tuviygs.Cards.Rank;
+import ru.nsu.oop.tuviygs.Utils.Constants;
 
 /**
  * игрок в блэкджек.
  */
 public class BlackJackPlayer extends Player {
 
-    /**
-     * сумма очков для блэкджека.
-     */
-    private static final Integer blackJackSumm = 21;
 
     /**
      * вес туза в ситуации,
      * когда сумма очков в руке больше 21.
      */
-    private static final Integer aceExtraValue = 1;
+    private static final Integer ACE_EXTRA_VALUE = 1;
 
     /**
      * количесство тузов с полным весом
      * для отмены пересчёта суммы значений.
      */
-    private static final Integer bigAceCountCheck = 0;
+    private static final Integer BIG_ACE_COUNT_CHECK = 0;
 
 
     /**
@@ -66,10 +67,11 @@ public class BlackJackPlayer extends Player {
         int summ = 0;
         int bigAceCount = 0;
 
-        for (BlackJackCard card : this.getHand().getCards()) {
+        for (Card baseCard : this.getHand().getCards()) {
+            BlackJackCard card = (BlackJackCard) baseCard;
             if (card.getName() == Rank.ACE) {
-                if (summ + card.getValue() > blackJackSumm) {
-                    summ += aceExtraValue;
+                if (summ + card.getValue() > Constants.BLACKJACK_SUMM) {
+                    summ += ACE_EXTRA_VALUE;
                 } else {
                     summ += card.getValue();
                     bigAceCount++;
@@ -82,7 +84,7 @@ public class BlackJackPlayer extends Player {
         }
 
 
-        if (summ > blackJackSumm && bigAceCount > bigAceCountCheck) {
+        if (summ > Constants.BLACKJACK_SUMM && bigAceCount > BIG_ACE_COUNT_CHECK) {
             summ -= CardWeights.getWeight(Rank.ACE);
         }
 

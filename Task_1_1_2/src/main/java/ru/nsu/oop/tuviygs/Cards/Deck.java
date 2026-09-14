@@ -1,4 +1,4 @@
-package ru.nsu.oop.tuviygs;
+package ru.nsu.oop.tuviygs.Cards;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -13,21 +13,21 @@ public class Deck {
     /**
      * ниндекс первой карты в колоде.
      */
-    private final Integer firstCardInDeck = 0;
+    protected final Integer FIRST_CARD_IN_DECK = 0;
 
 
     /**
      * Динамический массив карт.
      * Используется для простого удаления/добавления карт
      */
-    private List<BlackJackCard> cards;
+    protected List<Card> cards;
 
 
     /**
      * создание всей колоды карт.
      */
     public Deck() {
-        this.cards = new ArrayList<BlackJackCard>();
+        this.cards = new ArrayList<Card>();
         this.fillDeck();
     }
 
@@ -53,16 +53,13 @@ public class Deck {
     /**
      * Вытягивание одной карты из колоды.
      */
-    public BlackJackCard pullCard() {
+    public Card pullCard() {
         if (this.cards.isEmpty()) {
             this.fillDeck();
         }
-        BlackJackCard card = this.cards.get(firstCardInDeck);
+        Card card = this.cards.get(FIRST_CARD_IN_DECK);
         this.cards.remove(card);
         return card;
     }
-
-
-
 
 }

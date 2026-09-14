@@ -1,4 +1,6 @@
-package ru.nsu.oop.tuviygs;
+package ru.nsu.oop.tuviygs.Player;
+
+import ru.nsu.oop.tuviygs.Cards.Card;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,19 +12,19 @@ public class Hand {
     /**
      * динамичный массив карт у игрока.
      */
-    private List<BlackJackCard> cards;
+    private List<Card> cards;
 
     /**
      * создание пустой руки.
      */
     public Hand() {
-        cards = new ArrayList<BlackJackCard>();
+        cards = new ArrayList<Card>();
     }
 
     /**
      * получение списка карт в руке.
      */
-    public List<BlackJackCard> getCards() {
+    public List<Card> getCards() {
         return this.cards;
     }
 
@@ -31,7 +33,7 @@ public class Hand {
      *
      * @param card - добавляемая карта
      */
-    public void addCard(BlackJackCard card) {
+    public void addCard(Card card) {
         this.cards.add(card);
     }
 

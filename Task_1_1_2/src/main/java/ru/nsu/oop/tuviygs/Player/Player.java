@@ -1,4 +1,4 @@
-package ru.nsu.oop.tuviygs;
+package ru.nsu.oop.tuviygs.Player;
 
 import java.util.ArrayList;
 
