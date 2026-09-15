@@ -7,11 +7,7 @@ import java.util.HashSet;
 import java.util.Set;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import ru.nsu.oop.tuviygs.cards.Card;
-import ru.nsu.oop.tuviygs.cards.CardWeights;
-import ru.nsu.oop.tuviygs.cards.Deck;
-import ru.nsu.oop.tuviygs.cards.Rank;
-
+import ru.nsu.oop.tuviygs.cards.*;
 
 
 /**
@@ -53,6 +49,16 @@ public class TestCards {
             uniqueCards.add(deck.pullCard());
         }
         assertEquals(52, uniqueCards.size());
+    }
+
+    /**
+     * тест вывода имени.
+     */
+    @Test
+    @DisplayName("Тест полного имени карты")
+    public void testCardTitle() {
+        Card card = new Card(Rank.FIVE, Suit.CLUBS);
+        assertEquals("Пятёрка трефы", card.getTitle());
     }
 
 

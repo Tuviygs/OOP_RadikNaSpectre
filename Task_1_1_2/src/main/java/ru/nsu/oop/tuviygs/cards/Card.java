@@ -35,13 +35,6 @@ public class Card {
         return this.name;
     }
 
-    /**
-     * получение масти карты.
-     */
-    public Suit getSuit() {
-        return this.suit;
-    }
-
 
     /**
      * получение полного названия карты текстом.
