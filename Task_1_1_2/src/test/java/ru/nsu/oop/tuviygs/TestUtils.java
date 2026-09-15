@@ -1,22 +1,90 @@
 package ru.nsu.oop.tuviygs;
 
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
-
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import ru.nsu.oop.tuviygs.cards.BlackJackCard;
+import ru.nsu.oop.tuviygs.cards.Deck;
+import ru.nsu.oop.tuviygs.cards.Rank;
+import ru.nsu.oop.tuviygs.cards.Suit;
+import ru.nsu.oop.tuviygs.player.BlackJackPlayer;
 import ru.nsu.oop.tuviygs.utils.GameInfo;
 import ru.nsu.oop.tuviygs.utils.GameResult;
+import ru.nsu.oop.tuviygs.utils.GameUtils;
 
+import static org.junit.jupiter.api.Assertions.*;
 
 
 /**
  * тест различных операций игры.
  */
 public class TestUtils {
+
+    /**
+     * игрок и колода для тестов.
+     */
+    private BlackJackPlayer player;
+    private Deck deck;
+
+    /**
+     * пересоздание для каждого теста.
+     */
+    @BeforeEach
+    void setUp() {
+        player = new BlackJackPlayer();
+        deck = new Deck();
+    }
+
+    /**
+     * тест playerTakeCards.
+     */
+    @Test
+    @DisplayName("Взятие одной карты")
+    void testTakeOneCard() {
+        GameUtils.playerTakeCards(player, 1, deck);
+        assertEquals(1, player.getHand().getCards().size());
+    }
+
+
+    /**
+     * тест playerLastCard.
+     */
+    @Test
+    @DisplayName("Возвращает последней добавленной карты")
+    void testLastCardIsLastAdded() {
+        BlackJackCard first = new BlackJackCard(Rank.TWO, Suit.SPADES);
+        BlackJackCard second = new BlackJackCard(Rank.THREE, Suit.HEARTS);
+
+        player.getHand().addCard(first);
+        player.getHand().addCard(second);
+
+        assertSame(second, GameUtils.playerLastCard(player));
+    }
+
+    /**
+     * тест stateCheck.
+     */
+    @Test
+    @DisplayName("21 очко — игрок выиграл")
+    void testStateCheckBlackjack() {
+        player.getHand().addCard(new BlackJackCard(Rank.ACE, Suit.SPADES));
+        player.getHand().addCard(new BlackJackCard(Rank.KING, Suit.HEARTS));
+
+        assertEquals(GameResult.PLAYER_WIN, GameUtils.stateCheck(player));
+    }
+
+    /**
+     * 2 тест stateCheck.
+     */
+    @Test
+    @DisplayName("Меньше 21 — ничья (продолжаем)")
+    void testStateCheckDraw() {
+        player.getHand().addCard(new BlackJackCard(Rank.FIVE, Suit.SPADES));
+        player.getHand().addCard(new BlackJackCard(Rank.SIX, Suit.HEARTS));
+
+        assertEquals(GameResult.DRAW, GameUtils.stateCheck(player));
+    }
 
     /**
      * тест для new GameInfo.
