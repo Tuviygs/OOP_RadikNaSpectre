@@ -1,11 +1,17 @@
 package ru.nsu.oop.tuviygs;
 
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import ru.nsu.oop.tuviygs.utils.GameInfo;
 import ru.nsu.oop.tuviygs.utils.GameResult;
 
-import static org.junit.jupiter.api.Assertions.*;
+
 
 /**
  * тест различных операций игры.
@@ -65,7 +71,7 @@ public class TestUtils {
     }
 
     /**
-     * тест для changeState
+     * тест для changeState.
      */
     @Test
     @DisplayName("Проверка изменения статуса игры")
