@@ -82,8 +82,20 @@ public class TestUtils {
     void testStateCheckDraw() {
         player.getHand().addCard(new BlackJackCard(Rank.FIVE, Suit.SPADES));
         player.getHand().addCard(new BlackJackCard(Rank.SIX, Suit.HEARTS));
-
         assertEquals(GameResult.DRAW, GameUtils.stateCheck(player));
+    }
+
+    /**
+     * 3 тест stateCheck.
+     */
+    @Test
+    @DisplayName("Больше 21 — игрок проиграл")
+    void testStateCheckLose() {
+        player.getHand().addCard(new BlackJackCard(Rank.FIVE, Suit.SPADES));
+        player.getHand().addCard(new BlackJackCard(Rank.SIX, Suit.HEARTS));
+        player.getHand().addCard(new BlackJackCard(Rank.TEN, Suit.HEARTS));
+        player.getHand().addCard(new BlackJackCard(Rank.TWO, Suit.HEARTS));
+        assertEquals(GameResult.BOT_WIN, GameUtils.stateCheck(player));
     }
 
     /**
