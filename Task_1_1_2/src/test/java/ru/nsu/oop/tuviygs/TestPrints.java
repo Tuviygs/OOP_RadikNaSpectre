@@ -154,12 +154,12 @@ class TestPrints {
     @DisplayName("printPlayersHands: карты игрока видны")
     void testPrintPlayersHandsPlayerCards() {
         BlackJackPlayer player = new BlackJackPlayer();
-        player.getHand().addCard(new Card(Rank.TEN, Suit.SPADES));
-        player.getHand().addCard(new Card(Rank.FIVE, Suit.HEARTS));
+        player.getHand().addCard(new BlackJackCard(Rank.TEN, Suit.SPADES));
+        player.getHand().addCard(new BlackJackCard(Rank.FIVE, Suit.HEARTS));
 
         BlackJackPlayer bot = new BlackJackPlayer();
-        player.getHand().addCard(new Card(Rank.NINE, Suit.CLUBS));
-        player.getHand().addCard(new Card(Rank.SEVEN, Suit.DIAMONDS));
+        player.getHand().addCard(new BlackJackCard(Rank.NINE, Suit.CLUBS));
+        player.getHand().addCard(new BlackJackCard(Rank.SEVEN, Suit.DIAMONDS));
 
         GamePrints.printPlayersHands(player, bot, false);
 
@@ -172,10 +172,10 @@ class TestPrints {
     @DisplayName("printPlayersHands: закрытая карта бота, когда не ход бота")
     void testPrintPlayersHandsHiddenBotCard() {
         BlackJackPlayer player = new BlackJackPlayer();
-        player.getHand().addCard(new Card(Rank.TEN, Suit.SPADES));
+        player.getHand().addCard(new BlackJackCard(Rank.TEN, Suit.SPADES));
         BlackJackPlayer bot = new BlackJackPlayer();
-        player.getHand().addCard(new Card(Rank.NINE, Suit.CLUBS));
-        player.getHand().addCard(new Card(Rank.SEVEN, Suit.DIAMONDS));
+        player.getHand().addCard(new BlackJackCard(Rank.NINE, Suit.CLUBS));
+        player.getHand().addCard(new BlackJackCard(Rank.SEVEN, Suit.DIAMONDS));
 
         GamePrints.printPlayersHands(player, bot, false);
 
@@ -186,10 +186,10 @@ class TestPrints {
     @DisplayName("printPlayersHands: все карты бота открыты на его ходу")
     void testPrintPlayersHandsOpenBotCards() {
         BlackJackPlayer player = new BlackJackPlayer();
-        player.getHand().addCard(new Card(Rank.TEN, Suit.SPADES));
+        player.getHand().addCard(new BlackJackCard(Rank.TEN, Suit.SPADES));
         BlackJackPlayer bot = new BlackJackPlayer();
-        player.getHand().addCard(new Card(Rank.NINE, Suit.CLUBS));
-        player.getHand().addCard(new Card(Rank.SEVEN, Suit.DIAMONDS));
+        player.getHand().addCard(new BlackJackCard(Rank.NINE, Suit.CLUBS));
+        player.getHand().addCard(new BlackJackCard(Rank.SEVEN, Suit.DIAMONDS));
 
         GamePrints.printPlayersHands(player, bot, true);
 
