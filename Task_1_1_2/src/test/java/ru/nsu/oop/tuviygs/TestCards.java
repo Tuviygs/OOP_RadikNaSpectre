@@ -18,6 +18,9 @@ import java.util.Set;
  */
 public class TestCards {
 
+    /**
+     * тест развеовки.
+     */
     @Test
     @DisplayName("Проверка значений карт")
     public void testGetWeightForNumberCards() {
@@ -36,6 +39,10 @@ public class TestCards {
         assertEquals(11, CardWeights.getWeight(Rank.ACE));
     }
 
+
+    /**
+     * тест на то, что в колоде 52 разные карты.
+     */
     @Test
     @DisplayName("Тест создания полной колоды")
     public void testCreatingDeck() {

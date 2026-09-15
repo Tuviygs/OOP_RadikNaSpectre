@@ -16,6 +16,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class TestPlayer {
 
 
+    /**
+     * тест для new Player.
+     */
     @Test
     @DisplayName("Проверка создания игрока")
     public void testCreatingPlayer() {
@@ -23,6 +26,9 @@ public class TestPlayer {
         assertEquals(0, player.getHand().getCards().size());
     }
 
+    /**
+     * тест для summCount.
+     */
     @Test
     @DisplayName("Проверка подсёта суммы")
     public void testCountingSumm() {

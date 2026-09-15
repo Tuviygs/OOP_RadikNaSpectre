@@ -12,6 +12,9 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 public class TestUtils {
 
+    /**
+     * тест для new GameInfo.
+     */
     @Test
     @DisplayName("Проверка создания gameInfo")
     public void testCreatingGameInfo() {
@@ -25,6 +28,9 @@ public class TestUtils {
         assertEquals(GameResult.DRAW, gameInfo.getState());
     }
 
+    /**
+     * тест для newRound.
+     */
     @Test
     @DisplayName("Проверка нового раунда")
     public void testNewRound() {
@@ -33,6 +39,9 @@ public class TestUtils {
         assertEquals(2, gameInfo.getRoundNumber());
     }
 
+    /**
+     * тесть для letBotsTurn.
+     */
     @Test
     @DisplayName("Проверка переключения хода")
     public void testChangeTurn() {
@@ -41,6 +50,9 @@ public class TestUtils {
         assertTrue(gameInfo.getBotsTurn());
     }
 
+    /**
+     * тест для increase_wins.
+     */
     @Test
     @DisplayName("Проверка увеличения счётчиков")
     public void testWinsCounters() {
@@ -52,6 +64,9 @@ public class TestUtils {
         assertEquals(1, gameInfo.getBotWins());
     }
 
+    /**
+     * тест для changeState
+     */
     @Test
     @DisplayName("Проверка изменения статуса игры")
     public void testChangeStatus() {
