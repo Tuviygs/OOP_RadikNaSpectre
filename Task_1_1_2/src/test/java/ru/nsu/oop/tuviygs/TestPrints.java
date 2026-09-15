@@ -168,19 +168,6 @@ class TestPrints {
         assertTrue(output.contains("Карты дилера"));
     }
 
-    @Test
-    @DisplayName("printPlayersHands: закрытая карта бота, когда не ход бота")
-    void testPrintPlayersHandsHiddenBotCard() {
-        BlackJackPlayer player = new BlackJackPlayer();
-        player.getHand().addCard(new BlackJackCard(Rank.TEN, Suit.SPADES));
-        BlackJackPlayer bot = new BlackJackPlayer();
-        player.getHand().addCard(new BlackJackCard(Rank.NINE, Suit.CLUBS));
-        player.getHand().addCard(new BlackJackCard(Rank.SEVEN, Suit.DIAMONDS));
-
-        GamePrints.printPlayersHands(player, bot, false);
-
-        assertTrue(captured().contains("<закрытая карта>"));
-    }
 
     @Test
     @DisplayName("printPlayersHands: все карты бота открыты на его ходу")

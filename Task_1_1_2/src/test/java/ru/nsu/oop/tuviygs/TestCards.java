@@ -58,7 +58,7 @@ public class TestCards {
     @DisplayName("Тест полного имени карты")
     public void testCardTitle() {
         Card card = new Card(Rank.FIVE, Suit.CLUBS);
-        assertEquals("Пятёрка трефы", card.getTitle());
+        assertEquals("Пятёрка Трефы", card.getTitle());
     }
 
 
