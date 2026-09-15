@@ -26,10 +26,6 @@ public class BlackJackPlayer extends Player {
     private static final Integer BIG_ACE_COUNT_CHECK = 0;
 
 
-    /**
-     * является ли игрок ботом (дилером).
-     */
-    private boolean isBot;
 
     /**
      * сумма очков карт у игрока на руках.
@@ -41,19 +37,10 @@ public class BlackJackPlayer extends Player {
      */
     public BlackJackPlayer() {
         super();
-        this.isBot = false;
         this.summ = 0;
     }
 
-    /**
-     * создание нового игррока/бота.
-     *
-     * @param isBot - факт того, что это бот.
-     */
-    public BlackJackPlayer(boolean isBot) {
-        this();
-        this.isBot = isBot;
-    }
+
 
     public int getSumm() {
         this.countSumm();
@@ -61,8 +48,8 @@ public class BlackJackPlayer extends Player {
     }
 
     /**
-     //     * подсчёт суммы значений карт.
-     //     */
+     * подсчёт суммы значений карт.
+     */
     public void countSumm() {
         int summ = 0;
         int bigAceCount = 0;

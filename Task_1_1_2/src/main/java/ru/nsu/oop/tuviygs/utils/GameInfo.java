@@ -64,7 +64,7 @@ public class GameInfo {
      * Начало нового раунда.
      */
     public void newRound() {
-        this.bot = new BlackJackPlayer(true);
+        this.bot = new BlackJackPlayer();
         this.player = new BlackJackPlayer();
         this.roundNumber++;
         this.botsTurn = false;
@@ -93,6 +93,9 @@ public class GameInfo {
         return this.deck;
     }
 
+    /**
+     * узнать, чей ход.
+     */
     public boolean getBotsTurn() {
         return this.botsTurn;
     }
@@ -139,13 +142,13 @@ public class GameInfo {
         this.playerWins++;
     }
 
-    /**
-     * Увеличение счётчика раундов.
-     */
-    public void increaseRoundNumber() {
-        this.roundNumber++;
-    }
 
+
+    /**
+     * изменение состояния игры.
+     *
+     * @param gameResult - текущее состояние.
+     */
     public void changeState(GameResult gameResult) {
         this.state = gameResult;
     }
