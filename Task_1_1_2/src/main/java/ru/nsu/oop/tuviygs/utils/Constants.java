@@ -8,7 +8,7 @@ public class Constants {
     /**
      * сумма очков для блэкджека.
      */
-    public final static int BLACKJACK_SUMM = 21;
+    public static final int BLACKJACK_SUMM = 21;
 
 
 }

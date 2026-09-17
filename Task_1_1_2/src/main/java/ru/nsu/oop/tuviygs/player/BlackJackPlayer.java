@@ -71,7 +71,7 @@ public class BlackJackPlayer extends Player {
 
 
         while (summ > Constants.BLACKJACK_SUMM && bigAceCount > BIG_ACE_COUNT_CHECK) {
-            summ -= Rank.TEN.getValue() ;
+            summ -= Rank.TEN.getValue();
             bigAceCount--;
         }
 
