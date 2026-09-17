@@ -7,7 +7,11 @@ import java.util.HashSet;
 import java.util.Set;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import ru.nsu.oop.tuviygs.cards.*;
+
+import ru.nsu.oop.tuviygs.cards.Card;
+import ru.nsu.oop.tuviygs.cards.Deck;
+import ru.nsu.oop.tuviygs.cards.Rank;
+import ru.nsu.oop.tuviygs.cards.Suit;
 
 
 /**

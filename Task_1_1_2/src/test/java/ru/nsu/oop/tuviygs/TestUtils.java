@@ -1,9 +1,8 @@
 package ru.nsu.oop.tuviygs;
 
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+
+
 import ru.nsu.oop.tuviygs.cards.BlackJackCard;
 import ru.nsu.oop.tuviygs.cards.Deck;
 import ru.nsu.oop.tuviygs.cards.Rank;
@@ -13,7 +12,15 @@ import ru.nsu.oop.tuviygs.utils.GameInfo;
 import ru.nsu.oop.tuviygs.utils.GameResult;
 import ru.nsu.oop.tuviygs.utils.GameUtils;
 
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 
 
 /**
