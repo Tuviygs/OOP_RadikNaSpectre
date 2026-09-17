@@ -22,6 +22,10 @@ public enum Rank {
      * название ранга на русском.
      */
     private final String russianRank;
+
+    /**
+     * вес ранга.
+     */
     private final int value;
 
     /**
