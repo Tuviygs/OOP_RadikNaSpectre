@@ -66,6 +66,13 @@ public class Game {
     }
 
 
+    /**
+     * ход игрока.
+     *
+     * @param gameInfo - информация об игре.
+     * @param scanner - сканер
+     *                чтобы игрок мог остановиться
+     */
     private static void playersHits(GameInfo gameInfo, Scanner scanner) {
         if (gameInfo.getState() == GameResult.DRAW) {
             GamePrints.printPlayerTurn();
@@ -97,6 +104,11 @@ public class Game {
     }
 
 
+    /**
+     * ход бота.
+     *
+     * @param gameInfo - информация об игре
+     */
     private static void botsHits(GameInfo gameInfo) {
         if (gameInfo.getState() == GameResult.DRAW) {
             gameInfo.letBotsTurn();
@@ -121,6 +133,11 @@ public class Game {
     }
 
 
+    /**
+     * проверка исхода раунда.
+     *
+     * @param gameInfo - информация об игре
+     */
     private static void checkGameResult(GameInfo gameInfo) {
         if (gameInfo.getState() == GameResult.DRAW) {
             if (gameInfo.getBot().getSumm() == Constants.BLACKJACK_SUMM) {
