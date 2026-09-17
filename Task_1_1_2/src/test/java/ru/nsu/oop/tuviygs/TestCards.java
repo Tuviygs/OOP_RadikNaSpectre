@@ -1,17 +1,17 @@
 package ru.nsu.oop.tuviygs;
 
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.HashSet;
 import java.util.Set;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-
 import ru.nsu.oop.tuviygs.cards.Card;
 import ru.nsu.oop.tuviygs.cards.Deck;
 import ru.nsu.oop.tuviygs.cards.Rank;
 import ru.nsu.oop.tuviygs.cards.Suit;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 /**

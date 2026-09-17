@@ -4,7 +4,6 @@ package ru.nsu.oop.tuviygs.player;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import ru.nsu.oop.tuviygs.cards.Card;
 
 

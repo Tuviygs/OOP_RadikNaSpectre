@@ -11,7 +11,6 @@ import ru.nsu.oop.tuviygs.player.BlackJackPlayer;
 import ru.nsu.oop.tuviygs.utils.GameInfo;
 import ru.nsu.oop.tuviygs.utils.GameResult;
 import ru.nsu.oop.tuviygs.utils.GameUtils;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
