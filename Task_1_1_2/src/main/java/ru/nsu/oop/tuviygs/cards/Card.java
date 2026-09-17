@@ -44,4 +44,8 @@ public class Card {
         return title;
     }
 
+    protected Rank getRank() {
+        return this.name;
+    }
+
 }

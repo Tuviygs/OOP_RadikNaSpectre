@@ -18,7 +18,7 @@ public class BlackJackCard extends Card {
      */
     public BlackJackCard(Rank name, Suit suit) {
         super(name, suit);
-        this.value = CardWeights.getWeight(name);
+        this.value = this.getRank().getValue();
     }
 
     /**

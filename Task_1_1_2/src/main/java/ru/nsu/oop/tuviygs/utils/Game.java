@@ -41,72 +41,14 @@ public class Game {
 
             gameInfo.changeState(GameUtils.stateCheck(gameInfo.getPlayer()));
 
-            if (gameInfo.getState() == GameResult.DRAW) {
-                GamePrints.printPlayerTurn();
+            playersHits(gameInfo, scanner);
 
 
-                while (true) {
-
-                    GamePrints.printLetPlayerChooseCard();
-                    answer = scanner.nextInt();
-                    if (answer == 0) {
-                        break;
-                    }
-                    GameUtils.playerTakeCards(gameInfo.getPlayer(), 1, gameInfo.getDeck());
-
-                    BlackJackCard card = GameUtils.playerLastCard(gameInfo.getPlayer());
-                    GamePrints.printTakenCard(card);
-
-                    GamePrints.printPlayersHands(gameInfo.getPlayer(),
-                            gameInfo.getBot(), gameInfo.getBotsTurn());
-
-                    gameInfo.changeState(GameUtils.stateCheck(gameInfo.getPlayer()));
-
-                    if (gameInfo.getState() != GameResult.DRAW) {
-                        break;
-                    }
-
-                }
-            }
-
-            if (gameInfo.getState() == GameResult.DRAW) {
-                gameInfo.letBotsTurn();
-
-                GamePrints.printBotTurn();
-
-                BlackJackCard card = GameUtils.playerLastCard(gameInfo.getBot());
-                GamePrints.printOpenCardBot(card);
-                GamePrints.printPlayersHands(gameInfo.getPlayer(),
-                        gameInfo.getBot(), gameInfo.getBotsTurn());
-
-                while (gameInfo.getBot().getSumm() < MIN_BOT_POINTS) {
-                    GameUtils.playerTakeCards(gameInfo.getBot(), 1, gameInfo.getDeck());
-
-                    card = GameUtils.playerLastCard(gameInfo.getBot());
-                    GamePrints.printTakenCard(card);
-
-                    GamePrints.printPlayersHands(gameInfo.getPlayer(),
-                            gameInfo.getBot(), gameInfo.getBotsTurn());
-                }
-            }
-
-            if (gameInfo.getState() == GameResult.DRAW) {
-                if (gameInfo.getBot().getSumm() == Constants.BLACKJACK_SUMM) {
-                    gameInfo.changeState(GameResult.BOT_WIN);
-                } else if (gameInfo.getBot().getSumm() > Constants.BLACKJACK_SUMM) {
-                    gameInfo.changeState(GameResult.PLAYER_WIN);
-                } else {
-                    gameInfo.changeState(GameUtils.checkWin(gameInfo.getBot().getSumm(),
-                            gameInfo.getPlayer().getSumm()));
-                }
-            }
+            botsHits(gameInfo);
 
 
-            if (gameInfo.getState() == GameResult.BOT_WIN) {
-                gameInfo.increaseBotWins();
-            } else if (gameInfo.getState() == GameResult.PLAYER_WIN) {
-                gameInfo.increasePlayerWins();
-            }
+            checkGameResult(gameInfo);
+
 
             GamePrints.printWin(gameInfo.getState(),
                     gameInfo.getPlayerWins(), gameInfo.getBotWins());
@@ -120,6 +62,82 @@ public class Game {
                 gameInfo.newRound();
             }
 
+        }
+    }
+
+
+    private static void playersHits(GameInfo gameInfo, Scanner scanner) {
+        if (gameInfo.getState() == GameResult.DRAW) {
+            GamePrints.printPlayerTurn();
+
+
+            while (true) {
+
+                GamePrints.printLetPlayerChooseCard();
+                int answer = scanner.nextInt();
+                if (answer == 0) {
+                    break;
+                }
+                GameUtils.playerTakeCards(gameInfo.getPlayer(), 1, gameInfo.getDeck());
+
+                BlackJackCard card = GameUtils.playerLastCard(gameInfo.getPlayer());
+                GamePrints.printTakenCard(card);
+
+                GamePrints.printPlayersHands(gameInfo.getPlayer(),
+                        gameInfo.getBot(), gameInfo.getBotsTurn());
+
+                gameInfo.changeState(GameUtils.stateCheck(gameInfo.getPlayer()));
+
+                if (gameInfo.getState() != GameResult.DRAW) {
+                    break;
+                }
+
+            }
+        }
+    }
+
+
+    private static void botsHits(GameInfo gameInfo) {
+        if (gameInfo.getState() == GameResult.DRAW) {
+            gameInfo.letBotsTurn();
+
+            GamePrints.printBotTurn();
+
+            BlackJackCard card = GameUtils.playerLastCard(gameInfo.getBot());
+            GamePrints.printOpenCardBot(card);
+            GamePrints.printPlayersHands(gameInfo.getPlayer(),
+                    gameInfo.getBot(), gameInfo.getBotsTurn());
+
+            while (gameInfo.getBot().getSumm() < MIN_BOT_POINTS) {
+                GameUtils.playerTakeCards(gameInfo.getBot(), 1, gameInfo.getDeck());
+
+                card = GameUtils.playerLastCard(gameInfo.getBot());
+                GamePrints.printTakenCard(card);
+
+                GamePrints.printPlayersHands(gameInfo.getPlayer(),
+                        gameInfo.getBot(), gameInfo.getBotsTurn());
+            }
+        }
+    }
+
+
+    private static void checkGameResult(GameInfo gameInfo) {
+        if (gameInfo.getState() == GameResult.DRAW) {
+            if (gameInfo.getBot().getSumm() == Constants.BLACKJACK_SUMM) {
+                gameInfo.changeState(GameResult.BOT_WIN);
+            } else if (gameInfo.getBot().getSumm() > Constants.BLACKJACK_SUMM) {
+                gameInfo.changeState(GameResult.PLAYER_WIN);
+            } else {
+                gameInfo.changeState(GameUtils.checkWin(gameInfo.getBot().getSumm(),
+                        gameInfo.getPlayer().getSumm()));
+            }
+        }
+
+
+        if (gameInfo.getState() == GameResult.BOT_WIN) {
+            gameInfo.increaseBotWins();
+        } else if (gameInfo.getState() == GameResult.PLAYER_WIN) {
+            gameInfo.increasePlayerWins();
         }
     }
 }

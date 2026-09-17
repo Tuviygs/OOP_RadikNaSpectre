@@ -13,14 +13,14 @@ public class Deck {
     /**
      * ниндекс первой карты в колоде.
      */
-    protected static final Integer FIRST_CARD_IN_DECK = 0;
+    private static final Integer FIRST_CARD_IN_DECK = 0;
 
 
     /**
      * Динамический массив карт.
      * Используется для простого удаления/добавления карт
      */
-    protected List<Card> cards;
+    private List<Card> cards;
 
 
     /**

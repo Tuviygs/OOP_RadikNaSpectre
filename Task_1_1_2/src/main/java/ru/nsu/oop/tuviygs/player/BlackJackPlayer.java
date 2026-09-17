@@ -3,7 +3,6 @@ package ru.nsu.oop.tuviygs.player;
 
 import ru.nsu.oop.tuviygs.cards.BlackJackCard;
 import ru.nsu.oop.tuviygs.cards.Card;
-import ru.nsu.oop.tuviygs.cards.CardWeights;
 import ru.nsu.oop.tuviygs.cards.Rank;
 import ru.nsu.oop.tuviygs.utils.Constants;
 
@@ -71,8 +70,9 @@ public class BlackJackPlayer extends Player {
         }
 
 
-        if (summ > Constants.BLACKJACK_SUMM && bigAceCount > BIG_ACE_COUNT_CHECK) {
-            summ -= CardWeights.getWeight(Rank.ACE);
+        while (summ > Constants.BLACKJACK_SUMM && bigAceCount > BIG_ACE_COUNT_CHECK) {
+            summ -= Rank.TEN.getValue() ;
+            bigAceCount--;
         }
 
         this.summ = summ;
