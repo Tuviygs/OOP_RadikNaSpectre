@@ -1,5 +1,7 @@
 package ru.nsu.oop.tuviygs;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
@@ -9,7 +11,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import ru.nsu.oop.tuviygs.cards.BlackJackCard;
-import ru.nsu.oop.tuviygs.cards.Card;
 import ru.nsu.oop.tuviygs.cards.Rank;
 import ru.nsu.oop.tuviygs.cards.Suit;
 import ru.nsu.oop.tuviygs.player.BlackJackPlayer;
@@ -17,8 +18,7 @@ import ru.nsu.oop.tuviygs.utils.GameInfo;
 import ru.nsu.oop.tuviygs.utils.GamePrints;
 import ru.nsu.oop.tuviygs.utils.GameResult;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+
 
 
 /**
