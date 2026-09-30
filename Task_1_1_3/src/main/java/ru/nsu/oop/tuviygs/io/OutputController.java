@@ -24,5 +24,14 @@ public class OutputController {
     public static void printException(RuntimeException exception) {
         System.out.println(exception.getMessage());
     }
+
+    /**
+     * вывод значения.
+     *
+     * @param value - значение
+     */
+    public static void printValue(double value) {
+        System.out.println(Double.toString(value));
+    }
 }
 

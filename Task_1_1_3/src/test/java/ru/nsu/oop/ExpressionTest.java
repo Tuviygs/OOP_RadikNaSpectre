@@ -11,7 +11,7 @@ import ru.nsu.oop.tuviygs.expressions.Mul;
 import ru.nsu.oop.tuviygs.expressions.Number;
 import ru.nsu.oop.tuviygs.expressions.Sub;
 import ru.nsu.oop.tuviygs.expressions.Variable;
-import ru.nsu.oop.tuviygs.parser.StrokeParser;
+import ru.nsu.oop.tuviygs.parser.StringParser;
 
 
 
@@ -25,7 +25,7 @@ public class ExpressionTest {
      */
     @Test
     void parseSingleNumber() {
-        Expression e = StrokeParser.parseExpression("42");
+        Expression e = StringParser.parseExpression("42");
         assertInstanceOf(Number.class, e);
         assertEquals(42, ((ru.nsu.oop.tuviygs.expressions.Number) e).getValue());
     }
@@ -36,7 +36,7 @@ public class ExpressionTest {
      */
     @Test
     void parseSingleVariable() {
-        Expression e = StrokeParser.parseExpression("x");
+        Expression e = StringParser.parseExpression("x");
         assertInstanceOf(Variable.class, e);
         assertEquals("x", e.getExpressionVisual());
     }
@@ -46,7 +46,7 @@ public class ExpressionTest {
      */
     @Test
     void parseMultiLetterVariable() {
-        Expression e = StrokeParser.parseExpression("abc");
+        Expression e = StringParser.parseExpression("abc");
         assertInstanceOf(Variable.class, e);
         assertEquals("abc", e.getExpressionVisual());
     }
@@ -56,7 +56,7 @@ public class ExpressionTest {
      */
     @Test
     void parseAddition() {
-        Expression e = StrokeParser.parseExpression("(2+3)");
+        Expression e = StringParser.parseExpression("(2+3)");
         assertInstanceOf(Add.class, e);
         assertEquals("(2+3)", e.getExpressionVisual());
     }
@@ -66,7 +66,7 @@ public class ExpressionTest {
      */
     @Test
     void parseSubtraction() {
-        Expression e = StrokeParser.parseExpression("(5-2)");
+        Expression e = StringParser.parseExpression("(5-2)");
         assertInstanceOf(Sub.class, e);
         assertEquals("(5-2)", e.getExpressionVisual());
     }
@@ -76,7 +76,7 @@ public class ExpressionTest {
      */
     @Test
     void parseMultiplication() {
-        Expression e = StrokeParser.parseExpression("(4*7)");
+        Expression e = StringParser.parseExpression("(4*7)");
         assertInstanceOf(Mul.class, e);
         assertEquals("(4*7)", e.getExpressionVisual());
     }
@@ -86,7 +86,7 @@ public class ExpressionTest {
      */
     @Test
     void parseDivision() {
-        Expression e = StrokeParser.parseExpression("(8/2)");
+        Expression e = StringParser.parseExpression("(8/2)");
         assertInstanceOf(Div.class, e);
         assertEquals("(8/2)", e.getExpressionVisual());
     }
@@ -94,7 +94,7 @@ public class ExpressionTest {
 
     @Test
     void parseNestedExpression() {
-        Expression e = StrokeParser.parseExpression("(2+(3*x))");
+        Expression e = StringParser.parseExpression("(2+(3*x))");
         assertInstanceOf(Add.class, e);
         Add add = (Add) e;
         assertInstanceOf(Number.class, add.getExpression1());

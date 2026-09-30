@@ -8,30 +8,30 @@ public class ParseUtils {
     /**
      * убираем внешние скобки.
      *
-     * @param stroke - входная строка
+     * @param string - входная строка
      */
-    static String deleteExtraBrackets(String stroke) {
+    static String deleteExtraBrackets(String string) {
         int index = 0;
-        int len = stroke.length();
-        if (stroke.charAt(index) == '(' && stroke.charAt(len - 1) == ')') {
-            return stroke.substring(1, len - 1);
+        int len = string.length();
+        if (string.charAt(index) == '(' && string.charAt(len - 1) == ')') {
+            return string.substring(1, len - 1);
         } else {
-            return stroke;
+            return string;
         }
     }
 
     /**
      * нахождение разделяющего символа.
      *
-     * @param stroke - входная строка.
+     * @param string - входная строка.
      */
-    static int getDividingOperationIndex(String stroke) {
-        int len = stroke.length();
+    static int getDividingOperationIndex(String string) {
+        int len = string.length();
         int bracketCount = 0;
         int index = 0;
 
         while (index < len) {
-            char currentChar = stroke.charAt(index);
+            char currentChar = string.charAt(index);
             if (currentChar == '(') {
                 bracketCount++;
             }

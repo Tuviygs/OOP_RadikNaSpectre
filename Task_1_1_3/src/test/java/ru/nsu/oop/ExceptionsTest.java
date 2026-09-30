@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.Test;
 import ru.nsu.oop.tuviygs.exceptions.ExpressionException;
-import ru.nsu.oop.tuviygs.parser.StrokeParser;
+import ru.nsu.oop.tuviygs.parser.StringParser;
 
 
 
@@ -19,7 +19,7 @@ public class ExceptionsTest {
     @Test
     void invalidCharacterThrows() {
         assertThrows(ExpressionException.class,
-                () -> StrokeParser.parseExpression("(2+3$)"));
+                () -> StringParser.parseExpression("(2+3$)"));
     }
 
     /**
@@ -28,6 +28,6 @@ public class ExceptionsTest {
     @Test
     void mixedLettersAndDigitsInOperandThrows() {
         assertThrows(ExpressionException.class,
-                () -> StrokeParser.parseExpression("(x1+y)"));
+                () -> StringParser.parseExpression("(x1+y)"));
     }
 }

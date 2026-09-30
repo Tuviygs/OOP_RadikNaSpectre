@@ -1,14 +1,14 @@
 package ru.nsu.oop.tuviygs;
 
-import ru.nsu.oop.tuviygs.calculator.Calculation;
 import ru.nsu.oop.tuviygs.exceptions.ExpressionException;
 import ru.nsu.oop.tuviygs.expressions.Add;
 import ru.nsu.oop.tuviygs.expressions.Expression;
 import ru.nsu.oop.tuviygs.expressions.Mul;
 import ru.nsu.oop.tuviygs.expressions.Variable;
 import ru.nsu.oop.tuviygs.expressions.Number;
+import ru.nsu.oop.tuviygs.io.InputController;
 import ru.nsu.oop.tuviygs.io.OutputController;
-import ru.nsu.oop.tuviygs.differentioator.Differentiation;
+import ru.nsu.oop.tuviygs.parser.StringParser;
 
 /**
  * мейн.
@@ -22,26 +22,18 @@ public class Main {
      */
     public static void main(String[] args) {
 
-        Expression e = new Add(new Number(3), new Mul(new Number(2),
-                new Variable("x")));
+        InputController inputController = new InputController();
 
+        String inputString = inputController.getInput();
+        Expression e = StringParser.parseExpression(inputString);
         OutputController.printExpression(e);
 
-        try {
-            Expression de = Differentiation.differentiateExpression(e, "x");
-            OutputController.printExpression(de);
-        } catch (ExpressionException exception) {
-            OutputController.printException(exception);
-            return;
-        }
+        inputString = inputController.getInput();
+        double value = e.calculateExpression(inputString);
+        OutputController.printValue(value);
 
-        try {
-            double result = Calculation.calculateExpression(e, "x = 10; y = 13");
-            System.out.println(result);
-        } catch (ExpressionException exception) {
-            OutputController.printException(exception);
-            return;
-        }
-
+        inputString = inputController.getInput();
+        Expression ed = e.differentiateExpression(inputString);
+        OutputController.printExpression(ed);
     }
 }
