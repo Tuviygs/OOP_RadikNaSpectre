@@ -1,9 +1,14 @@
-package ru.nsu.oop.tuviygs.Calculator;
+package ru.nsu.oop.tuviygs.calculator;
 
 
-import ru.nsu.oop.tuviygs.Exceptions.ExpressionException;
-import ru.nsu.oop.tuviygs.Expressions.*;
-import ru.nsu.oop.tuviygs.Expressions.Number;
+import ru.nsu.oop.tuviygs.exceptions.ExpressionException;
+import ru.nsu.oop.tuviygs.expressions.Add;
+import ru.nsu.oop.tuviygs.expressions.Div;
+import ru.nsu.oop.tuviygs.expressions.Expression;
+import ru.nsu.oop.tuviygs.expressions.Mul;
+import ru.nsu.oop.tuviygs.expressions.Number;
+import ru.nsu.oop.tuviygs.expressions.Sub;
+import ru.nsu.oop.tuviygs.expressions.Variable;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -88,7 +93,6 @@ public class Calculation {
      *
      * @param expression - выражение
      * @param variables - значения переменных
-     * @return
      */
     private static double calculateSub(Expression expression, Map variables) {
         Expression expression1 = ((Sub) expression).getExpression1();

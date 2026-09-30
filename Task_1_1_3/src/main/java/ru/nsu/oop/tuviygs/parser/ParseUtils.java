@@ -1,4 +1,4 @@
-package ru.nsu.oop.tuviygs.Parser;
+package ru.nsu.oop.tuviygs.parser;
 
 /**
  * вспомогательные инструменты для парсера.

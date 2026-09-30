@@ -1,11 +1,11 @@
-package ru.nsu.oop.tuviygs.Differentioator;
+package ru.nsu.oop.tuviygs.differentioator;
 
-import ru.nsu.oop.tuviygs.Expressions.Add;
-import ru.nsu.oop.tuviygs.Expressions.Div;
-import ru.nsu.oop.tuviygs.Expressions.Expression;
-import ru.nsu.oop.tuviygs.Expressions.Mul;
-import ru.nsu.oop.tuviygs.Expressions.Number;
-import ru.nsu.oop.tuviygs.Expressions.Sub;
+import ru.nsu.oop.tuviygs.expressions.Add;
+import ru.nsu.oop.tuviygs.expressions.Div;
+import ru.nsu.oop.tuviygs.expressions.Expression;
+import ru.nsu.oop.tuviygs.expressions.Mul;
+import ru.nsu.oop.tuviygs.expressions.Number;
+import ru.nsu.oop.tuviygs.expressions.Sub;
 
 /**
  * дифференцирование выражений.

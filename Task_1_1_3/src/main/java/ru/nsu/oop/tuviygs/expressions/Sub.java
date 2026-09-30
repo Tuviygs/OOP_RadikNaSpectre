@@ -1,4 +1,4 @@
-package ru.nsu.oop.tuviygs.Expressions;
+package ru.nsu.oop.tuviygs.expressions;
 
 
 /**
@@ -11,7 +11,8 @@ public class Sub extends BinExpression {
      */
     public Sub(Expression expression1, Expression expression2) {
         super(expression1, expression2);
-        this.visual = "(" + expression1.getExpressionVisual() + "*" + expression2.getExpressionVisual() + ")";
+        this.visual = "(" + expression1.getExpressionVisual()
+                + "*" + expression2.getExpressionVisual() + ")";
     }
 
 

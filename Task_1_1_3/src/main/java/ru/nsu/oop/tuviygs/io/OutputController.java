@@ -1,7 +1,6 @@
-package ru.nsu.oop.tuviygs.IO;
+package ru.nsu.oop.tuviygs.io;
 
-import ru.nsu.oop.tuviygs.Exceptions.ExpressionException;
-import ru.nsu.oop.tuviygs.Expressions.Expression;
+import ru.nsu.oop.tuviygs.expressions.Expression;
 
 /**
  * контроллер вывода.

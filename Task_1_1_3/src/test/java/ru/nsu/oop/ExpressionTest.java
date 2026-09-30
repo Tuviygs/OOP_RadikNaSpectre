@@ -1,13 +1,19 @@
 package ru.nsu.oop;
 
-import org.junit.jupiter.api.Test;
-import ru.nsu.oop.tuviygs.Expressions.*;
-import ru.nsu.oop.tuviygs.Parser.StrokeParser;
-
-import java.lang.Number;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertInstanceOf;
+
+import org.junit.jupiter.api.Test;
+import ru.nsu.oop.tuviygs.expressions.Add;
+import ru.nsu.oop.tuviygs.expressions.Div;
+import ru.nsu.oop.tuviygs.expressions.Expression;
+import ru.nsu.oop.tuviygs.expressions.Mul;
+import ru.nsu.oop.tuviygs.expressions.Number;
+import ru.nsu.oop.tuviygs.expressions.Sub;
+import ru.nsu.oop.tuviygs.expressions.Variable;
+import ru.nsu.oop.tuviygs.parser.StrokeParser;
+
+
 
 /**
  * тесты.
@@ -21,7 +27,7 @@ public class ExpressionTest {
     void parseSingleNumber() {
         Expression e = StrokeParser.parseExpression("42");
         assertInstanceOf(Number.class, e);
-        assertEquals(42, ((ru.nsu.oop.tuviygs.Expressions.Number) e).getValue());
+        assertEquals(42, ((ru.nsu.oop.tuviygs.expressions.Number) e).getValue());
     }
 
 

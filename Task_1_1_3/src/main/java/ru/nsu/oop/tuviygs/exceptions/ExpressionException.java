@@ -1,4 +1,4 @@
-package ru.nsu.oop.tuviygs.Exceptions;
+package ru.nsu.oop.tuviygs.exceptions;
 
 
 /**

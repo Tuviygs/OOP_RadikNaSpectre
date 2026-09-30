@@ -1,4 +1,4 @@
-package ru.nsu.oop.tuviygs.Expressions;
+package ru.nsu.oop.tuviygs.expressions;
 
 /**
  * переменные.

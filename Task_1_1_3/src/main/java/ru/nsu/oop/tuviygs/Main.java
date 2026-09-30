@@ -1,14 +1,14 @@
 package ru.nsu.oop.tuviygs;
 
-import ru.nsu.oop.tuviygs.Calculator.Calculation;
-import ru.nsu.oop.tuviygs.Exceptions.ExpressionException;
-import ru.nsu.oop.tuviygs.Expressions.Add;
-import ru.nsu.oop.tuviygs.Expressions.Expression;
-import ru.nsu.oop.tuviygs.Expressions.Mul;
-import ru.nsu.oop.tuviygs.Expressions.Variable;
-import ru.nsu.oop.tuviygs.Expressions.Number;
-import ru.nsu.oop.tuviygs.IO.OutputController;
-import ru.nsu.oop.tuviygs.Differentioator.Differentiation;
+import ru.nsu.oop.tuviygs.calculator.Calculation;
+import ru.nsu.oop.tuviygs.exceptions.ExpressionException;
+import ru.nsu.oop.tuviygs.expressions.Add;
+import ru.nsu.oop.tuviygs.expressions.Expression;
+import ru.nsu.oop.tuviygs.expressions.Mul;
+import ru.nsu.oop.tuviygs.expressions.Variable;
+import ru.nsu.oop.tuviygs.expressions.Number;
+import ru.nsu.oop.tuviygs.io.OutputController;
+import ru.nsu.oop.tuviygs.differentioator.Differentiation;
 
 /**
  * мейн.

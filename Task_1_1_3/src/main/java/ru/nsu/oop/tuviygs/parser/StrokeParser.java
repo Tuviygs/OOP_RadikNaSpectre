@@ -1,9 +1,14 @@
-package ru.nsu.oop.tuviygs.Parser;
+package ru.nsu.oop.tuviygs.parser;
 
-import ru.nsu.oop.tuviygs.Exceptions.ExpressionException;
-import ru.nsu.oop.tuviygs.Expressions.*;
-import ru.nsu.oop.tuviygs.Expressions.Number;
-import ru.nsu.oop.tuviygs.IO.OutputController;
+import ru.nsu.oop.tuviygs.exceptions.ExpressionException;
+import ru.nsu.oop.tuviygs.expressions.Add;
+import ru.nsu.oop.tuviygs.expressions.Div;
+import ru.nsu.oop.tuviygs.expressions.Expression;
+import ru.nsu.oop.tuviygs.expressions.Mul;
+import ru.nsu.oop.tuviygs.expressions.Number;
+import ru.nsu.oop.tuviygs.expressions.Sub;
+import ru.nsu.oop.tuviygs.expressions.Variable;
+
 
 /**
  * парсинг входящего выражения.
@@ -56,9 +61,9 @@ public class StrokeParser {
                 letterCounter++;
             } else {
                 throw new ExpressionException("Некорректный ввод.\n"
-                + "Обнаружен символ " + symbol
-                + ";\nДопустимы только цифры, буквы и символы {/, *, +, -, (, )}.\n"
-                + "Любая операция должна быть в скобках.\n");
+                    + "Обнаружен символ " + symbol
+                    + ";\nДопустимы только цифры, буквы и символы {/, *, +, -, (, )}.\n"
+                    + "Любая операция должна быть в скобках.\n");
             }
         }
         if (digitCounter == 0) {
