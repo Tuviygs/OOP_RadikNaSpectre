@@ -30,7 +30,7 @@ public class Div extends BinExpression {
         }
 
         return this.expression1.calculate(variables)
-                / this.expression1.calculate(variables);
+                / this.expression2.calculate(variables);
     }
 
 

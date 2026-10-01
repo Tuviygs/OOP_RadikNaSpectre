@@ -91,7 +91,9 @@ public class ExpressionTest {
         assertEquals("(8/2)", e.getExpressionVisual());
     }
 
-
+    /**
+     * тест вложенного выражения.
+     */
     @Test
     void parseNestedExpression() {
         Expression e = StringParser.parseExpression("(2+(3*x))");
