@@ -28,10 +28,9 @@ public class ParseUtils {
     static int getDividingOperationIndex(String string) {
         int len = string.length();
         int bracketCount = 0;
-        int index = 0;
 
-        while (index < len) {
-            char currentChar = string.charAt(index);
+        for (int i = 0; i < len; i++) {
+            char currentChar = string.charAt(i);
             if (currentChar == '(') {
                 bracketCount++;
             }
@@ -42,9 +41,8 @@ public class ParseUtils {
             if ((currentChar == '+' || currentChar == '-'
                     || currentChar == '/' || currentChar == '*')
                     && bracketCount == 0) {
-                return index;
+                return i;
             }
-            index++;
         }
 
         return -1;
