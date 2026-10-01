@@ -1,11 +1,7 @@
 package ru.nsu.oop.tuviygs;
 
 import ru.nsu.oop.tuviygs.exceptions.ExpressionException;
-import ru.nsu.oop.tuviygs.expressions.Add;
 import ru.nsu.oop.tuviygs.expressions.Expression;
-import ru.nsu.oop.tuviygs.expressions.Mul;
-import ru.nsu.oop.tuviygs.expressions.Variable;
-import ru.nsu.oop.tuviygs.expressions.Number;
 import ru.nsu.oop.tuviygs.io.InputController;
 import ru.nsu.oop.tuviygs.io.OutputController;
 import ru.nsu.oop.tuviygs.parser.StringParser;
@@ -25,15 +21,33 @@ public class Main {
         InputController inputController = new InputController();
 
         String inputString = inputController.getInput();
-        Expression e = StringParser.parseExpression(inputString);
-        OutputController.printExpression(e);
+        Expression e;
+        try {
+            e = StringParser.parseExpression(inputString);
+            OutputController.printExpression(e);
+        } catch (ExpressionException exception) {
+            OutputController.printException(exception);
+            return;
+        }
+
 
         inputString = inputController.getInput();
-        double value = e.calculateExpression(inputString);
-        OutputController.printValue(value);
+        try {
+            double value = e.calculateExpression(inputString);
+            OutputController.printValue(value);
+        } catch (ExpressionException exception) {
+            OutputController.printException(exception);
+        }
+
+
 
         inputString = inputController.getInput();
-        Expression ed = e.differentiateExpression(inputString);
-        OutputController.printExpression(ed);
+        try {
+            Expression ed = e.differentiateExpression(inputString);
+            OutputController.printExpression(ed);
+        } catch (ExpressionException exception) {
+            OutputController.printException(exception);
+        }
+
     }
 }

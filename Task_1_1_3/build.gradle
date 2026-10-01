@@ -7,14 +7,18 @@ plugins {
 group = 'ru.nsu.oop.tuviygs'
 version = '1.0-SNAPSHOT'
 
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+
 repositories {
     mavenCentral()
 }
 
-java {
-    sourceCompatibility = JavaVersion.VERSION_21
-    targetCompatibility = JavaVersion.VERSION_21
-}
 
 dependencies {
     testImplementation platform('org.junit:junit-bom:5.10.0')

@@ -1,10 +1,11 @@
 package ru.nsu.oop.tuviygs.expressions;
 
-import ru.nsu.oop.tuviygs.exceptions.ExpressionException;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import ru.nsu.oop.tuviygs.exceptions.ExpressionException;
 
 /**
  * общий класс выражения.
@@ -18,6 +19,9 @@ public class Expression {
      */
     protected String visual;
 
+    /**
+     * создание выражения.
+     */
     public Expression() {
     }
 
@@ -64,7 +68,8 @@ public class Expression {
             case Variable var  -> var.calculateVariable(variables);
             case Number num    -> (double) num.getValue();
 
-            default -> throw new ExpressionException("Неизвестный тип выражения: " + this.getClass());
+            default -> throw new ExpressionException("Неизвестный тип выражения: "
+                    + this.getClass());
         };
     }
 
@@ -83,10 +88,12 @@ public class Expression {
             case Variable var  -> var.differentiateVariable(variable);
             case Number num    -> new Number(0);
 
-            default -> throw new ExpressionException("Неизвестный тип выражения: " + this.getClass());
+            default -> throw new ExpressionException("Неизвестный тип выражения: "
+                    + this.getClass());
         };
 
     }
+
     /**
      * создание словаря с переменными.
      *

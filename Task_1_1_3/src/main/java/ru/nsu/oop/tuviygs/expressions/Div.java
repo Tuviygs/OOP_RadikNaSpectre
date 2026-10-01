@@ -1,8 +1,9 @@
 package ru.nsu.oop.tuviygs.expressions;
 
-import ru.nsu.oop.tuviygs.exceptions.ExpressionException;
 
 import java.util.Map;
+
+import ru.nsu.oop.tuviygs.exceptions.ExpressionException;
 
 /**
  * деление.
