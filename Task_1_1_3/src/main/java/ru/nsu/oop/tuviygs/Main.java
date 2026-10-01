@@ -25,30 +25,34 @@ public class Main {
         Expression e;
         try {
             e = StringParser.parseExpression(inputString);
-            OutputController.printExpression(e);
         } catch (ExpressionException exception) {
             OutputController.printException(exception);
             return;
         }
+        OutputController.printExpression(e);
 
 
         inputString = inputController.getInput();
+        double value;
         try {
-            double value = e.calculateExpression(inputString);
-            OutputController.printValue(value);
+            value = e.calculateExpression(inputString);
         } catch (ExpressionException exception) {
             OutputController.printException(exception);
+            return;
         }
+        OutputController.printValue(value);
 
 
 
         inputString = inputController.getInput();
+        Expression ed;
         try {
-            Expression ed = e.differentiateExpression(inputString);
-            OutputController.printExpression(ed);
+            ed = e.differentiateExpression(inputString);
         } catch (ExpressionException exception) {
             OutputController.printException(exception);
+            return;
         }
+        OutputController.printExpression(ed);
 
     }
 }
