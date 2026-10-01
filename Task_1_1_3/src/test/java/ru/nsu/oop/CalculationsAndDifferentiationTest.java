@@ -28,7 +28,7 @@ public class CalculationsAndDifferentiationTest {
     void calculationTest2() {
         Expression e = StringParser.parseExpression("((5-x)*(x*3))");
         double val = e.calculateExpression("x = 2");
-        assertEquals(12.0, val);
+        assertEquals(18.0, val);
     }
 
     /**
