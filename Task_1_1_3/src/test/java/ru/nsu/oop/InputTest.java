@@ -1,13 +1,15 @@
 package ru.nsu.oop;
 
-import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 
+import org.junit.jupiter.api.Test;
 import ru.nsu.oop.tuviygs.io.InputController;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * тест ввода
