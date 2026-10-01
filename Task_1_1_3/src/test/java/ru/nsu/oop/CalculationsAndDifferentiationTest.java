@@ -57,8 +57,8 @@ public class CalculationsAndDifferentiationTest {
      */
     @Test
     void differentiationTest2() {
-        Expression e = StringParser.parseExpression("((2-x)/3)");
+        Expression e = StringParser.parseExpression("((y-x)/3)");
         Expression de = e.differentiateExpression("x");
-        assertEquals("((((0-1)*3)-((2-x)*0))/(3*3))", de.getExpressionVisual());
+        assertEquals("((((0-1)*3)-((y-x)*0))/(3*3))", de.getExpressionVisual());
     }
 }
