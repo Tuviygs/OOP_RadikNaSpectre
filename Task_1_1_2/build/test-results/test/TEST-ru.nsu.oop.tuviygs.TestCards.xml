@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ru.nsu.oop.tuviygs.TestCards" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-09-15T18:32:47.294Z" hostname="Tuviygs" time="0.008">
+  <properties/>
+  <testcase name="Тест создания полной колоды" classname="ru.nsu.oop.tuviygs.TestCards" time="0.003"/>
+  <testcase name="Проверка значений карт" classname="ru.nsu.oop.tuviygs.TestCards" time="0.001"/>
+  <testcase name="Тест полного имени карты" classname="ru.nsu.oop.tuviygs.TestCards" time="0.003"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

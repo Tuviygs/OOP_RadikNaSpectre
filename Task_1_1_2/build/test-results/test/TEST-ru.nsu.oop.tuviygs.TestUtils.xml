@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ru.nsu.oop.tuviygs.TestUtils" tests="10" skipped="0" failures="0" errors="0" timestamp="2026-09-15T18:32:47.310Z" hostname="Tuviygs" time="0.024">
+  <properties/>
+  <testcase name="Меньше 21 — ничья (продолжаем)" classname="ru.nsu.oop.tuviygs.TestUtils" time="0.002"/>
+  <testcase name="Больше 21 — игрок проиграл" classname="ru.nsu.oop.tuviygs.TestUtils" time="0.002"/>
+  <testcase name="Возвращает последней добавленной карты" classname="ru.nsu.oop.tuviygs.TestUtils" time="0.002"/>
+  <testcase name="21 очко — игрок выиграл" classname="ru.nsu.oop.tuviygs.TestUtils" time="0.0"/>
+  <testcase name="Взятие одной карты" classname="ru.nsu.oop.tuviygs.TestUtils" time="0.003"/>
+  <testcase name="Проверка изменения статуса игры" classname="ru.nsu.oop.tuviygs.TestUtils" time="0.001"/>
+  <testcase name="Проверка создания gameInfo" classname="ru.nsu.oop.tuviygs.TestUtils" time="0.001"/>
+  <testcase name="Проверка переключения хода" classname="ru.nsu.oop.tuviygs.TestUtils" time="0.001"/>
+  <testcase name="Проверка увеличения счётчиков" classname="ru.nsu.oop.tuviygs.TestUtils" time="0.001"/>
+  <testcase name="Проверка нового раунда" classname="ru.nsu.oop.tuviygs.TestUtils" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

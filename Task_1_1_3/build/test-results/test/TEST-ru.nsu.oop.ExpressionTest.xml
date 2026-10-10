@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ru.nsu.oop.ExpressionTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2026-10-01T03:00:51.196Z" hostname="Tuviygs" time="0.019">
+  <properties/>
+  <testcase name="parseAddition()" classname="ru.nsu.oop.ExpressionTest" time="0.003"/>
+  <testcase name="parseSingleVariable()" classname="ru.nsu.oop.ExpressionTest" time="0.002"/>
+  <testcase name="parseSingleNumber()" classname="ru.nsu.oop.ExpressionTest" time="0.001"/>
+  <testcase name="parseDivision()" classname="ru.nsu.oop.ExpressionTest" time="0.001"/>
+  <testcase name="parseNestedExpression()" classname="ru.nsu.oop.ExpressionTest" time="0.001"/>
+  <testcase name="parseMultiplication()" classname="ru.nsu.oop.ExpressionTest" time="0.001"/>
+  <testcase name="parseMultiLetterVariable()" classname="ru.nsu.oop.ExpressionTest" time="0.001"/>
+  <testcase name="parseSubtraction()" classname="ru.nsu.oop.ExpressionTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

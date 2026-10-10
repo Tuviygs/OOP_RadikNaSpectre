@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Game.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Task_1_1_2</a> &gt; <a href="index.source.html" class="el_package">ru.nsu.oop.tuviygs.utils</a> &gt; <span class="el_source">Game.java</span></div><h1>Game.java</h1><pre class="source lang-java linenums">package ru.nsu.oop.tuviygs.utils;
+
+import java.util.Scanner;
+import ru.nsu.oop.tuviygs.cards.BlackJackCard;
+
+
+
+
+/**
+ * Класс хранит игровую колоду, раунд.
+ * включает двух игроков
+ * имеет вспомогательые методы для игры
+ */
+<span class="nc" id="L14">public class Game {</span>
+
+    /**
+     * Количество очков, до которого дилер набирает карты.
+     */
+<span class="nc" id="L19">    private static final Integer MIN_BOT_POINTS = 17;</span>
+
+
+    /**
+     * Ход игры.
+     */
+    public static void startGame() {
+<span class="nc" id="L26">        Scanner scanner = new Scanner(System.in);</span>
+        int answer;
+<span class="nc" id="L28">        GameInfo gameInfo = new GameInfo();</span>
+
+<span class="nc" id="L30">        GamePrints.printHello();</span>
+
+        while (true) {
+<span class="nc" id="L33">            GamePrints.printRound(gameInfo);</span>
+
+<span class="nc" id="L35">            GameUtils.playerTakeCards(gameInfo.getBot(), 2, gameInfo.getDeck());</span>
+<span class="nc" id="L36">            GameUtils.playerTakeCards(gameInfo.getPlayer(), 2, gameInfo.getDeck());</span>
+
+<span class="nc" id="L38">            GamePrints.printPlayersHands(gameInfo.getPlayer(),</span>
+<span class="nc" id="L39">                    gameInfo.getBot(), gameInfo.getBotsTurn());</span>
+
+
+<span class="nc" id="L42">            gameInfo.changeState(GameUtils.stateCheck(gameInfo.getPlayer()));</span>
+
+<span class="nc bnc" id="L44" title="All 2 branches missed.">            if (gameInfo.getState() == GameResult.DRAW) {</span>
+<span class="nc" id="L45">                GamePrints.printPlayerTurn();</span>
+
+
+                while (true) {
+
+<span class="nc" id="L50">                    GamePrints.printLetPlayerChooseCard();</span>
+<span class="nc" id="L51">                    answer = scanner.nextInt();</span>
+<span class="nc bnc" id="L52" title="All 2 branches missed.">                    if (answer == 0) {</span>
+<span class="nc" id="L53">                        break;</span>
+                    }
+<span class="nc" id="L55">                    GameUtils.playerTakeCards(gameInfo.getPlayer(), 1, gameInfo.getDeck());</span>
+
+<span class="nc" id="L57">                    BlackJackCard card = GameUtils.playerLastCard(gameInfo.getPlayer());</span>
+<span class="nc" id="L58">                    GamePrints.printTakenCard(card);</span>
+
+<span class="nc" id="L60">                    GamePrints.printPlayersHands(gameInfo.getPlayer(),</span>
+<span class="nc" id="L61">                            gameInfo.getBot(), gameInfo.getBotsTurn());</span>
+
+<span class="nc" id="L63">                    gameInfo.changeState(GameUtils.stateCheck(gameInfo.getPlayer()));</span>
+
+<span class="nc bnc" id="L65" title="All 2 branches missed.">                    if (gameInfo.getState() != GameResult.DRAW) {</span>
+<span class="nc" id="L66">                        break;</span>
+                    }
+
+<span class="nc" id="L69">                }</span>
+            }
+
+<span class="nc bnc" id="L72" title="All 2 branches missed.">            if (gameInfo.getState() == GameResult.DRAW) {</span>
+<span class="nc" id="L73">                gameInfo.letBotsTurn();</span>
+
+<span class="nc" id="L75">                GamePrints.printBotTurn();</span>
+
+<span class="nc" id="L77">                BlackJackCard card = GameUtils.playerLastCard(gameInfo.getBot());</span>
+<span class="nc" id="L78">                GamePrints.printOpenCardBot(card);</span>
+<span class="nc" id="L79">                GamePrints.printPlayersHands(gameInfo.getPlayer(),</span>
+<span class="nc" id="L80">                        gameInfo.getBot(), gameInfo.getBotsTurn());</span>
+
+<span class="nc bnc" id="L82" title="All 2 branches missed.">                while (gameInfo.getBot().getSumm() &lt; MIN_BOT_POINTS) {</span>
+<span class="nc" id="L83">                    GameUtils.playerTakeCards(gameInfo.getBot(), 1, gameInfo.getDeck());</span>
+
+<span class="nc" id="L85">                    card = GameUtils.playerLastCard(gameInfo.getBot());</span>
+<span class="nc" id="L86">                    GamePrints.printTakenCard(card);</span>
+
+<span class="nc" id="L88">                    GamePrints.printPlayersHands(gameInfo.getPlayer(),</span>
+<span class="nc" id="L89">                            gameInfo.getBot(), gameInfo.getBotsTurn());</span>
+                }
+            }
+
+<span class="nc bnc" id="L93" title="All 2 branches missed.">            if (gameInfo.getState() == GameResult.DRAW) {</span>
+<span class="nc bnc" id="L94" title="All 2 branches missed.">                if (gameInfo.getBot().getSumm() == Constants.BLACKJACK_SUMM) {</span>
+<span class="nc" id="L95">                    gameInfo.changeState(GameResult.BOT_WIN);</span>
+<span class="nc bnc" id="L96" title="All 2 branches missed.">                } else if (gameInfo.getBot().getSumm() &gt; Constants.BLACKJACK_SUMM) {</span>
+<span class="nc" id="L97">                    gameInfo.changeState(GameResult.PLAYER_WIN);</span>
+                } else {
+<span class="nc" id="L99">                    gameInfo.changeState(GameUtils.checkWin(gameInfo.getBot().getSumm(),</span>
+<span class="nc" id="L100">                            gameInfo.getPlayer().getSumm()));</span>
+                }
+            }
+
+
+<span class="nc bnc" id="L105" title="All 2 branches missed.">            if (gameInfo.getState() == GameResult.BOT_WIN) {</span>
+<span class="nc" id="L106">                gameInfo.increaseBotWins();</span>
+<span class="nc bnc" id="L107" title="All 2 branches missed.">            } else if (gameInfo.getState() == GameResult.PLAYER_WIN) {</span>
+<span class="nc" id="L108">                gameInfo.increasePlayerWins();</span>
+            }
+
+<span class="nc" id="L111">            GamePrints.printWin(gameInfo.getState(),</span>
+<span class="nc" id="L112">                    gameInfo.getPlayerWins(), gameInfo.getBotWins());</span>
+
+<span class="nc" id="L114">            GamePrints.printLetPlayerChooseContinue();</span>
+
+<span class="nc" id="L116">            answer = scanner.nextInt();</span>
+<span class="nc bnc" id="L117" title="All 2 branches missed.">            if (answer == 0) {</span>
+<span class="nc" id="L118">                break;</span>
+            } else {
+<span class="nc" id="L120">                gameInfo.newRound();</span>
+            }
+
+        }
+<span class="nc" id="L124">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

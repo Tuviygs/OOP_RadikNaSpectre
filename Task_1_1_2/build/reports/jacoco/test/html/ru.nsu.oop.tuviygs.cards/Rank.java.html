@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Rank.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Task_1_1_2</a> &gt; <a href="index.source.html" class="el_package">ru.nsu.oop.tuviygs.cards</a> &gt; <span class="el_source">Rank.java</span></div><h1>Rank.java</h1><pre class="source lang-java linenums">package ru.nsu.oop.tuviygs.cards;
+
+/**
+ * enum, описывающтй ранги.
+ */
+<span class="fc" id="L6">public enum Rank {</span>
+<span class="fc" id="L7">    TWO(&quot;Двойка&quot;),</span>
+<span class="fc" id="L8">    THREE(&quot;Тройка&quot;),</span>
+<span class="fc" id="L9">    FOUR(&quot;Четвёрка&quot;),</span>
+<span class="fc" id="L10">    FIVE(&quot;Пятёрка&quot;),</span>
+<span class="fc" id="L11">    SIX(&quot;Шестёрка&quot;),</span>
+<span class="fc" id="L12">    SEVEN(&quot;Семёрка&quot;),</span>
+<span class="fc" id="L13">    EIGHT(&quot;Восьмёрка&quot;),</span>
+<span class="fc" id="L14">    NINE(&quot;Девятка&quot;),</span>
+<span class="fc" id="L15">    TEN(&quot;Десятка&quot;),</span>
+<span class="fc" id="L16">    JACK(&quot;Валет&quot;),</span>
+<span class="fc" id="L17">    QUEEN(&quot;Дама&quot;),</span>
+<span class="fc" id="L18">    KING(&quot;Король&quot;),</span>
+<span class="fc" id="L19">    ACE(&quot;Туз&quot;);</span>
+
+    /**
+     * название ранга на русском.
+     */
+    private final String russianRank;
+
+    /**
+     * базовая установка русского названия.
+     *
+     * @param russianSuit - название на русском.
+     */
+<span class="fc" id="L31">    Rank(String russianSuit) {</span>
+<span class="fc" id="L32">        this.russianRank = russianSuit;</span>
+<span class="fc" id="L33">    }</span>
+
+
+    /**
+     * получение русского названия текстом.
+     */
+    public String getRussianRank() {
+<span class="nc" id="L40">        return this.russianRank;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>
