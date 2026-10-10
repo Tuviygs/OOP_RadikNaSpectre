@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>GamePrints.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Task_1_1_2</a> &gt; <a href="index.source.html" class="el_package">ru.nsu.oop.tuviygs.utils</a> &gt; <span class="el_source">GamePrints.java</span></div><h1>GamePrints.java</h1><pre class="source lang-java linenums">package ru.nsu.oop.tuviygs.utils;
+
+import ru.nsu.oop.tuviygs.cards.BlackJackCard;
+import ru.nsu.oop.tuviygs.cards.Card;
+import ru.nsu.oop.tuviygs.player.BlackJackPlayer;
+
+/**
+ * Все принты, которые нужны в игре.
+ */
+<span class="nc" id="L10">public class GamePrints {</span>
+
+    /**
+     * Вывод приветственного слова при старте игры.
+     */
+    public static void printHello() {
+<span class="nc" id="L16">        System.out.println(&quot;Добро пожаловать в Блэкджек!&quot;);</span>
+<span class="nc" id="L17">    }</span>
+
+    /**
+     * Вывод начала новго раунда.
+     */
+    public static void printRound(GameInfo gameInfo) {
+<span class="nc" id="L23">        System.out.println(&quot;Раунд &quot; + Integer.toString(gameInfo.getRoundNumber()));</span>
+<span class="nc" id="L24">        System.out.println(&quot;Дилер раздал карты&quot;);</span>
+<span class="nc" id="L25">    }</span>
+
+    /**
+     * Вывод карт участников игры.
+     *
+     * @param player - игрок
+     * @param bot - дилер
+     * @param botsTurn - ход дилера (или нет)
+     */
+    public static void printPlayersHands(BlackJackPlayer player,
+                                         BlackJackPlayer bot, boolean botsTurn) {
+<span class="nc" id="L36">        String playerCards = &quot;\tВаши карты: [&quot;;</span>
+<span class="nc" id="L37">        boolean isFirstCard = true;</span>
+<span class="nc bnc" id="L38" title="All 2 branches missed.">        for (Card baseCard : player.getHand().getCards()) {</span>
+<span class="nc" id="L39">            BlackJackCard card = (BlackJackCard) baseCard;</span>
+<span class="nc bnc" id="L40" title="All 2 branches missed.">            if (!isFirstCard) {</span>
+<span class="nc" id="L41">                playerCards = playerCards + &quot;, &quot;;</span>
+            } else {
+<span class="nc" id="L43">                isFirstCard = false;</span>
+            }
+<span class="nc" id="L45">            playerCards = playerCards + card.getTitle() + &quot; (&quot;</span>
+<span class="nc" id="L46">                    + Integer.toString(card.getValue()) + &quot;)&quot;;</span>
+<span class="nc" id="L47">        }</span>
+<span class="nc" id="L48">        playerCards = playerCards + &quot;] =&gt; &quot; + Integer.toString(player.getSumm());</span>
+
+<span class="nc" id="L50">        String botCards = &quot;\tКарты дилера: [&quot;;</span>
+<span class="nc" id="L51">        isFirstCard = true;</span>
+<span class="nc" id="L52">        int cardsCount = 0;</span>
+<span class="nc bnc" id="L53" title="All 2 branches missed.">        for (Card baseCard : bot.getHand().getCards()) {</span>
+<span class="nc" id="L54">            BlackJackCard card = (BlackJackCard) baseCard;</span>
+<span class="nc" id="L55">            cardsCount++;</span>
+<span class="nc bnc" id="L56" title="All 2 branches missed.">            if (!isFirstCard) {</span>
+<span class="nc" id="L57">                botCards = botCards + &quot;, &quot;;</span>
+            } else {
+<span class="nc" id="L59">                isFirstCard = false;</span>
+            }
+
+<span class="nc bnc" id="L62" title="All 4 branches missed.">            if (cardsCount == bot.getHand().getCards().size() &amp;&amp; !botsTurn) {</span>
+<span class="nc" id="L63">                botCards = botCards + &quot;&lt;закрытая карта&gt;&quot;;</span>
+            } else {
+<span class="nc" id="L65">                botCards = botCards + card.getTitle() + &quot; (&quot;</span>
+<span class="nc" id="L66">                        + Integer.toString(card.getValue()) + &quot;)&quot;;</span>
+            }
+
+<span class="nc" id="L69">        }</span>
+<span class="nc" id="L70">        botCards = botCards + &quot;]&quot;;</span>
+<span class="nc bnc" id="L71" title="All 2 branches missed.">        if (botsTurn) {</span>
+<span class="nc" id="L72">            botCards = botCards + &quot; =&gt; &quot; + Integer.toString(bot.getSumm()) + &quot;\n&quot;;</span>
+        }
+
+<span class="nc" id="L75">        System.out.println(playerCards);</span>
+<span class="nc" id="L76">        System.out.println(botCards);</span>
+<span class="nc" id="L77">    }</span>
+
+
+    /**
+     * ход игрока.
+     */
+    public static void printPlayerTurn() {
+<span class="nc" id="L84">        System.out.println(&quot;Ваш ход\n-------&quot;);</span>
+<span class="nc" id="L85">    }</span>
+
+
+    /**
+     * Ход дилера.
+     */
+    public static void printBotTurn() {
+<span class="nc" id="L92">        System.out.println(&quot;Ход дилера\n-------&quot;);</span>
+<span class="nc" id="L93">    }</span>
+
+    /**
+     * Предложение игроку продолжить набирать карты.
+     */
+    public static void printLetPlayerChooseCard() {
+<span class="nc" id="L99">        String string = &quot;Введите \&quot;1\&quot;, чтобы взять карту, &quot;</span>
+                + &quot;и \&quot;0\&quot;, чтобы остановиться...;&quot;;
+<span class="nc" id="L101">        System.out.println(string);</span>
+<span class="nc" id="L102">    }</span>
+
+    /**
+     * Вывод последней взятой карты.
+     *
+     * @param card - сама карта.
+     */
+    public static void printTakenCard(BlackJackCard card) {
+<span class="nc" id="L110">        String string = &quot;Вы открыли карту &quot; + card.getTitle()</span>
+<span class="nc" id="L111">                + &quot; (&quot; + Integer.toString(card.getValue()) + &quot;)&quot;;</span>
+<span class="nc" id="L112">        System.out.println(string);</span>
+<span class="nc" id="L113">    }</span>
+
+    /**
+     * Вывод закрытой карты бота.
+     *
+     * @param card - сама карта.
+     */
+    public static void printOpenCardBot(BlackJackCard card) {
+<span class="nc" id="L121">        String string = &quot;Дилер открывает закрытую карту  &quot; + card.getTitle()</span>
+<span class="nc" id="L122">                + &quot; (&quot; + Integer.toString(card.getValue()) + &quot;)&quot;;</span>
+<span class="nc" id="L123">        System.out.println(string);</span>
+<span class="nc" id="L124">    }</span>
+
+    /**
+     * Вывод исхода раунда и текущего счёта.
+     *
+     * @param gameResult - исход раунда
+     * @param botWins - количество побед бота
+     * @param playerWins - количество побед игрока.
+     */
+    public static void printWin(GameResult gameResult, int playerWins, int botWins) {
+        String string;
+<span class="nc bnc" id="L135" title="All 2 branches missed.">        if (gameResult == GameResult.BOT_WIN) {</span>
+<span class="nc" id="L136">            string = &quot;Вы проиграли раунд... &quot;;</span>
+<span class="nc bnc" id="L137" title="All 2 branches missed.">        } else if (gameResult == GameResult.PLAYER_WIN) {</span>
+<span class="nc" id="L138">            string = &quot;Вы выиграли раунд! &quot;;</span>
+        } else {
+<span class="nc" id="L140">            string = &quot;В этом раунде ничья. &quot;;</span>
+        }
+
+<span class="nc" id="L143">        string = string + &quot;Счёт &quot; + Integer.toString(playerWins)</span>
+<span class="nc" id="L144">                + &quot;:&quot; + Integer.toString(botWins);</span>
+
+<span class="nc bnc" id="L146" title="All 2 branches missed.">        if (playerWins &gt; botWins) {</span>
+<span class="nc" id="L147">            string = string + &quot; в вашу пользу.&quot;;</span>
+<span class="nc bnc" id="L148" title="All 2 branches missed.">        } else if (playerWins &lt; botWins) {</span>
+<span class="nc" id="L149">            string = string + &quot; в пользу дилера&quot;;</span>
+        }
+
+<span class="nc" id="L152">        string = string + &quot;\n&quot;;</span>
+
+<span class="nc" id="L154">        System.out.println(string);</span>
+<span class="nc" id="L155">    }</span>
+
+    /**
+     * Предложение игроку продолжить играть.
+     */
+    public static void printLetPlayerChooseContinue() {
+<span class="nc" id="L161">        String string = &quot;Введите \&quot;1\&quot;, чтобы продолжить игру, &quot;</span>
+                + &quot;и \&quot;0\&quot;, чтобы остановиться...;&quot;;
+<span class="nc" id="L163">        System.out.println(string);</span>
+<span class="nc" id="L164">    }</span>
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

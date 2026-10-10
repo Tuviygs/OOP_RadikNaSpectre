@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ru.nsu.oop.InputControllerTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-10-01T03:00:51.222Z" hostname="Tuviygs" time="0.01">
+  <properties/>
+  <testcase name="readsSingleLine()" classname="ru.nsu.oop.InputControllerTest" time="0.01"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

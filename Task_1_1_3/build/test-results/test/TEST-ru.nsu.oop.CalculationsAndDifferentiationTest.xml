@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ru.nsu.oop.CalculationsAndDifferentiationTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-10-01T03:00:51.076Z" hostname="Tuviygs" time="0.084">
+  <properties/>
+  <testcase name="calculationTest()" classname="ru.nsu.oop.CalculationsAndDifferentiationTest" time="0.065"/>
+  <testcase name="differentiationTest()" classname="ru.nsu.oop.CalculationsAndDifferentiationTest" time="0.003"/>
+  <testcase name="calculationTest2()" classname="ru.nsu.oop.CalculationsAndDifferentiationTest" time="0.003"/>
+  <testcase name="calculationTest3()" classname="ru.nsu.oop.CalculationsAndDifferentiationTest" time="0.003"/>
+  <testcase name="differentiationTest2()" classname="ru.nsu.oop.CalculationsAndDifferentiationTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>BlackJackPlayer.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Task_1_1_2</a> &gt; <a href="index.source.html" class="el_package">ru.nsu.oop.tuviygs.player</a> &gt; <span class="el_source">BlackJackPlayer.java</span></div><h1>BlackJackPlayer.java</h1><pre class="source lang-java linenums">package ru.nsu.oop.tuviygs.player;
+
+
+import ru.nsu.oop.tuviygs.cards.BlackJackCard;
+import ru.nsu.oop.tuviygs.cards.Card;
+import ru.nsu.oop.tuviygs.cards.CardWeights;
+import ru.nsu.oop.tuviygs.cards.Rank;
+import ru.nsu.oop.tuviygs.utils.Constants;
+
+/**
+ * игрок в блэкджек.
+ */
+public class BlackJackPlayer extends Player {
+
+
+    /**
+     * вес туза в ситуации,
+     * когда сумма очков в руке больше 21.
+     */
+<span class="fc" id="L20">    private static final Integer ACE_EXTRA_VALUE = 1;</span>
+
+    /**
+     * количесство тузов с полным весом
+     * для отмены пересчёта суммы значений.
+     */
+<span class="fc" id="L26">    private static final Integer BIG_ACE_COUNT_CHECK = 0;</span>
+
+
+
+    /**
+     * сумма очков карт у игрока на руках.
+     */
+    private int summ;
+
+    /**
+     * создание нового игррока.
+     */
+    public BlackJackPlayer() {
+<span class="fc" id="L39">        super();</span>
+<span class="fc" id="L40">        this.summ = 0;</span>
+<span class="fc" id="L41">    }</span>
+
+
+
+    public int getSumm() {
+<span class="fc" id="L46">        this.countSumm();</span>
+<span class="fc" id="L47">        return this.summ;</span>
+    }
+
+    /**
+     * подсчёт суммы значений карт.
+     */
+    public void countSumm() {
+<span class="fc" id="L54">        int summ = 0;</span>
+<span class="fc" id="L55">        int bigAceCount = 0;</span>
+
+<span class="fc bfc" id="L57" title="All 2 branches covered.">        for (Card baseCard : this.getHand().getCards()) {</span>
+<span class="fc" id="L58">            BlackJackCard card = (BlackJackCard) baseCard;</span>
+<span class="fc bfc" id="L59" title="All 2 branches covered.">            if (card.getName() == Rank.ACE) {</span>
+<span class="pc bpc" id="L60" title="1 of 2 branches missed.">                if (summ + card.getValue() &gt; Constants.BLACKJACK_SUMM) {</span>
+<span class="fc" id="L61">                    summ += ACE_EXTRA_VALUE;</span>
+                } else {
+<span class="nc" id="L63">                    summ += card.getValue();</span>
+<span class="nc" id="L64">                    bigAceCount++;</span>
+                }
+
+            } else {
+<span class="fc" id="L68">                summ += card.getValue();</span>
+            }
+
+<span class="fc" id="L71">        }</span>
+
+
+<span class="pc bpc" id="L74" title="3 of 4 branches missed.">        if (summ &gt; Constants.BLACKJACK_SUMM &amp;&amp; bigAceCount &gt; BIG_ACE_COUNT_CHECK) {</span>
+<span class="nc" id="L75">            summ -= CardWeights.getWeight(Rank.ACE);</span>
+        }
+
+<span class="fc" id="L78">        this.summ = summ;</span>
+<span class="fc" id="L79">    }</span>
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

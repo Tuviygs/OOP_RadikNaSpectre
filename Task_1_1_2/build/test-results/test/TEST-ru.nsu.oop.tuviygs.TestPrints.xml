@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ru.nsu.oop.tuviygs.TestPrints" tests="15" skipped="0" failures="0" errors="0" timestamp="2026-09-15T18:32:47.187Z" hostname="Tuviygs" time="0.102">
+  <properties/>
+  <testcase name="printOpenCardBot выводит карту дилера" classname="ru.nsu.oop.tuviygs.TestPrints" time="0.044"/>
+  <testcase name="printWin: счёт в пользу игрока" classname="ru.nsu.oop.tuviygs.TestPrints" time="0.008"/>
+  <testcase name="printWin: ничья" classname="ru.nsu.oop.tuviygs.TestPrints" time="0.001"/>
+  <testcase name="printWin: победа бота" classname="ru.nsu.oop.tuviygs.TestPrints" time="0.002"/>
+  <testcase name="printWin: победа игрока" classname="ru.nsu.oop.tuviygs.TestPrints" time="0.002"/>
+  <testcase name="printHello выводит приветствие" classname="ru.nsu.oop.tuviygs.TestPrints" time="0.002"/>
+  <testcase name="printRound выводит номер раунда" classname="ru.nsu.oop.tuviygs.TestPrints" time="0.009"/>
+  <testcase name="printLetPlayerChooseCard выводит подсказку" classname="ru.nsu.oop.tuviygs.TestPrints" time="0.002"/>
+  <testcase name="printLetPlayerChooseContinue выводит подсказку" classname="ru.nsu.oop.tuviygs.TestPrints" time="0.002"/>
+  <testcase name="printWin: счёт в пользу дилера" classname="ru.nsu.oop.tuviygs.TestPrints" time="0.002"/>
+  <testcase name="printBotTurn выводит сообщение о ходе дилера" classname="ru.nsu.oop.tuviygs.TestPrints" time="0.002"/>
+  <testcase name="printPlayersHands: карты игрока видны" classname="ru.nsu.oop.tuviygs.TestPrints" time="0.003"/>
+  <testcase name="printPlayersHands: все карты бота открыты на его ходу" classname="ru.nsu.oop.tuviygs.TestPrints" time="0.002"/>
+  <testcase name="printTakenCard выводит карту" classname="ru.nsu.oop.tuviygs.TestPrints" time="0.002"/>
+  <testcase name="printPlayerTurn выводит сообщение о ходе игрока" classname="ru.nsu.oop.tuviygs.TestPrints" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

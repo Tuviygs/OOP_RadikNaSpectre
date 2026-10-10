@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CardWeights.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Task_1_1_2</a> &gt; <a href="index.source.html" class="el_package">ru.nsu.oop.tuviygs.cards</a> &gt; <span class="el_source">CardWeights.java</span></div><h1>CardWeights.java</h1><pre class="source lang-java linenums">package ru.nsu.oop.tuviygs.cards;
+
+/**
+ * Придача картам веса по рангу.
+ */
+<span class="nc" id="L6">public class CardWeights {</span>
+
+    /**
+     * Получение веса по рангу.
+     *
+     * @param rank - ранг карты.
+     */
+    public static int getWeight(Rank rank) {
+<span class="fc bfc" id="L14" title="All 13 branches covered.">        return switch (rank) {</span>
+<span class="fc" id="L15">            case TWO -&gt; 2;</span>
+<span class="fc" id="L16">            case THREE -&gt; 3;</span>
+<span class="fc" id="L17">            case FOUR -&gt; 4;</span>
+<span class="fc" id="L18">            case FIVE -&gt; 5;</span>
+<span class="fc" id="L19">            case SIX -&gt; 6;</span>
+<span class="fc" id="L20">            case SEVEN -&gt; 7;</span>
+<span class="fc" id="L21">            case EIGHT -&gt; 8;</span>
+<span class="fc" id="L22">            case NINE -&gt; 9;</span>
+<span class="fc" id="L23">            case TEN -&gt; 10;</span>
+<span class="fc" id="L24">            case JACK -&gt; 10;</span>
+<span class="fc" id="L25">            case QUEEN -&gt; 10;</span>
+<span class="fc" id="L26">            case KING -&gt; 10;</span>
+<span class="fc" id="L27">            case ACE -&gt; 11;</span>
+        };
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>

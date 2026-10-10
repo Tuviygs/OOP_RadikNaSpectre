@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>GameInfo.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Task_1_1_2</a> &gt; <a href="index.source.html" class="el_package">ru.nsu.oop.tuviygs.utils</a> &gt; <span class="el_source">GameInfo.java</span></div><h1>GameInfo.java</h1><pre class="source lang-java linenums">package ru.nsu.oop.tuviygs.utils;
+
+
+import ru.nsu.oop.tuviygs.cards.Deck;
+import ru.nsu.oop.tuviygs.player.BlackJackPlayer;
+
+/**
+ * Информация об объектах игры.
+ */
+public class GameInfo {
+    /**
+     * Игрок.
+     */
+    private BlackJackPlayer player;
+
+    /**
+     * дилер(бот).
+     */
+    private BlackJackPlayer bot;
+
+    /**
+     * Количество побед игрока.
+     */
+    private int playerWins;
+
+    /**
+     * Количество побед дилера.
+     */
+    private int botWins;
+
+    /**
+     * Колода.
+     */
+    private Deck deck;
+
+    /**
+     * Номер раунда.
+     */
+    private int roundNumber;
+
+    /**
+     * Ход дилера.
+     */
+    private boolean botsTurn;
+
+    /**
+     * Состояние игры.
+     */
+    private GameResult state;
+
+
+    /**
+     * Создание новой игры.
+     */
+<span class="fc" id="L55">    public GameInfo() {</span>
+<span class="fc" id="L56">        this.roundNumber = 0;</span>
+<span class="fc" id="L57">        this.newRound();</span>
+<span class="fc" id="L58">        this.botWins = 0;</span>
+<span class="fc" id="L59">        this.playerWins = 0;</span>
+<span class="fc" id="L60">        this.deck = new Deck();</span>
+<span class="fc" id="L61">    }</span>
+
+    /**
+     * Начало нового раунда.
+     */
+    public void newRound() {
+<span class="fc" id="L67">        this.bot = new BlackJackPlayer();</span>
+<span class="fc" id="L68">        this.player = new BlackJackPlayer();</span>
+<span class="fc" id="L69">        this.roundNumber++;</span>
+<span class="fc" id="L70">        this.botsTurn = false;</span>
+<span class="fc" id="L71">        this.state = GameResult.DRAW;</span>
+<span class="fc" id="L72">    }</span>
+
+
+    /**
+     * Получение состояния игры.
+     */
+    public GameResult getState() {
+<span class="fc" id="L79">        return this.state;</span>
+    }
+
+    /**
+     * Получение номера текущего раунда.
+     */
+    public int getRoundNumber() {
+<span class="fc" id="L86">        return this.roundNumber;</span>
+    }
+
+    /**
+     * Получение текущей колоды.
+     */
+    public Deck getDeck() {
+<span class="nc" id="L93">        return this.deck;</span>
+    }
+
+    /**
+     * узнать, чей ход.
+     */
+    public boolean getBotsTurn() {
+<span class="fc" id="L100">        return this.botsTurn;</span>
+    }
+
+    /**
+     * Получение данных об игроке.
+     */
+    public BlackJackPlayer getPlayer() {
+<span class="fc" id="L107">        return this.player;</span>
+    }
+
+    /**
+     * получение данных о боте.
+     */
+    public BlackJackPlayer getBot() {
+<span class="fc" id="L114">        return this.bot;</span>
+    }
+
+    /**
+     * Получение количества побед бота.
+     */
+    public int getBotWins() {
+<span class="fc" id="L121">        return this.botWins;</span>
+    }
+
+    /**
+     * Получение количества побед игрока.
+     */
+    public int getPlayerWins() {
+<span class="fc" id="L128">        return this.playerWins;</span>
+    }
+
+    /**
+     * Увеличение счётчик побед бота.
+     */
+    public void increaseBotWins() {
+<span class="fc" id="L135">        this.botWins++;</span>
+<span class="fc" id="L136">    }</span>
+
+    /**
+     * Увеличение счётчик побед игрока.
+     */
+    public void increasePlayerWins() {
+<span class="fc" id="L142">        this.playerWins++;</span>
+<span class="fc" id="L143">    }</span>
+
+
+
+    /**
+     * изменение состояния игры.
+     *
+     * @param gameResult - текущее состояние.
+     */
+    public void changeState(GameResult gameResult) {
+<span class="fc" id="L153">        this.state = gameResult;</span>
+<span class="fc" id="L154">    }</span>
+
+    /**
+     * Переключение хода на бота.
+     */
+    public void letBotsTurn() {
+<span class="fc" id="L160">        this.botsTurn = true;</span>
+<span class="fc" id="L161">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>
