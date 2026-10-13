@@ -1,13 +1,14 @@
 package ru.nsu.oop.tuviygs.graph.representation.adjacency.lists;
 
-import ru.nsu.oop.tuviygs.graph.Graph;
-import ru.nsu.oop.tuviygs.graph.exceptions.GraphException;
-
 import java.util.ArrayList;
 import java.util.List;
 
+import ru.nsu.oop.tuviygs.graph.exceptions.GraphException;
+import ru.nsu.oop.tuviygs.graph.Graph;
+
+
 /**
- * класс для представления графа
+ * класс для представления графа.
  * как списков смежности
  */
 public class AdjacencyListsGraph implements Graph {

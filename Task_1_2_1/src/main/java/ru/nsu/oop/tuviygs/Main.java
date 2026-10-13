@@ -1,12 +1,13 @@
 package ru.nsu.oop.tuviygs;
 
+import java.util.List;
+
+import ru.nsu.oop.tuviygs.io.InputController;
+import ru.nsu.oop.tuviygs.io.OutputController;
 import ru.nsu.oop.tuviygs.graph.Graph;
 import ru.nsu.oop.tuviygs.graph.representation.adjacency.matrix.AdjacencyMatrixGraph;
 import ru.nsu.oop.tuviygs.graph.stuff.GraphTopasort;
-import ru.nsu.oop.tuviygs.io.InputController;
-import ru.nsu.oop.tuviygs.io.OutputController;
 
-import java.util.List;
 
 /**
  * это мейн.

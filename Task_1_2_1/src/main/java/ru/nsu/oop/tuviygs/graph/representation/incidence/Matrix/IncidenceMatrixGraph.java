@@ -1,14 +1,14 @@
 package ru.nsu.oop.tuviygs.graph.representation.incidence.Matrix;
 
+import java.util.List;
 
 import ru.nsu.oop.tuviygs.graph.Graph;
 
-import java.util.List;
 
 /**
  * представление графа на матрице инцидентвности.
  */
-public class incidenceMatrixGraph implements Graph {
+public class IncidenceMatrixGraph implements Graph {
 
 
     /**

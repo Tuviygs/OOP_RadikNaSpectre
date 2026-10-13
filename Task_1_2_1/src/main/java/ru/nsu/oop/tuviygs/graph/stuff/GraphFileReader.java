@@ -1,12 +1,12 @@
 package ru.nsu.oop.tuviygs.graph.stuff;
 
-import ru.nsu.oop.tuviygs.graph.exceptions.GraphException;
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
+import ru.nsu.oop.tuviygs.graph.exceptions.GraphException;
 
 /**
  * класс для считывания графа из файла.
@@ -29,6 +29,12 @@ public class GraphFileReader {
      */
     public record GrafRepresentation(int vertexCount, List<Edge> edges) {}
 
+    /**
+     * чтение графа из файла.
+     *
+     * @param filePath - относительный путь
+     *                 к файлу.
+     */
     public static GrafRepresentation readGraphFromFile(String filePath) {
 
         List<Edge> edges = new ArrayList<Edge>();
@@ -57,8 +63,8 @@ public class GraphFileReader {
 
                 List<String> tokens = List.of(line.split("\\s+"));
                 if (tokens.size() != 2) {
-                    throw new GraphException("Неверный формат ребра в строке:" +
-                            " должно быть два числа.");
+                    throw new GraphException("Неверный формат ребра в строке:"
+                            + " должно быть два числа.");
                 }
 
                 try {

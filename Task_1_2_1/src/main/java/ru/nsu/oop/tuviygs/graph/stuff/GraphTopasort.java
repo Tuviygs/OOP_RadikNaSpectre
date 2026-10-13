@@ -1,11 +1,11 @@
 package ru.nsu.oop.tuviygs.graph.stuff;
 
-import ru.nsu.oop.tuviygs.graph.exceptions.GraphException;
-import ru.nsu.oop.tuviygs.graph.Graph;
-
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+
+import ru.nsu.oop.tuviygs.graph.exceptions.GraphException;
+import ru.nsu.oop.tuviygs.graph.Graph;
 
 /**
  * топологическая сортировка графа.

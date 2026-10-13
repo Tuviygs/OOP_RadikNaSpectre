@@ -27,7 +27,7 @@ public class Vertex {
     }
 
     /**
-     * получение номера вершины
+     * получение номера вершины.
      */
     public int getNumber() {
         return this.number;

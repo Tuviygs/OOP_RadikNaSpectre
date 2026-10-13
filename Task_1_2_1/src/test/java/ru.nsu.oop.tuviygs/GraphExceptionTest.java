@@ -2,13 +2,12 @@ package ru.nsu.oop.tuviygs;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertThrows;
-
-import ru.nsu.oop.tuviygs.graph.representation.adjacency.matrix.AdjacencyMatrixGraph;
 import ru.nsu.oop.tuviygs.graph.exceptions.GraphException;
 import ru.nsu.oop.tuviygs.graph.Graph;
+import ru.nsu.oop.tuviygs.graph.representation.adjacency.matrix.AdjacencyMatrixGraph;
 
 
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
  * тесты ошибок.
@@ -20,7 +19,7 @@ public class GraphExceptionTest {
      */
     @Test
     void addEdgeToInvalidVertexThrows() {
-       Graph graph = new AdjacencyMatrixGraph(3);
+        Graph graph = new AdjacencyMatrixGraph(3);
         assertThrows(GraphException.class,
                 () -> graph.addEdge(0, 5));
     }
