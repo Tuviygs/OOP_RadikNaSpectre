@@ -1,4 +1,7 @@
-package ru.nsu.oop.tuviygs;
+package ru.nsu.oop.tuviygs.graphStuff;
+
+import ru.nsu.oop.tuviygs.graphExceptions.GraphException;
+import ru.nsu.oop.tuviygs.graphInterface.Graph;
 
 import java.util.ArrayList;
 import java.util.Comparator;

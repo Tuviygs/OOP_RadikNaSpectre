@@ -1,4 +1,7 @@
-package ru.nsu.oop.tuviygs;
+package ru.nsu.oop.tuviygs.graphInterface;
+
+import ru.nsu.oop.tuviygs.graphExceptions.GraphException;
+import ru.nsu.oop.tuviygs.graphStuff.GraphFileReader;
 
 import java.util.List;
 
@@ -50,7 +53,7 @@ public interface Graph {
     /**
      * чтение графа из файла.
      *
-     * @param filePath - имя файла
+     * @param filePath - относительный путь до файла
      */
     default void readGraphFromFile(String filePath) {
         if (this.getVertexCount() > 0) {

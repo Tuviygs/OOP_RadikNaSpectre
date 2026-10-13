@@ -1,4 +1,6 @@
-package ru.nsu.oop.tuviygs;
+package ru.nsu.oop.tuviygs.graphStuff;
+
+import ru.nsu.oop.tuviygs.graphExceptions.GraphException;
 
 import java.io.BufferedReader;
 import java.io.FileReader;

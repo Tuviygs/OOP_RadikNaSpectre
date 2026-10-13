@@ -1,22 +1,25 @@
-package ru.nsu.oop.tuviygs;
+package ru.nsu.oop.tuviygs.adjacencyListsGraph;
+
+import ru.nsu.oop.tuviygs.graphExceptions.GraphException;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 /**
- * граф на матрице смежности.
+ * класс для представления графа
+ * как списков смежности
  */
-public class AdjacencyMatrixGraph implements Graph {
+public class AdjacencyListsGraph implements ru.nsu.oop.tuviygs.Graph {
+
 
     /**
-     * матрица смежности графа.
+     * списки смежности графа.
      * элемент - список
      * элементы этого списка показывают,
      * что вершина является началом ребра,
-     * входящего в вершину с номером, равным индексу
+     * входящего в вершину с номером, равным элементу
      */
-    private List<List<Integer>> matrix;
+    private List<Vertex> lists;
 
     /**
      * количество вершин в графе.
@@ -24,10 +27,18 @@ public class AdjacencyMatrixGraph implements Graph {
     private int vertexCount;
 
     /**
+     * вывод количества вершин в графе.
+     */
+    @Override
+    public int getVertexCount() {
+        return this.vertexCount;
+    }
+
+    /**
      * создание пустого графа.
      */
-    public AdjacencyMatrixGraph() {
-        this.matrix = new ArrayList<>();
+    public AdjacencyListsGraph() {
+        this.lists = new ArrayList<Vertex>();
         this.vertexCount = 0;
     }
 
@@ -36,8 +47,8 @@ public class AdjacencyMatrixGraph implements Graph {
      *
      * @param count - количество вершин
      */
-    public AdjacencyMatrixGraph(int count) {
-        this.matrix = new ArrayList<>(count);
+    public AdjacencyListsGraph(int count) {
+        this.lists = new ArrayList<Vertex>(count);
         this.vertexCount = 0;
         for (int i = 0; i < count; i++) {
             this.addVertex();
@@ -45,35 +56,11 @@ public class AdjacencyMatrixGraph implements Graph {
     }
 
     /**
-     * получение матрицы извне без возможности её изменения.
-     */
-    public List<List<Integer>> getMatrix() {
-        List<List<Integer>> protectedMatrix = new ArrayList<>();
-        for (List<Integer> row : this.matrix) {
-            protectedMatrix.add(Collections.unmodifiableList(row));
-        }
-        return Collections.unmodifiableList(protectedMatrix);
-    }
-
-    /**
-     * получение количества вершин в графе.
-     */
-    public int getVertexCount() {
-        return this.vertexCount;
-    }
-
-    /**
      * добавление вершины.
      */
     @Override
     public void addVertex() {
-        this.matrix.forEach(list -> list.add(0));
-        int newSize = this.matrix.size() + 1;
-        List<Integer> newVertex = new ArrayList<Integer>(newSize);
-        for (int i = 0; i < newSize; i++) {
-            newVertex.add(0);
-        }
-        this.matrix.add(newVertex);
+        this.lists.add(new Vertex(this.vertexCount));
         this.vertexCount++;
     }
 
@@ -84,12 +71,17 @@ public class AdjacencyMatrixGraph implements Graph {
      */
     @Override
     public void delVertex(int vertex) {
-        if (vertex < 0 || vertex >= this.matrix.size()) {
+        if (vertex < 0 || vertex >= this.vertexCount) {
             throw new GraphException("Вершины с номером "
-                + Integer.toString(vertex) + " не существует.");
+                    + Integer.toString(vertex) + " не существует.");
         }
-        this.matrix.forEach(list -> list.remove(vertex));
-        this.matrix.remove(vertex);
+        for (int i = 0; i < vertexCount; i++) {
+            this.lists.get(i).delVertex(vertex);
+            if (i > vertex) {
+                this.lists.get(i).decreaseNumber();
+            }
+        }
+        this.lists.remove(vertex);
         this.vertexCount--;
     }
 
@@ -101,15 +93,17 @@ public class AdjacencyMatrixGraph implements Graph {
      */
     @Override
     public void addEdge(int vertex1, int vertex2) {
-        if (vertex1 < 0 || vertex1 >= this.matrix.size()  ) {
+        if (vertex1 < 0 || vertex1 >= this.vertexCount) {
             throw new GraphException("Вершины с номером "
                     + Integer.toString(vertex1) + " не существует.");
         }
-        if (vertex2 < 0 || vertex2 >= this.matrix.size()) {
+        if (vertex2 < 0 || vertex2 >= this.vertexCount) {
             throw new GraphException("Вершины с номером "
                     + Integer.toString(vertex2) + " не существует.");
         }
-        this.matrix.get(vertex1).set(vertex2, 1);
+
+        this.lists.get(vertex1).addNeighbour(vertex2);
+
     }
 
     /**
@@ -120,16 +114,15 @@ public class AdjacencyMatrixGraph implements Graph {
      */
     @Override
     public void delEdge(int vertex1, int vertex2) {
-        if (vertex1 < 0 || vertex1 >= this.matrix.size()) {
+        if (vertex1 < 0 || vertex1 >= this.vertexCount) {
             throw new GraphException("Вершины с номером "
                     + Integer.toString(vertex1) + " не существует.");
         }
-        if (vertex2 < 0 || vertex2 >= this.matrix.size()) {
+        if (vertex2 < 0 || vertex2 >= this.vertexCount) {
             throw new GraphException("Вершины с номером "
                     + Integer.toString(vertex2) + " не существует.");
         }
-        this.matrix.get(vertex1).set(vertex2, 0);
-
+        this.lists.get(vertex1).delNeighbour(vertex2);
     }
 
     /**
@@ -139,27 +132,20 @@ public class AdjacencyMatrixGraph implements Graph {
      */
     @Override
     public List<Integer> getNeighbours(int vertex) {
-        if (vertex < 0 || vertex >= this.matrix.size()) {
+        if (vertex < 0 || vertex >= this.vertexCount) {
             throw new GraphException("Вершины с номером "
                     + Integer.toString(vertex) + " не существует.");
         }
-        List<Integer> neighbours = new ArrayList<Integer>();
-        List<Integer> thisVertex = this.matrix.get(vertex);
-        for (int i = 0; i < thisVertex.size(); i++) {
-            if (thisVertex.get(i) == 1) {
-                neighbours.add(i);
-            }
-        }
-        return neighbours;
+        return this.lists.get(vertex).getNeighbours();
     }
 
     /**
      * чтение графа из файла.
      *
-     * @param fileName - имя файла
+     * @param filePath - относительный путь до файла
      */
     @Override
-    public void readGraphFromFile(String fileName) {
-
+    public void readGraphFromFile(String filePath) {
+        Graph.super.readGraphFromFile(filePath);
     }
 }
