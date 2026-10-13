@@ -2,10 +2,9 @@ package ru.nsu.oop.tuviygs;
 
 import org.junit.jupiter.api.Test;
 
-import ru.nsu.oop.tuviygs.graph.exceptions.GraphException;
 import ru.nsu.oop.tuviygs.graph.Graph;
+import ru.nsu.oop.tuviygs.graph.exceptions.GraphException;
 import ru.nsu.oop.tuviygs.graph.representation.adjacency.matrix.AdjacencyMatrixGraph;
-
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 

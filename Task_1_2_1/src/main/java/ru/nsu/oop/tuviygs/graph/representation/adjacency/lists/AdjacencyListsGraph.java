@@ -2,7 +2,6 @@ package ru.nsu.oop.tuviygs.graph.representation.adjacency.lists;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import ru.nsu.oop.tuviygs.graph.exceptions.GraphException;
 import ru.nsu.oop.tuviygs.graph.Graph;
 

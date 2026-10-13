@@ -1,7 +1,6 @@
 package ru.nsu.oop.tuviygs.graph;
 
 import java.util.List;
-
 import ru.nsu.oop.tuviygs.graph.exceptions.GraphException;
 import ru.nsu.oop.tuviygs.graph.stuff.GraphFileReader;
 

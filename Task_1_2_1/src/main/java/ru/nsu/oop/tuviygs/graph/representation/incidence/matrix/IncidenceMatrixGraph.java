@@ -1,7 +1,6 @@
-package ru.nsu.oop.tuviygs.graph.representation.incidence.Matrix;
+package ru.nsu.oop.tuviygs.graph.representation.incidence.matrix;
 
 import java.util.List;
-
 import ru.nsu.oop.tuviygs.graph.Graph;
 
 
