@@ -4,9 +4,9 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import ru.nsu.oop.tuviygs.adjacencyMatrixGraph.AdjacencyMatrixGraph;
-import ru.nsu.oop.tuviygs.graphExceptions.GraphException;
-import ru.nsu.oop.tuviygs.graphInterface.Graph;
+import ru.nsu.oop.tuviygs.graph.representation.adjacency.matrix.AdjacencyMatrixGraph;
+import ru.nsu.oop.tuviygs.graph.exceptions.GraphException;
+import ru.nsu.oop.tuviygs.graph.Graph;
 
 
 
