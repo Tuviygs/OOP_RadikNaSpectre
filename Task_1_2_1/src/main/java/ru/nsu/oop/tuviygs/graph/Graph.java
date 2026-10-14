@@ -2,6 +2,8 @@ package ru.nsu.oop.tuviygs.graph;
 
 import java.util.List;
 import ru.nsu.oop.tuviygs.graph.exceptions.GraphException;
+import ru.nsu.oop.tuviygs.graph.representation.text.TextGraph;
+import ru.nsu.oop.tuviygs.graph.stuff.Edge;
 import ru.nsu.oop.tuviygs.graph.stuff.GraphFileReader;
 
 
@@ -53,22 +55,22 @@ public interface Graph {
     /**
      * чтение графа из файла.
      *
-     * @param filePath - относительный путь до файла
+     * @param fileName - имя файла
      */
-    default void readGraphFromFile(String filePath) {
+    default void readGraphFromFile(String fileName) {
         if (this.getVertexCount() > 0) {
             throw new GraphException("Граф уже задан.");
         }
 
-        GraphFileReader.GrafRepresentation graphFromFile
-                = GraphFileReader.readGraphFromFile(filePath);
+        TextGraph graphFromFile
+                = GraphFileReader.readGraphFromFile(fileName);
 
         int vertexCount = graphFromFile.vertexCount();
-        List<GraphFileReader.Edge> edges = graphFromFile.edges();
+        List<Edge> edges = graphFromFile.edges();
         for (int i = 0; i < vertexCount; i++) {
             this.addVertex();
         }
-        for (GraphFileReader.Edge edge : edges) {
+        for (Edge edge : edges) {
             this.addEdge(edge.from(), edge.to());
         }
     }

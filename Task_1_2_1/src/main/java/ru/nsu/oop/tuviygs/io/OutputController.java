@@ -15,16 +15,16 @@ public class OutputController {
     public static void printIntegerList(List<Integer> list) {
         String string = "";
         for (int number : list) {
-            string += Integer.toString(number);
+            string += Integer.toString(number) + " ";
         }
         System.out.println(string);
     }
 
 
     /**
-     * запрос ввести относительный путь до файла.
+     * запрос ввести имя файла.
      */
-    public static void printAscFilePath() {
-        System.out.println("Введите относительный путь до файла.");
+    public static void printAscFileName() {
+        System.out.println("Введите имя файла (с расшрением)");
     }
 }

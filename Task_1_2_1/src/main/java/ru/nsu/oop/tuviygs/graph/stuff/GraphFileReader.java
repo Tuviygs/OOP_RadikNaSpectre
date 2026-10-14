@@ -1,11 +1,12 @@
 package ru.nsu.oop.tuviygs.graph.stuff;
 
 import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 import ru.nsu.oop.tuviygs.graph.exceptions.GraphException;
+import ru.nsu.oop.tuviygs.graph.representation.text.TextGraph;
 
 /**
  * класс для считывания графа из файла.
@@ -13,34 +14,18 @@ import ru.nsu.oop.tuviygs.graph.exceptions.GraphException;
 public class GraphFileReader {
 
     /**
-     * ребро.
-     *
-     * @param from - стартовая вершина
-     * @param to - конечная
-     */
-    public record Edge(int from, int to) {}
-
-    /**
-     * представление графа.
-     *
-     * @param vertexCount - количество вершин
-     * @param edges - список рёбер
-     */
-    public record GrafRepresentation(int vertexCount, List<Edge> edges) {}
-
-    /**
      * чтение графа из файла.
      *
-     * @param filePath - относительный путь
-     *                 к файлу.
+     * @param fileName - имя файла.
      */
-    public static GrafRepresentation readGraphFromFile(String filePath) {
+    public static TextGraph readGraphFromFile(String fileName) {
 
         List<Edge> edges = new ArrayList<Edge>();
         int vertexCount;
 
-        try (BufferedReader reader
-                     = new BufferedReader(new FileReader(filePath))) {
+        try (BufferedReader reader = new BufferedReader(
+            new InputStreamReader(GraphFileReader.class.getClassLoader()
+                .getResourceAsStream(fileName)))) {
 
             String line = reader.readLine();
             if (line == null || line.trim().isEmpty()) {
