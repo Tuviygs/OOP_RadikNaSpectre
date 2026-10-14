@@ -4,5 +4,6 @@ ru.nsu.oop.tuviygs.graph.exceptions
 ru.nsu.oop.tuviygs.graph.representation.adjacency.lists
 ru.nsu.oop.tuviygs.graph.representation.adjacency.matrix
 ru.nsu.oop.tuviygs.graph.representation.incidence.matrix
+ru.nsu.oop.tuviygs.graph.representation.text
 ru.nsu.oop.tuviygs.graph.stuff
 ru.nsu.oop.tuviygs.io
