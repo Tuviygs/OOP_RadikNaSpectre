@@ -96,7 +96,7 @@ loadScripts(document, 'script');</script>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">IncidenceMatrixGraph</span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>
 implements <a href="../../../Graph.html" title="interface in ru.nsu.oop.tuviygs.graph">Graph</a></span></div>
-<div class="block">представление графа на матрице инцидентвности.</div>
+<div class="block">представление графа на матрице инцидентности.</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -109,7 +109,13 @@ implements <a href="../../../Graph.html" title="interface in ru.nsu.oop.tuviygs.
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
 <div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E()" class="member-name-link">IncidenceMatrixGraph</a>()</code></div>
-<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-last even-row-color">
+<div class="block">создание пустого графа.</div>
+</div>
+<div class="col-constructor-name odd-row-color"><code><a href="#%3Cinit%3E(int)" class="member-name-link">IncidenceMatrixGraph</a><wbr>(int&nbsp;count)</code></div>
+<div class="col-last odd-row-color">
+<div class="block">создание графа с заданным количеством вершин.</div>
+</div>
 </div>
 </section>
 </li>
@@ -182,6 +188,18 @@ implements <a href="../../../Graph.html" title="interface in ru.nsu.oop.tuviygs.
 <section class="detail" id="&lt;init&gt;()">
 <h3>IncidenceMatrixGraph</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">IncidenceMatrixGraph</span>()</div>
+<div class="block">создание пустого графа.</div>
+</section>
+</li>
+<li>
+<section class="detail" id="&lt;init&gt;(int)">
+<h3>IncidenceMatrixGraph</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">IncidenceMatrixGraph</span><wbr><span class="parameters">(int&nbsp;count)</span></div>
+<div class="block">создание графа с заданным количеством вершин.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>count</code> - количество вершин</dd>
+</dl>
 </section>
 </li>
 </ul>
@@ -223,7 +241,7 @@ implements <a href="../../../Graph.html" title="interface in ru.nsu.oop.tuviygs.
 <dt>Specified by:</dt>
 <dd><code><a href="../../../Graph.html#deleteVertex(int)">deleteVertex</a></code>&nbsp;in interface&nbsp;<code><a href="../../../Graph.html" title="interface in ru.nsu.oop.tuviygs.graph">Graph</a></code></dd>
 <dt>Parameters:</dt>
-<dd><code>vertex</code> - - номер вершины</dd>
+<dd><code>vertex</code> - номер вершины</dd>
 </dl>
 </section>
 </li>
@@ -237,8 +255,8 @@ implements <a href="../../../Graph.html" title="interface in ru.nsu.oop.tuviygs.
 <dt>Specified by:</dt>
 <dd><code><a href="../../../Graph.html#addEdge(int,int)">addEdge</a></code>&nbsp;in interface&nbsp;<code><a href="../../../Graph.html" title="interface in ru.nsu.oop.tuviygs.graph">Graph</a></code></dd>
 <dt>Parameters:</dt>
-<dd><code>vertex1</code> - - начальная вершина</dd>
-<dd><code>vertex2</code> - - конечная вершина</dd>
+<dd><code>vertex1</code> - начальная вершина</dd>
+<dd><code>vertex2</code> - конечная вершина</dd>
 </dl>
 </section>
 </li>
