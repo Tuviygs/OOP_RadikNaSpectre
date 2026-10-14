@@ -63,7 +63,7 @@ public class GraphFileReader {
             throw new GraphException("Ошибка чтения графа из файла");
         }
 
-        return new GrafRepresentation(vertexCount, edges);
+        return new TextGraph(vertexCount, edges);
     }
 
 }
