@@ -20,6 +20,24 @@ public class OutputController {
         System.out.println(string);
     }
 
+    /**
+     * выбор реализации графа.
+     */
+    public static void printLetChooseRepresentation() {
+        System.out.println("Выберите реализацию графа:");
+        System.out.println("1 - на матрице смежности");
+        System.out.println("2 - на списках смежности");
+        System.out.println("3 - на матрице инцидентности");
+    }
+
+    /**
+     * вывод ошибки.
+     * @param exception ошибка
+     */
+    public static void printException(RuntimeException exception) {
+        System.out.println(exception.getMessage());
+    }
+
 
     /**
      * запрос ввести имя файла.
