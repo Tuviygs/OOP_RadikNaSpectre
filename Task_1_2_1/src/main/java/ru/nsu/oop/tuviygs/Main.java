@@ -25,8 +25,6 @@ public class Main {
     public static void main(String[] args) {
 
         InputController inputController = new InputController();
-        OutputController.printAscFileName();
-
         OutputController.printLetChooseRepresentation();
         String answer = inputController.getInput();
 
@@ -35,10 +33,11 @@ public class Main {
         try {
             graph = Stuff.setMatrixRepresentation(answer);
         } catch (GraphException exception) {
-
+            OutputController.printException(exception);
+            return;
         }
 
-
+        OutputController.printAscFileName();
         String fileName = inputController.getInput();
         try {
             graph.readGraphFromFile(fileName);
@@ -46,7 +45,7 @@ public class Main {
 
             OutputController.printIntegerList(sortedGraph);
         } catch (GraphException exception) {
-            System.out.println(exception.getMessage());
+            OutputController.printException(exception);
         }
 
 
