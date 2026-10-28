@@ -2,6 +2,7 @@ package ru.nsu.oop.tuviygs;
 
 
 import java.util.ArrayList;
+import java.util.ConcurrentModificationException;
 import java.util.Iterator;
 import java.util.List;
 
@@ -224,7 +225,7 @@ public class HashTable<K, V> implements Iterable<Node<K, V>> {
 
         private void checkForModification() {
             if (modificationCount != expectedModificationCount) {
-                throw new HashTableException(
+                throw new ConcurrentModificationException(
                     "Таблица была изменена во время итерации!");
             }
         }
