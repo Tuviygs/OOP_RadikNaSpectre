@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"ru.nsu.oop.tuviygs","l":"HashTable"},{"p":"ru.nsu.oop.tuviygs","l":"HashTableException"},{"p":"ru.nsu.oop.tuviygs","l":"Main"},{"p":"ru.nsu.oop.tuviygs","l":"Node"}];updateSearchResults();
