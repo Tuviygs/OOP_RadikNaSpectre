@@ -10,7 +10,7 @@ public class Node<K, V> {
     /**
      * ключ.
      */
-    private K key;
+    private final K key;
 
     /**
      * значение.
@@ -24,6 +24,7 @@ public class Node<K, V> {
 
     /**
      * создание ноды ключом.
+     *
      * @param key ключ
      */
     public Node(K key) {
@@ -35,6 +36,7 @@ public class Node<K, V> {
 
     /**
      * сознание ноды парой.
+     *
      * @param key ключ
      * @param value значение
      */
@@ -47,6 +49,7 @@ public class Node<K, V> {
 
     /**
      * установка значения ноды.
+     *
      * @param value значение
      */
     public void setValue(V value) {

@@ -13,12 +13,13 @@ public class HashTable<K, V> implements Iterable<Node<K, V>> {
     /**
      * максимальный размер бакета.
      */
-    private final int MAX_BUCKET_DEPTH = 7;
+    private static final int MAX_BUCKET_DEPTH = 7;
 
     /**
      * максимально допустимый процент непустых бакетов.
      */
-    private final double MAX_PROCENT_NOTNULL_BUCKET = 0.75;
+    private static final double MAX_PROCENT_NOTNULL_BUCKET
+        = 0.75;
 
     /**
      * количество непустых бакетов.
@@ -73,13 +74,15 @@ public class HashTable<K, V> implements Iterable<Node<K, V>> {
             this.buckets.set(hashCode, node);
             this.pairsCount++;
             this.modificationCount++;
-            if (this.bucketCount > this.size * this.MAX_PROCENT_NOTNULL_BUCKET) {
+            if (this.bucketCount > this.size
+                * MAX_PROCENT_NOTNULL_BUCKET) {
                 this.reformatTable();
             }
         } else {
             Node<K,V> currentNode = this.buckets.get(hashCode);
             int bucketDepth = 0;
-            while (currentNode.getNextNode() != null && !currentNode.getKey().equals(node.getKey())) {
+            while (currentNode.getNextNode() != null
+                && !currentNode.getKey().equals(node.getKey())) {
                 bucketDepth++;
                 currentNode = currentNode.getNextNode();
             }
@@ -113,10 +116,12 @@ public class HashTable<K, V> implements Iterable<Node<K, V>> {
                 }
                 Node<K,V> temporaryNode = currentNode.getNextNode();
                 if (temporaryNode != null) {
-                    temporaryNode.setPreviousNode(currentNode.getPreviousNode());
+                    temporaryNode.setPreviousNode(
+                        currentNode.getPreviousNode());
                 }
                 if (currentNode.getPreviousNode() != null) {
-                    currentNode.getPreviousNode().setNextNode(temporaryNode);
+                    currentNode.getPreviousNode().
+                        setNextNode(temporaryNode);
                 } else {
                     this.buckets.set(hashCode, temporaryNode);
                     if (temporaryNode == null) {
@@ -201,14 +206,15 @@ public class HashTable<K, V> implements Iterable<Node<K, V>> {
      */
     @Override
     public Iterator<Node<K, V>> iterator() {
-        return new HashTableIterator();
+        return new
+            HashTableIterator();
     }
 
     /**
      * Внутренний класс итератора.
      */
     private class HashTableIterator implements Iterator<Node<K, V>> {
-        private int expectedModificationCount = modificationCount;
+        private final int expectedModificationCount = modificationCount;
         private int currentBucketIndex = 0;
         private Node<K, V> nextNode = null;
 
