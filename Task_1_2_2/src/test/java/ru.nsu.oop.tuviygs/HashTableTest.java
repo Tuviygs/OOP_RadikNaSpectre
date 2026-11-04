@@ -15,8 +15,8 @@ import java.util.Iterator;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import ru.nsu.oop.tuviygs.hashTable.HashTable;
-import ru.nsu.oop.tuviygs.hashTable.HashTableException;
+import ru.nsu.oop.tuviygs.hashtable.HashTable;
+import ru.nsu.oop.tuviygs.hashtable.HashTableException;
 
 /**
  * Класс тестов для HashTable, обеспечивающий максимальное покрытие.

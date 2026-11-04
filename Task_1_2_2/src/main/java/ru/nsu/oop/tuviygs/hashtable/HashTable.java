@@ -1,4 +1,4 @@
-package ru.nsu.oop.tuviygs.hashTable;
+package ru.nsu.oop.tuviygs.hashtable;
 
 
 import java.util.ArrayList;
