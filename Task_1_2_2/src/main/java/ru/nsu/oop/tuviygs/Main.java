@@ -2,8 +2,8 @@ package ru.nsu.oop.tuviygs;
 
 import java.util.Scanner;
 
-import ru.nsu.oop.tuviygs.HashTable.HashTableException;
-import ru.nsu.oop.tuviygs.HashTable.HashTable;
+import ru.nsu.oop.tuviygs.hashTable.HashTableException;
+import ru.nsu.oop.tuviygs.hashTable.HashTable;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.

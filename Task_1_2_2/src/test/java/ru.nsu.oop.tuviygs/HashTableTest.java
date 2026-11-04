@@ -14,8 +14,9 @@ import java.util.ConcurrentModificationException;
 import java.util.Iterator;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import ru.nsu.oop.tuviygs.HashTable.HashTable;
-import ru.nsu.oop.tuviygs.HashTable.HashTableException;
+
+import ru.nsu.oop.tuviygs.hashTable.HashTable;
+import ru.nsu.oop.tuviygs.hashTable.HashTableException;
 
 /**
  * Класс тестов для HashTable, обеспечивающий максимальное покрытие.
@@ -51,7 +52,8 @@ class HashTableTest {
     @Test
     void testAddDuplicateKeyThrowsException() {
         table.add("one", 1);
-        assertThrows(HashTableException.class, () -> table.add("one", 111));
+        assertThrows(HashTableException.class, ()
+            -> table.add("one", 111));
     }
 
     /**
@@ -110,19 +112,18 @@ class HashTableTest {
      */
     @Test
     void testDeepCollisionEntersWhileLoop() {
-        // "A", "Q", "a" гарантированно попадают в один бакет (остаток 1 от деления на 16)
-        table.add("A", 1); // Первый элемент в бакете
-        table.add("Q", 2); // Второй элемент (while вернет false, так как nextNode == null)
-        table.add("a", 3); // Третий элемент (теперь nextNode != null, мы заходим ВНУТРЬ цикла while!)
+        table.add("A", 1);
+        table.add("Q", 2);
+        table.add("a", 3);
 
         // Проверяем, что все три элемента успешно прописались в цепочке
         assertEquals(1, table.getValue("A"));
         assertEquals(2, table.getValue("Q"));
         assertEquals(3, table.getValue("a"));
 
-        table.setValue("A", 2); // Первый элемент в бакете
-        table.setValue("Q", 3); // Второй элемент (while вернет false, так как nextNode == null)
-        table.setValue("a", 4); // Третий элемент (теперь nextNode != null, мы заходим ВНУТРЬ цикла while!)
+        table.setValue("A", 2);
+        table.setValue("Q", 3);
+        table.setValue("a", 4);
 
         // Проверяем, что все три элемента успешно прописались в цепочке
         assertEquals(2, table.getValue("A"));
@@ -135,7 +136,6 @@ class HashTableTest {
      */
     @Test
     void testToStringWithMultipleElements() {
-        // Добавляем минимум два элемента, чтобы проверить и сам цикл, и блок if (!isFirst)
         table.add("A", 1);
         table.add("B", 2);
 
@@ -153,9 +153,11 @@ class HashTableTest {
         table.add("one", 1);
 
         // Ключ есть, но значение не совпадает
-        assertThrows(HashTableException.class, () -> table.delete("one", 999));
+        assertThrows(HashTableException.class, ()
+            -> table.delete("one", 999));
         // Ключа вообще нет
-        assertThrows(HashTableException.class, () -> table.delete("missing", 1));
+        assertThrows(HashTableException.class, ()
+            -> table.delete("missing", 1));
     }
 
     /**
@@ -163,8 +165,10 @@ class HashTableTest {
      */
     @Test
     void testGetAndSetMissingKeyThrowsException() {
-        assertThrows(HashTableException.class, () -> table.getValue("missing"));
-        assertThrows(HashTableException.class, () -> table.setValue("missing", 42));
+        assertThrows(HashTableException.class, ()
+            -> table.getValue("missing"));
+        assertThrows(HashTableException.class, ()
+            -> table.setValue("missing", 42));
     }
 
     /**
@@ -185,7 +189,7 @@ class HashTableTest {
     }
 
     /**
-     * Тест выброса исключения, если итератор вызывает next(), когда элементов больше нет.
+     * Тест next(), когда элементов больше нет.
      */
     @Test
     void testIteratorNoSuchElementException() {
@@ -199,7 +203,7 @@ class HashTableTest {
     }
 
     /**
-     * Тест выброса ConcurrentModificationException при изменении таблицы во время итерации.
+     * Тест выброса Exception при изменении таблицы во время итерации.
      */
     @Test
     void testIteratorConcurrentModification() {
@@ -238,8 +242,8 @@ class HashTableTest {
         table3.add("B", 1);
         assertNotEquals(table, table3); // Разные ключи
 
-        assertNotEquals(table, null); // Сравнение с null
-        assertNotEquals(table, "not a hash table"); // Сравнение с другим типом объекта
+        assertNotEquals(table, null);
+        assertNotEquals(table, "not a hash table");
     }
 
     /**
@@ -296,7 +300,6 @@ class HashTableTest {
             // Вызываем метод main. Передаем пустой массив аргументов String[]
             Main.main(new String[0]);
 
-            // Если метод отработал до конца без необработанных Exception, тест пройден успешнно
             assertTrue(true);
 
         } finally {
