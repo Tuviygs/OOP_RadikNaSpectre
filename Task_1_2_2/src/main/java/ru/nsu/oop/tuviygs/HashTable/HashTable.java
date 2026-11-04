@@ -1,4 +1,4 @@
-package ru.nsu.oop.tuviygs;
+package ru.nsu.oop.tuviygs.HashTable;
 
 
 import java.util.ArrayList;
@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * параметризованная хеш таблица.
  */
-public class HashTable<K, V> implements Iterable<Node<K, V>> {
+public class HashTable<K, V> implements Iterable<HashTable.Node<K, V>> {
 
     /**
      * максимальный размер бакета.
@@ -230,6 +230,9 @@ public class HashTable<K, V> implements Iterable<Node<K, V>> {
             }
         }
 
+        /**
+         * переключение на следующую ноду.
+         */
         private void toNextNode() {
             if (nextNode != null && nextNode.getNextNode() != null) {
                 nextNode = nextNode.getNextNode();
@@ -251,12 +254,18 @@ public class HashTable<K, V> implements Iterable<Node<K, V>> {
             nextNode = null; // Элементов больше нет
         }
 
+        /**
+         * наличие следующего.
+         */
         @Override
         public boolean hasNext() {
             checkForModification();
             return nextNode != null;
         }
 
+        /**
+         * следующая нода.
+         */
         @Override
         public Node<K, V> next() {
             checkForModification();
@@ -363,23 +372,24 @@ public class HashTable<K, V> implements Iterable<Node<K, V>> {
      * расширение таблицы.
      */
     private void reformatTable() {
-        List<Node<K, V>> oldBuckets = this.buckets;
-
-        this.size = this.size * 2;
-        this.bucketCount = 0;
-        List<Node<K, V>> newBuckets = new ArrayList<>(this.size);
-        for (int i = 0; i < this.size; i++) {
-            newBuckets.add(null);
-        }
-
-
+        // 1. Сначала собираем все элементы через итератор, пока size старый!
         List<Node<K, V>> allNodes = new ArrayList<>();
         for (Node<K, V> node : this) {
             allNodes.add(node);
         }
 
+        // 2. Теперь безопасно увеличиваем размер
+        this.size = this.size * 2;
+        this.bucketCount = 0;
+
+        List<Node<K, V>> newBuckets = new ArrayList<>(this.size);
+        for (int i = 0; i < this.size; i++) {
+            newBuckets.add(null);
+        }
+
         this.buckets = newBuckets;
 
+        // 3. Перехешируем элементы в новые бакеты
         for (Node<K, V> node : allNodes) {
             node.setNextNode(null);
             node.setPreviousNode(null);
@@ -397,6 +407,101 @@ public class HashTable<K, V> implements Iterable<Node<K, V>> {
                 currentNode.setNextNode(node);
                 node.setPreviousNode(currentNode);
             }
+        }
+    }
+
+
+    /**
+     * ноды.
+     *
+     * @param <K> тип ключа
+     * @param <V> тип значения
+     */
+    public static class Node<K, V> {
+
+        /**
+         * предыдущая нода.
+         */
+        private Node<K, V> previousNode;
+
+        /**
+         * ключ.
+         */
+        private final K key;
+
+        /**
+         * значение.
+         */
+        private V value;
+
+        /**
+         * следующая нода.
+         */
+        private Node<K, V> nextNode;
+
+
+        /**
+         * сознание ноды парой.
+         *
+         * @param key ключ
+         * @param value значение
+         */
+        public Node(K key, V value) {
+            this.nextNode = null;
+            this.previousNode = null;
+            this.key = key;
+            this.value = value;
+        }
+
+        /**
+         * установка значения ноды.
+         *
+         * @param value значение
+         */
+        public void setValue(V value) {
+            this.value = value;
+        }
+
+        /**
+         * получение значения.
+         */
+        public V getValue() {
+            return this.value;
+        }
+
+        /**
+         * получение ключа.
+         */
+        public K getKey() {
+            return key;
+        }
+
+        /**
+         * получение предыдущей ноды.
+         */
+        public Node<K, V> getPreviousNode() {
+            return this.previousNode;
+        }
+
+        /**
+         * получение следующей ноды.
+         */
+        public Node<K, V> getNextNode() {
+            return this.nextNode;
+        }
+
+        /**
+         * установка предыдущей ноды.
+         */
+        public void setPreviousNode(Node<K, V> node) {
+            this.previousNode = node;
+        }
+
+        /**
+         * установка следующей ноды.
+         */
+        public void setNextNode(Node<K, V> node) {
+            this.nextNode = node;
         }
     }
 

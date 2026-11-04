@@ -1,9 +1,19 @@
 package ru.nsu.oop.tuviygs;
 
 import java.util.Scanner;
+
+import ru.nsu.oop.tuviygs.HashTable.HashTableException;
+import ru.nsu.oop.tuviygs.HashTable.HashTable;
+
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
+
+    /**
+     * мейн.
+     *
+     * @param args аргументы
+     */
     public static void main(String[] args) {
 
         HashTable<String, String> table = new HashTable<>();
