@@ -2,11 +2,14 @@ package ru.nsu.oop.tuviygs;
 
 import java.util.Scanner;
 
-import ru.nsu.oop.tuviygs.hashtable.HashTableException;
 import ru.nsu.oop.tuviygs.hashtable.HashTable;
+import ru.nsu.oop.tuviygs.hashtable.HashTableException;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+
+
+/**
+ * мейн.
+ */
 public class Main {
 
     /**
@@ -28,7 +31,8 @@ public class Main {
         System.out.println("\nТекущее содержимое таблицы:");
         System.out.println(table);
 
-        System.out.println("Введите КЛЮЧ пары, которую хотите изменить, и его НОВОЕ значение через пробел:");
+        System.out.println("Введите КЛЮЧ пары, которую хотите"
+            + " изменить, и его НОВОЕ значение через пробел:");
         String keyToUpdate = scanner.next();
         String newValue = scanner.next();
         try {

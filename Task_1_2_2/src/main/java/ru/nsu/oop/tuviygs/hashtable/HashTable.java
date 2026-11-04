@@ -80,7 +80,7 @@ public class HashTable<K, V> implements Iterable<HashTable.Node<K, V>> {
                 this.reformatTable();
             }
         } else {
-            Node<K,V> currentNode = this.buckets.get(hashCode);
+            Node<K, V> currentNode = this.buckets.get(hashCode);
             int bucketDepth = 0;
             while (currentNode.getNextNode() != null
                 && !currentNode.getKey().equals(node.getKey())) {
@@ -111,18 +111,18 @@ public class HashTable<K, V> implements Iterable<HashTable.Node<K, V>> {
         if (hasValue(key)) {
             if (value.equals(this.getValue(key))) {
                 int hashCode = Math.abs(key.hashCode() % this.size);
-                Node<K,V> currentNode = this.buckets.get(hashCode);
+                Node<K, V> currentNode = this.buckets.get(hashCode);
                 while (!key.equals(currentNode.getKey())) {
                     currentNode = currentNode.getNextNode();
                 }
-                Node<K,V> temporaryNode = currentNode.getNextNode();
+                Node<K, V> temporaryNode = currentNode.getNextNode();
                 if (temporaryNode != null) {
                     temporaryNode.setPreviousNode(
                         currentNode.getPreviousNode());
                 }
                 if (currentNode.getPreviousNode() != null) {
-                    currentNode.getPreviousNode().
-                        setNextNode(temporaryNode);
+                    currentNode.getPreviousNode()
+                        .setNextNode(temporaryNode);
                 } else {
                     this.buckets.set(hashCode, temporaryNode);
                     if (temporaryNode == null) {
@@ -152,7 +152,7 @@ public class HashTable<K, V> implements Iterable<HashTable.Node<K, V>> {
                 + key + " не существует");
         }
         int hashCode = Math.abs(key.hashCode() % this.size);
-        Node<K,V> currentNode = this.buckets.get(hashCode);
+        Node<K, V> currentNode = this.buckets.get(hashCode);
         while (currentNode != null) {
             if (currentNode.getKey().equals(key)) {
                 return currentNode.getValue();
@@ -171,7 +171,7 @@ public class HashTable<K, V> implements Iterable<HashTable.Node<K, V>> {
         if (hasValue(key)) {
 
             int hashCode = Math.abs(key.hashCode() % this.size);
-            Node<K,V> currentNode = this.buckets.get(hashCode);
+            Node<K, V> currentNode = this.buckets.get(hashCode);
             while (!key.equals(currentNode.getKey())) {
                 currentNode = currentNode.getNextNode();
             }
@@ -188,7 +188,7 @@ public class HashTable<K, V> implements Iterable<HashTable.Node<K, V>> {
      */
     public boolean hasValue(K key) {
         int hashCode = Math.abs(key.hashCode() % this.size);
-        Node<K,V> currentNode = this.buckets.get(hashCode);
+        Node<K, V> currentNode = this.buckets.get(hashCode);
         if (currentNode == null) {
             return false;
         }
@@ -280,7 +280,9 @@ public class HashTable<K, V> implements Iterable<HashTable.Node<K, V>> {
     }
 
     /**
-     * Сравнение двух хэш-таблиц (Выполнение пункта 8).
+     * сравнение хеш таблиц.
+     *
+     * @param obj   the reference object with which to compare.
      */
     @Override
     @SuppressWarnings("unchecked")
