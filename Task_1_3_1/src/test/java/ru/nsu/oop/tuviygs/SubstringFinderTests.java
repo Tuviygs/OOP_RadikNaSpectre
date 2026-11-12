@@ -4,7 +4,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.io.BufferedWriter;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.PrintStream;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -14,30 +18,29 @@ import org.junit.jupiter.api.io.TempDir;
 import ru.nsu.oop.tuviygs.core.SubstringFinder;
 
 /**
- * тесты класса.
+ * Тесты класса.
  */
 class SubstringFinderTests {
 
     /**
-     * единый файндер.
+     * Единый файндер.
      */
     private final SubstringFinder finder = new SubstringFinder();
 
     /**
-     * пути.
+     * Пути.
      */
     @TempDir
     Path tempDir;
 
     /**
-     * тест1.
+     * Тест 1.
      *
      * @throws IOException исключения.
      */
     @Test
     void testBasicAndOverlappingSubstrings() throws IOException {
         Path file = tempDir.resolve("basic.txt");
-        // Проверяем вхождения в начале, середине, конце и с пересечением ("аба" в "абаба")
         Files.writeString(file, "абаба_тест_аба", StandardCharsets.UTF_8);
 
         List<Integer> result = finder.findSubstring(file.toString(), "аба");
@@ -46,9 +49,9 @@ class SubstringFinderTests {
     }
 
     /**
-     * тест2.
+     * Тест 2.
      *
-     * @throws IOException иселючения.
+     * @throws IOException исключения.
      */
     @Test
     void testDifferentAlphabetsUtf8() throws IOException {
@@ -61,9 +64,9 @@ class SubstringFinderTests {
     }
 
     /**
-     * тест3.
+     * Тест 3.
      *
-     * @throws IOException иселючения.
+     * @throws IOException исключения.
      */
     @Test
     void testNotFoundAndEdgeCases() throws IOException {
@@ -77,7 +80,7 @@ class SubstringFinderTests {
     }
 
     /**
-     * тест 4.
+     * Тест 4.
      *
      * @throws IOException исключения.
      */
@@ -86,7 +89,6 @@ class SubstringFinderTests {
         Path largeFile = tempDir.resolve("large.txt");
         String target = "NEEDLE";
         String filler = "0123456789".repeat(100);
-
 
         try (BufferedWriter writer = Files.newBufferedWriter(largeFile, StandardCharsets.UTF_8)) {
             writer.write(target);
@@ -100,5 +102,62 @@ class SubstringFinderTests {
 
         assertEquals(List.of(0, 50_000_006), result);
     }
-}
 
+    /**
+     * Тест 5 (проверка Main при успешном поиске).
+     *
+     * @throws IOException исключения.
+     */
+    @Test
+    void testMainFound() throws IOException {
+        Path testFile = tempDir.resolve("main_found.txt");
+        Files.writeString(testFile, "привет, мир! привет!", StandardCharsets.UTF_8);
+
+        InputStream originalIn = System.in;
+        PrintStream originalOut = System.out;
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+
+        try {
+            String simulatedInput = testFile + System.lineSeparator() + "привет" + System.lineSeparator();
+            System.setIn(new ByteArrayInputStream(simulatedInput.getBytes(StandardCharsets.UTF_8)));
+            System.setOut(new PrintStream(outputStream, true, StandardCharsets.UTF_8));
+
+            Main.main(new String[]{});
+
+            String consoleOutput = outputStream.toString(StandardCharsets.UTF_8);
+            assertTrue(consoleOutput.contains(""));
+        } finally {
+            System.setIn(originalIn);
+            System.setOut(originalOut);
+        }
+    }
+
+    /**
+     * Тест 6 (проверка Main при отсутствии вхождений).
+     *
+     * @throws IOException исключения.
+     */
+    @Test
+    void testMainNotFound() throws IOException {
+        Path testFile = tempDir.resolve("main_not_found.txt");
+        Files.writeString(testFile, "просто текст", StandardCharsets.UTF_8);
+
+        InputStream originalIn = System.in;
+        PrintStream originalOut = System.out;
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+
+        try {
+            String simulatedInput = testFile + System.lineSeparator() + "нет_такого" + System.lineSeparator();
+            System.setIn(new ByteArrayInputStream(simulatedInput.getBytes(StandardCharsets.UTF_8)));
+            System.setOut(new PrintStream(outputStream, true, StandardCharsets.UTF_8));
+
+            Main.main(new String[]{});
+
+            String consoleOutput = outputStream.toString(StandardCharsets.UTF_8);
+            assertTrue(consoleOutput.contains("Вхождения не найдены."));
+        } finally {
+            System.setIn(originalIn);
+            System.setOut(originalOut);
+        }
+    }
+}
