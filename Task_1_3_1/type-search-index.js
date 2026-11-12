@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"ru.nsu.oop.tuviygs","l":"Main"},{"p":"ru.nsu.oop.tuviygs.core","l":"SubstringFinder"}];updateSearchResults();
