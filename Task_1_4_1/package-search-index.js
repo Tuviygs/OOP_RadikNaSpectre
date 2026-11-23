@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"ru.nsu.oop.tuviygs"},{"l":"ru.nsu.oop.tuviygs.studentsGrading.enums"},{"l":"ru.nsu.oop.tuviygs.studentsGrading.gradebookContent"},{"l":"ru.nsu.oop.tuviygs.studentsGrading.utils"}];updateSearchResults();
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"ru.nsu.oop.tuviygs"},{"l":"ru.nsu.oop.tuviygs.studentsgrading.enums"},{"l":"ru.nsu.oop.tuviygs.studentsgrading.gradebookcontent"},{"l":"ru.nsu.oop.tuviygs.studentsgrading.utils"}];updateSearchResults();
