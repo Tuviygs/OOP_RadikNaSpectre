@@ -55,7 +55,8 @@ class MainTest {
         assertTrue(output.contains("Зачётка создана! Текущий семестр: 1, бюджет: true"));
         assertTrue(output.contains("Оценка успешно добавлена!"));
         assertTrue(output.contains("OOP [EXAM]: EXCELLENT"));
-        assertTrue(output.contains("Текущий средний балл: 5,00") || output.contains("Текущий средний балл: 5.00"));
+        assertTrue(output.contains("Текущий средний балл: 5,00")
+            || output.contains("Текущий средний балл: 5.00"));
         assertTrue(output.contains("Перешли на 2 семестр."));
         assertTrue(output.contains("Выход из программы."));
     }

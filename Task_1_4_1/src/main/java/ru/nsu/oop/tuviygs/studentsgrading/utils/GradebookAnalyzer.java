@@ -1,13 +1,16 @@
-package ru.nsu.oop.tuviygs.studentsGrading.utils;
+package ru.nsu.oop.tuviygs.studentsgrading.utils;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import ru.nsu.oop.tuviygs.studentsGrading.enums.ControlType;
-import ru.nsu.oop.tuviygs.studentsGrading.enums.Mark;
-import ru.nsu.oop.tuviygs.studentsGrading.gradebookContent.ControlGradeRecord;
-import ru.nsu.oop.tuviygs.studentsGrading.gradebookContent.Gradebook;
+import ru.nsu.oop.tuviygs.studentsgrading.enums.ControlType;
+import ru.nsu.oop.tuviygs.studentsgrading.enums.Mark;
+import ru.nsu.oop.tuviygs.studentsgrading.gradebookcontent.ControlGradeRecord;
+import ru.nsu.oop.tuviygs.studentsgrading.gradebookcontent.Gradebook;
 
+/**
+ * узнать статистику по зачётке.
+ */
 public class GradebookAnalyzer {
 
     /**
@@ -67,7 +70,7 @@ public class GradebookAnalyzer {
     }
 
     /**
-     * проверка закрытия семестра на 4/5;
+     * проверка закрытия семестра на 4/5.
      *
      * @param gradebook зачётка
      * @param termNumber номер семестра

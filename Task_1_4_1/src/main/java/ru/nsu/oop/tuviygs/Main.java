@@ -2,12 +2,14 @@ package ru.nsu.oop.tuviygs;
 
 import java.util.List;
 import java.util.Scanner;
-import ru.nsu.oop.tuviygs.studentsGrading.gradebookContent.ControlGradeRecord;
-import ru.nsu.oop.tuviygs.studentsGrading.gradebookContent.Gradebook;
-import ru.nsu.oop.tuviygs.studentsGrading.utils.GradebookAnalyzer;
-import ru.nsu.oop.tuviygs.studentsGrading.gradebookContent.GradebookException;
-import ru.nsu.oop.tuviygs.studentsGrading.enums.ControlType;
-import ru.nsu.oop.tuviygs.studentsGrading.enums.Mark;
+
+import ru.nsu.oop.tuviygs.studentsgrading.enums.ControlType;
+import ru.nsu.oop.tuviygs.studentsgrading.enums.Mark;
+import ru.nsu.oop.tuviygs.studentsgrading.gradebookcontent.ControlGradeRecord;
+import ru.nsu.oop.tuviygs.studentsgrading.gradebookcontent.Gradebook;
+import ru.nsu.oop.tuviygs.studentsgrading.gradebookcontent.GradebookException;
+import ru.nsu.oop.tuviygs.studentsgrading.utils.GradebookAnalyzer;
+
 
 /**
  * мейн класс.
@@ -22,7 +24,7 @@ public class Main {
      */
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        GradebookAnalyzer analyzer = new GradebookAnalyzer();
+        final GradebookAnalyzer analyzer = new GradebookAnalyzer();
 
         System.out.println("=== Создание зачётной книжки ===");
         System.out.print("Студент на бюджете? (true / false): ");
@@ -98,7 +100,7 @@ public class Main {
      */
     private static void addGradeInteractive(Scanner scanner, Gradebook gradebook) {
         System.out.print("Введите название предмета: ");
-        String subject = scanner.nextLine().trim();
+        final String subject = scanner.nextLine().trim();
 
         System.out.println("Выберите тип контроля:");
         System.out.println("  1. TEST");
@@ -109,7 +111,7 @@ public class Main {
         System.out.println("  6. FQW_PROTECTION");
         System.out.print("Номер типа контроля: ");
 
-        ControlType type = switch (scanner.nextLine().trim()) {
+        final ControlType type = switch (scanner.nextLine().trim()) {
             case "1" -> ControlType.TEST;
             case "2" -> ControlType.EXAM;
             case "3" -> ControlType.DIFFERENTIATED_CREDIT;
@@ -142,11 +144,11 @@ public class Main {
         System.out.println("-> Оценка успешно добавлена!");
     }
 
-        /**
-         * вывести оценки.
-         *
-         * @param gradebook зачётка
-         */
+    /**
+     * вывести оценки.
+     *
+     * @param gradebook зачётка
+     */
     private static void printGrades(Gradebook gradebook) {
         System.out.println("=== Оценки в зачётке ===");
         for (int term = 1; term <= gradebook.getCurrentTerm(); term++) {

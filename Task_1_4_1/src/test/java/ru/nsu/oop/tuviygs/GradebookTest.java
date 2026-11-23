@@ -1,14 +1,18 @@
 package ru.nsu.oop.tuviygs;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import ru.nsu.oop.tuviygs.studentsGrading.enums.ControlType;
-import ru.nsu.oop.tuviygs.studentsGrading.enums.Mark;
-import ru.nsu.oop.tuviygs.studentsGrading.gradebookContent.Gradebook;
-import ru.nsu.oop.tuviygs.studentsGrading.gradebookContent.GradebookException;
-import ru.nsu.oop.tuviygs.studentsGrading.utils.GradebookAnalyzer;
+import ru.nsu.oop.tuviygs.studentsgrading.enums.ControlType;
+import ru.nsu.oop.tuviygs.studentsgrading.enums.Mark;
+import ru.nsu.oop.tuviygs.studentsgrading.gradebookcontent.Gradebook;
+import ru.nsu.oop.tuviygs.studentsgrading.gradebookcontent.GradebookException;
+import ru.nsu.oop.tuviygs.studentsgrading.utils.GradebookAnalyzer;
 
 class GradebookTest {
 

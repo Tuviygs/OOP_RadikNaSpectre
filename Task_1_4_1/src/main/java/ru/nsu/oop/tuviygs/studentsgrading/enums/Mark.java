@@ -1,5 +1,9 @@
-package ru.nsu.oop.tuviygs.studentsGrading.enums;
+package ru.nsu.oop.tuviygs.studentsgrading.enums;
 
+
+/**
+ * оценки.
+ */
 public enum Mark {
 
 

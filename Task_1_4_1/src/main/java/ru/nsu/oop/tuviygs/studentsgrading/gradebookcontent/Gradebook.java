@@ -1,12 +1,11 @@
-package ru.nsu.oop.tuviygs.studentsGrading.gradebookContent;
-
+package ru.nsu.oop.tuviygs.studentsgrading.gradebookcontent;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import ru.nsu.oop.tuviygs.studentsGrading.enums.ControlType;
-import ru.nsu.oop.tuviygs.studentsGrading.enums.Mark;
+import ru.nsu.oop.tuviygs.studentsgrading.enums.ControlType;
+import ru.nsu.oop.tuviygs.studentsgrading.enums.Mark;
 
 /**
  * зачётная книжка.
@@ -56,7 +55,7 @@ public class Gradebook {
     }
 
     /**
-     * узнать оценки определённого семестра;
+     * узнать оценки определённого семестра.
      *
      * @param termNumber номер семестра.
      */
@@ -99,8 +98,8 @@ public class Gradebook {
                     + ", чем \"неудовлетворительно\"");
             }
         }
-        this.termMap.get(currentTerm).
-            add(new ControlGradeRecord(subjectName, type, grade));
+        this.termMap.get(currentTerm)
+            .add(new ControlGradeRecord(subjectName, type, grade));
     }
 
 
