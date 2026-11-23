@@ -1,4 +1,4 @@
-package ru.nsu.oop.tuviygs.studentsGrading;
+package ru.nsu.oop.tuviygs.studentsGrading.gradebookContent;
 
 import ru.nsu.oop.tuviygs.studentsGrading.enums.ControlType;
 import ru.nsu.oop.tuviygs.studentsGrading.enums.Mark;

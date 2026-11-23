@@ -5,9 +5,7 @@ package ru.nsu.oop.tuviygs.studentsGrading.enums;
  */
 public enum ControlType {
 
-    TASK,
     TEST,
-    COLLOQUIUM,
     EXAM,
     DIFFERENTIATED_CREDIT,
     CREDIT,

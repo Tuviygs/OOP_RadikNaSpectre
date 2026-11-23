@@ -1,4 +1,4 @@
-package ru.nsu.oop.tuviygs.studentsGrading;
+package ru.nsu.oop.tuviygs.studentsGrading.gradebookContent;
 
 
 import java.util.ArrayList;
@@ -21,12 +21,12 @@ public class Gradebook {
     /**
      * текущий семестр.
      */
-    int currentTerm;
+    private int currentTerm;
 
     /**
      * на бюджете ли.
      */
-    boolean onBudget;
+    private boolean onBudget;
 
 
     /**
@@ -37,8 +37,38 @@ public class Gradebook {
     public Gradebook(boolean onBudget) {
         this.termMap = new HashMap<Integer, List<ControlGradeRecord>>();
         this.currentTerm = 0;
-        this.switchToNextTerm();
         this.onBudget = onBudget;
+        this.switchToNextTerm();
+    }
+
+    /**
+     * узнать текущий семестр.
+     */
+    public int getCurrentTerm() {
+        return this.currentTerm;
+    }
+
+    /**
+     * узнать, на бюджете ли.
+     */
+    public boolean isOnBudget() {
+        return this.onBudget;
+    }
+
+    /**
+     * узнать оценки определённого семестра;
+     *
+     * @param termNumber номер семестра.
+     */
+    public List<ControlGradeRecord> getTermGrades(int termNumber) {
+        return this.termMap.get(termNumber);
+    }
+
+    /**
+     * перевод на бюджет.
+     */
+    public void setOnBudget() {
+        this.onBudget = true;
     }
 
     /**
@@ -47,10 +77,9 @@ public class Gradebook {
     public void switchToNextTerm() {
         this.currentTerm++;
         this.termMap.put(this.currentTerm, new ArrayList<ControlGradeRecord>());
-        if (currentTerm > 2) {
-            this.onBudget = possibilityOfBudgetTransferring();
-        }
     }
+
+
 
     /**
      * поставить оценку.
@@ -67,51 +96,13 @@ public class Gradebook {
         } else {
             if (grade.getValue() <= 1) {
                 throw new GradebookException("Отметка не может быть меньше"
-                    + ", чем \"удовлетворительно\"");
+                    + ", чем \"неудовлетворительно\"");
             }
         }
         this.termMap.get(currentTerm).
             add(new ControlGradeRecord(subjectName, type, grade));
     }
 
-    /**
-     * получение среднего балла.
-     */
-    public double getAverageGrade() {
-        int marksCount = 0;
-        int marksSum = 0;
-        for (Map.Entry<Integer, List<ControlGradeRecord>> termGrades
-            : termMap.entrySet()) {
-            for (ControlGradeRecord gradeRecord : termGrades.getValue()) {
-                if (!gradeRecord.type().equals(ControlType.CREDIT)) {
-                    marksCount++;
-                    marksSum += gradeRecord.mark().getValue();
-                }
-            }
-        }
-
-        return (double) marksSum / marksCount;
-    }
-
-
-    public boolean possibilityOfBudgetTransferring() {
-        boolean possibility = true;
-        if (this.onBudget) {
-            if (currentTerm > )
-            for (ControlGradeRecord gradeRecord : termMap.get(currentTerm)alue()) {
-                \
-            }
-        } else {
-            throw new GradebookException("Student is already on a bubget");
-        }
-
-
-        return possibility;
-    }
-
-    private boolean wellCompletedTerm(int termNumber) {
-
-    }
 
 
 }

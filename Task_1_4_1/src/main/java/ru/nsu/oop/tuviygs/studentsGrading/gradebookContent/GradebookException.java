@@ -1,4 +1,4 @@
-package ru.nsu.oop.tuviygs.studentsGrading;
+package ru.nsu.oop.tuviygs.studentsGrading.gradebookContent;
 
 /**
  * исключения для зачётной книжки.
